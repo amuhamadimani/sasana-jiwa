@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hannover Marathon 2025 — Sasana Jiwa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Libre+Caslon+Condensed:ital@1&family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/css/bootstrap.min.css">
+
+  <style>
+    /* ── Brand tokens ────────────────────────────────── */
+    :root {
+      --sj-navy:   #1D3C72;
+      --sj-orange: #FF8700;
+      --sj-grey:   #F5F5F5;
+      --sj-dark:   #111111;
+    }
+
+    /* ── Base ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Syne', sans-serif; color: var(--sj-navy); overflow-x: hidden; }
+    a    { text-decoration: none; }
+    img  { display: block; }
+
+    /* ── Font helpers ─────────────────────────────────── */
+    .font-inter { font-family: 'Inter', sans-serif; }
+
+    /* ── Spacing util ─────────────────────────────────── */
+    .container-sj { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; }
+    .px-section   { padding-left: 80px; padding-right: 80px; }
+    .py-section   { padding-top: 128px; padding-bottom: 128px; }
+    @media (max-width: 991.98px) {
+      .px-section { padding-left: 24px; padding-right: 24px; }
+      .py-section { padding-top: 80px;  padding-bottom: 80px; }
+    }
+    @media (max-width: 767.98px) {
+      .px-section { padding-left: 16px; padding-right: 16px; }
+      .py-section { padding-top: 64px;  padding-bottom: 64px; }
+    }
+
+    /* ── Navbar ───────────────────────────────────────── */
+    .navbar-sj {
+      position: fixed;
+      top: 24px; left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 160px);
+      max-width: 1280px;
+      border-radius: 4px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      height: 64px;
+      transition: background-color .3s, box-shadow .3s;
+    }
+    @media (max-width: 767.98px) {
+      .navbar-sj { width: calc(100% - 32px); top: 16px; }
+    }
+    .navbar-sj.navbar-light { background: #fff; box-shadow: 0 0 16px rgba(0,0,0,.08); }
+    .navbar-sj.navbar-dark  { background: transparent; box-shadow: none; }
+    /* -- Product dropdown ---------------------------------------------- */
+    .products-menu {
+      position: fixed;
+      top: calc(24px + 64px + 8px); left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 160px); max-width: 1280px;
+      background: #fff; border-radius: 4px;
+      box-shadow: 0 0 16px rgba(0,0,0,.08);
+      padding: 16px; display: flex; gap: 24px;
+      z-index: 998;
+    }
+    @media (max-width: 767.98px) {
+      .products-menu { top: calc(16px + 64px + 8px); width: calc(100% - 32px); flex-direction: column; gap: 16px; }
+    }
+    .products-menu-item {
+      display: flex; align-items: center; gap: 16px;
+      flex: 1; text-decoration: none; padding: 8px;
+      border-radius: 4px; transition: background .15s;
+    }
+    .products-menu-item:hover { background: var(--sj-grey); }
+    .products-menu-item img {
+      width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+    }
+    .products-menu-item .pm-title {
+      font-family: 'Syne', sans-serif; font-weight: 500;
+      font-size: 14px; text-transform: uppercase; letter-spacing: .28px;
+      color: var(--sj-navy); margin: 0 0 4px;
+    }
+    .products-menu-item .pm-link {
+      font-family: 'Syne', sans-serif; font-weight: 400;
+      font-size: 12px; text-transform: uppercase; letter-spacing: .24px;
+      color: var(--sj-navy); text-decoration: underline;
+    }
+    .prod-chevron { transition: transform .2s; }
+    .prod-chevron.open { transform: rotate(180deg); }
+    .btn-prod-toggle {
+      background: transparent; border: 0; padding: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 0 16px; height: 48px;
+      font-family: 'Syne', sans-serif; font-weight: 500;
+      font-size: 14px; letter-spacing: .28px; text-transform: uppercase;
+      white-space: nowrap; cursor: pointer; transition: color .2s;
+    }
+    .navbar-light .btn-prod-toggle { color: var(--sj-navy); }
+    .navbar-dark  .btn-prod-toggle { color: #fff; }
+    .btn-prod-toggle:hover { color: var(--sj-orange); }
+    .nav-link-sj {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 0 16px; height: 48px;
+      font-family: 'Syne', sans-serif; font-weight: 500;
+      font-size: 14px; letter-spacing: .28px; text-transform: uppercase;
+      white-space: nowrap; text-decoration: none; transition: color .2s;
+    }
+    .navbar-light .nav-link-sj { color: var(--sj-navy); }
+    .navbar-dark  .nav-link-sj { color: #fff; }
+    .nav-link-sj:hover         { color: var(--sj-orange); }
+    .nav-link-sj.active        { color: var(--sj-orange) !important; }
+    .nav-logo { display: block; height: 48px; max-height: 48px; }
+    @media (max-width: 767.98px) { .nav-logo { height: 36px; max-height: 36px; } }
+    .navbar-light .nav-logo-white { display: none; }
+    .navbar-dark  .nav-logo-white { display: block; }
+    .navbar-light .nav-logo-navy  { display: block; }
+    .navbar-dark  .nav-logo-navy  { display: none; }
+    .btn-nav-cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 48px; padding: 0 24px;
+      font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 500;
+      letter-spacing: .28px; text-transform: uppercase; white-space: nowrap;
+      border: none; border-radius: 12px; cursor: pointer;
+      transition: opacity .2s; text-decoration: none;
+    }
+    .btn-nav-cta:hover { opacity: .85; }
+    .navbar-light .btn-nav-cta { background: var(--sj-navy); color: #fff; }
+    .navbar-light .btn-nav-cta:hover { color: #fff; }
+    .navbar-dark  .btn-nav-cta { background: #fff; color: var(--sj-navy); }
+    .navbar-dark  .btn-nav-cta:hover { color: var(--sj-navy); }
+    .nav-hamburger { background: transparent; border: 0; padding: 4px; cursor: pointer; }
+    .navbar-light .nav-hamburger { color: var(--sj-navy); }
+    .navbar-dark  .nav-hamburger { color: #fff; }
+
+    /* ── Buttons ──────────────────────────────────────── */
+    .btn-sj {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 48px; padding: 0 24px;
+      font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 400;
+      letter-spacing: .28px; text-transform: uppercase; white-space: nowrap;
+      border: none; border-radius: 4px; cursor: pointer;
+      transition: opacity .2s; color: inherit; text-decoration: none;
+    }
+    .btn-sj:hover { opacity: .85; color: inherit; }
+    .btn-sj-orange { background: var(--sj-orange); color: #fff; }
+    .btn-sj-orange:hover { color: #fff; }
+    .btn-sj-navy   { background: var(--sj-navy);   color: #fff; }
+    .btn-sj-navy:hover { color: #fff; }
+
+    /* ── Mobile menu ──────────────────────────────────── */
+    .mobile-overlay  { position: fixed; inset: 0; z-index: 999; }
+    .mobile-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+    .mobile-panel {
+      position: absolute; top: 76px; left: 50%; transform: translateX(-50%);
+      width: calc(100% - 32px); max-width: 480px;
+      background: #fff; border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      overflow: hidden;
+    }
+    .mobile-nav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px; padding: 0; border-bottom: 1px solid var(--sj-grey);
+      font-family: 'Syne', sans-serif; font-weight: 500;
+      font-size: 14px; letter-spacing: .28px; text-transform: uppercase;
+      color: var(--sj-navy);
+    }
+    .mobile-nav-link:hover { color: var(--sj-orange); }
+
+    /* ── Article ──────────────────────────────────────── */
+    .article-body-wrap {
+      max-width: 668px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .article-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 500;
+      font-size: clamp(40px, 5.5vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--sj-navy);
+      margin: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .article-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.3;
+      color: var(--sj-navy);
+      margin: 0 0 4px;
+    }
+    @media (max-width: 767.98px) {
+      .author-name { font-size: 14px; }
+    }
+
+    .author-role,
+    .article-date {
+      font-family: 'Syne', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--sj-navy);
+      opacity: .6;
+      margin: 0;
+    }
+    .article-date { white-space: nowrap; }
+
+    .article-intro {
+      opacity: .6;
+      letter-spacing: -0.028em;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .article-intro p {
+      font-family: 'Syne', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--sj-navy);
+      margin: 0;
+    }
+
+    .article-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .article-subheading {
+      font-family: 'Syne', sans-serif;
+      font-weight: 400;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.3;
+      color: var(--sj-navy);
+      margin: 0;
+    }
+
+    .article-text-block {
+      font-family: 'Syne', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--sj-navy);
+      opacity: .6;
+      letter-spacing: -0.028em;
+    }
+    .article-text-block p  { margin: 0 0 12px; }
+    .article-text-block p:last-child { margin-bottom: 0; }
+    .article-text-block ol {
+      padding-left: 24px;
+      margin: 0;
+    }
+    .article-text-block ol li { margin-bottom: 8px; }
+    .article-text-block ol li:last-child { margin-bottom: 0; }
+
+    /* ── Related news heading ─────────────────────────── */
+    .related-heading {
+      font-family: 'Syne', sans-serif;
+      font-weight: 500;
+      font-size: clamp(36px, 5.5vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--sj-navy);
+      margin: 0 0 64px;
+    }
+    @media (max-width: 991.98px) {
+      .related-heading { margin-bottom: 48px; }
+    }
+    @media (max-width: 767.98px) {
+      .related-heading { margin-bottom: 40px; }
+    }
+
+    /* ── News grid ────────────────────────────────────── */
+    .news-grid {
+      --bs-gutter-x: 40px;
+      --bs-gutter-y: 64px;
+    }
+    @media (max-width: 991.98px) {
+      .news-grid {
+        --bs-gutter-x: 24px;
+        --bs-gutter-y: 48px;
+      }
+    }
+    @media (max-width: 767.98px) {
+      .news-grid {
+        --bs-gutter-x: 16px;
+        --bs-gutter-y: 32px;
+      }
+    }
+
+    /* ── News card ────────────────────────────────────── */
+    .news-card { display: flex; flex-direction: column; gap: 24px; }
+    @media (max-width: 767.98px) { .news-card { gap: 16px; } }
+
+    .news-card-img {
+      width: 100%;
+      height: clamp(200px, 31vw, 400px);
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    @media (max-width: 991.98px) { .news-card-img { height: clamp(160px, 25vw, 260px); } }
+    @media (max-width: 767.98px) { .news-card-img { height: 160px; } }
+
+    .news-card-date {
+      font-family: 'Syne', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--sj-navy);
+      opacity: .6;
+      margin: 0;
+    }
+    .news-card-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 500;
+      font-size: clamp(14px, 2.2vw, 28px);
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--sj-navy);
+      margin: 0;
+      transition: opacity .2s;
+    }
+    .news-card:hover .news-card-title { opacity: .7; }
+
+    /* ── Footer ───────────────────────────────────────── */
+    footer .footer-link {
+      font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 400;
+      color: #fff; transition: opacity .2s;
+    }
+    footer .footer-link:hover { opacity: .6; }
+    .social-box {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .social-box:hover { background: rgba(255,255,255,.85); }
+
+    /* ── Color utilities ──────────────────────────────── */
+    .text-navy   { color: var(--sj-navy)   !important; }
+    .text-orange { color: var(--sj-orange) !important; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════════════════ -->
+<nav class="navbar-sj navbar-light" id="main-nav">
+  <!-- Left: Logo + Desktop links -->
+  <div class="d-flex align-items-center" style="gap:24px;">
+    <a href="../index.html">
+      <img src="../assets/logo/logo-dark.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-navy">
+      <img src="../assets/logo/logo-white.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-white" style="display:none;">
+    </a>
+    <div class="d-none d-md-flex align-items-center">
+      <a href="../about.html" class="nav-link-sj">About</a>
+      <button id="prod-toggle" class="btn-prod-toggle">
+        Product &amp; Services
+        <svg class="prod-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <a href="../portfolio/list.html" class="nav-link-sj">Portfolio</a>
+      <a href="./news.html" class="nav-link-sj active">News</a>
+    </div>
+  </div>
+
+  <!-- Right: CTA (desktop) + Mobile hamburger -->
+  <div class="d-flex align-items-center gap-1">
+    <div class="d-none d-md-flex align-items-center gap-1">
+      <a href="../contact.html" class="btn-nav-cta">Contact Us</a>
+    </div>
+    <button id="nav-toggle" class="nav-hamburger d-md-none" aria-label="Menu" aria-expanded="false">
+      <svg id="ic-open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="ic-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="d-none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Product dropdown -->
+<div id="products-menu" class="products-menu d-none">
+  <a href="../services/event-management.html" class="products-menu-item">
+    <img src="../assets/images/img-circle-event.webp" alt="Event Management">
+    <div>
+      <p class="pm-title">Event Management</p>
+      <span class="pm-link">Learn More &rsaquo;</span>
+    </div>
+  </a>
+  <a href="#" class="products-menu-item">
+    <img src="../assets/images/img-circle-timing.webp" alt="Timing System Provider">
+    <div>
+      <p class="pm-title">Timing System Provider</p>
+      <span class="pm-link">Learn More &rsaquo;</span>
+    </div>
+  </a>
+</div>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="mobile-overlay d-none">
+  <div id="m-backdrop" class="mobile-backdrop"></div>
+  <div class="mobile-panel">
+    <nav class="d-flex flex-column px-3 py-2">
+      <a href="../about.html" class="mobile-nav-link">About</a>
+      <button id="m-prod-toggle" class="mobile-nav-link btn-prod-toggle" style="width:100%;text-align:left;justify-content:space-between;">
+        Product &amp; Services
+        <svg class="prod-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div id="m-products-sub" class="d-none" style="padding: 8px 0 8px 16px; display:flex; flex-direction:column; gap:8px;">
+        <a href="../services/event-management.html" class="products-menu-item" style="padding:6px 0;">
+          <img src="../assets/images/img-circle-event.webp" alt="Event Management">
+          <div><p class="pm-title">Event Management</p><span class="pm-link">Learn More &rsaquo;</span></div>
+        </a>
+        <a href="#" class="products-menu-item" style="padding:6px 0;">
+          <img src="../assets/images/img-circle-timing.webp" alt="Timing System Provider">
+          <div><p class="pm-title">Timing System Provider</p><span class="pm-link">Learn More &rsaquo;</span></div>
+        </a>
+      </div>
+      <a href="#" class="mobile-nav-link">Portfolio</a>
+      <a href="./news.html" class="mobile-nav-link">News</a>
+    </nav>
+    <div class="px-3 py-4">
+      <a href="../contact.html" class="btn-sj btn-sj-navy w-100">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var t=document.getElementById('nav-toggle'), m=document.getElementById('mobile-menu'),
+        b=document.getElementById('m-backdrop'), io=document.getElementById('ic-open'), ic=document.getElementById('ic-close');
+    function open(){  m.classList.remove('d-none'); io.classList.add('d-none');    ic.classList.remove('d-none'); t.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; if(window.closeProducts)closeProducts(); }
+    function close(){ m.classList.add('d-none');    io.classList.remove('d-none'); ic.classList.add('d-none');    t.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    t.addEventListener('click',function(){ m.classList.contains('d-none')?open():close(); });
+    b.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ close(); if(window.closeProducts)closeProducts(); } });
+  })();
+</script>
+
+<script>
+  (function(){
+    var btn    = document.getElementById('prod-toggle');
+    var menu   = document.getElementById('products-menu');
+    var chev   = btn ? btn.querySelector('.prod-chevron') : null;
+    var mBtn   = document.getElementById('m-prod-toggle');
+    var mSub   = document.getElementById('m-products-sub');
+    var mChev  = mBtn ? mBtn.querySelector('.prod-chevron') : null;
+
+    function closeProducts() {
+      if (menu)  menu.classList.add('d-none');
+      if (chev)  chev.classList.remove('open');
+    }
+    window.closeProducts = closeProducts;
+
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = !menu.classList.contains('d-none');
+        if (isOpen) { closeProducts(); } else { menu.classList.remove('d-none'); chev.classList.add('open'); }
+      });
+    }
+
+    if (mBtn) {
+      mBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = !mSub.classList.contains('d-none');
+        mSub.classList.toggle('d-none', isOpen);
+        mSub.style.display = isOpen ? 'none' : 'flex';
+        if (mChev) mChev.classList.toggle('open', !isOpen);
+      });
+    }
+
+    document.addEventListener('click', function(e) {
+      if (menu && !menu.classList.contains('d-none')) {
+        if (!menu.contains(e.target) && e.target !== btn && !btn.contains(e.target)) { closeProducts(); }
+      }
+    });
+  })();
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     ARTICLE
+═══════════════════════════════════════════════════════ -->
+<section class="bg-white px-section" style="padding-top:128px; padding-bottom:128px;">
+  <div class="container-sj">
+    <div class="article-body-wrap">
+
+      <!-- Title -->
+      <h1 class="article-title">Hannover Marathon 2025</h1>
+
+      <!-- Author / Date -->
+      <div class="article-meta">
+        <div class="article-author">
+          <img src="../assets/images/img-circle-potrait-1.webp" alt="John Doe" class="article-avatar">
+          <div>
+            <p class="author-name">John Doe</p>
+            <p class="author-role">CEO and Founder</p>
+          </div>
+        </div>
+        <p class="article-date">30th March 2026</p>
+      </div>
+
+      <!-- Intro -->
+      <div class="article-intro">
+        <p>The automotive landscape in Southeast Asia is undergoing a seismic shift. As nations like Indonesia and Thailand pivot toward becoming global hubs for Electric Vehicles (EV), the manufacturing requirements are evolving from traditional internal combustion engine (ICE) components to high-complexity, lightweight, and ultra-precise eMobility parts.</p>
+        <p>At the heart of this transition lies a critical technology: <strong style="font-weight:700;">5-Axis CNC Machining.</strong></p>
+      </div>
+
+      <!-- Sections -->
+      <div class="article-sections">
+
+        <h2 class="article-subheading">The Complexity Challenge: Why 3-Axis is No Longer Enough</h2>
+        <div class="article-text-block">
+          <p>Traditional automotive manufacturing often relied on 3-axis machining. However, EV components—such as battery housings, high-efficiency motor casings, and lightweight structural brackets—require complex geometries that are nearly impossible to achieve with 3-axis setups without multiple re-fixtures.</p>
+        </div>
+        <div class="article-text-block">
+          <p>5-axis machining allows the cutting tool to move across the X, Y, and Z linear axes while rotating on the A and B axes. For the eMobility shift, this provides three undeniable advantages:</p>
+          <ol>
+            <li>Single-Setup Accuracy: We can machine complex parts in one go, eliminating the human error introduced when moving a part between different machines.</li>
+            <li>Superior Surface Finish: Essential for high-performance EV cooling systems where fluid dynamics and thermal management are paramount.</li>
+            <li>Lightweighting: EV range depends on weight. 5-axis allows us to mill away excess material from solid blocks of high-grade aluminum or titanium, creating "organic" shapes that are both stronger and lighter.</li>
+          </ol>
+        </div>
+
+        <h2 class="article-subheading">Southeast Asia: The New "Electric Valley"</h2>
+        <div class="article-text-block">
+          <p>With Indonesia's vast nickel reserves and established manufacturing corridors, the region is uniquely positioned. However, the "Electric Valley" vision requires more than just raw materials; it requires High-Tolerance Infrastructure. At Medial, we have observed that the tolerance requirements for EV powertrain components are significantly tighter than their ICE predecessors. We are talking about micron-level precision (±0.001mm) to ensure the longevity of high-RPM electric motors.</p>
+        </div>
+
+        <h2 class="article-subheading">Sustainable Precision: The Medial Approach</h2>
+        <div class="article-text-block">
+          <p>As part of the Plus Group commitment to "Sustainable Practice," 5-axis machining also offers a greener footprint. By optimizing tool paths and reducing the number of setups, we significantly lower energy consumption per part and minimize material waste—a core requirement for any "Green" EV supply chain.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     RELATED NEWS
+═══════════════════════════════════════════════════════ -->
+<section class="bg-white px-section" style="padding-bottom:128px;">
+  <div class="container-sj">
+
+    <h2 class="related-heading">Related News</h2>
+
+    <div class="row news-grid">
+
+      <!-- Card 1 -->
+      <div class="col-6 col-lg-4">
+        <a href="./details.html" class="news-card">
+          <img src="../assets/images/img-blog-thumbnail.webp" alt="The Tokyo Marathon Blueprint" class="news-card-img">
+          <div>
+            <p class="news-card-date">14 March 2026</p>
+            <p class="news-card-title mt-2">The Tokyo Marathon Blueprint: What Makes a World-Class Race?</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-6 col-lg-4">
+        <a href="./details.html" class="news-card">
+          <img src="../assets/images/img-blog-thumbnail.webp" alt="The Tokyo Marathon Blueprint" class="news-card-img">
+          <div>
+            <p class="news-card-date">14 March 2026</p>
+            <p class="news-card-title mt-2">The Tokyo Marathon Blueprint: What Makes a World-Class Race?</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-6 col-lg-4">
+        <a href="./details.html" class="news-card">
+          <img src="../assets/images/img-blog-thumbnail.webp" alt="The Tokyo Marathon Blueprint" class="news-card-img">
+          <div>
+            <p class="news-card-date">14 March 2026</p>
+            <p class="news-card-title mt-2">The Tokyo Marathon Blueprint: What Makes a World-Class Race?</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════ -->
+<footer style="background:var(--sj-navy);">
+  <div class="container-sj px-section" style="padding-top:128px;padding-bottom:24px;">
+
+    <div class="row gy-5 mb-5">
+
+      <!-- Brand column: logo -->
+      <div class="col-12 col-md-4">
+        <img src="../assets/logo/footer-logo.svg" alt="Sasana Jiwa" style="max-width:200px;height:auto;">
+      </div>
+
+      <!-- Nav columns: 2×2 grid -->
+      <div class="col-12 col-md-8">
+        <div class="row gy-5">
+
+          <!-- Services + Company -->
+          <div class="col-6">
+            <p class="font-syne fw-semibold text-uppercase"
+               style="font-size:14px;color:#fff;letter-spacing:-.28px;margin:0 0 20px;">Services</p>
+            <div class="d-flex flex-column gap-3">
+              <a href="#" class="footer-link">Event Management</a>
+              <a href="#" class="footer-link">Timing System Provider</a>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <p class="font-syne fw-semibold text-uppercase"
+               style="font-size:14px;color:#fff;letter-spacing:-.28px;margin:0 0 20px;">Company</p>
+            <div class="d-flex flex-column gap-3">
+              <a href="../about.html" class="footer-link">About Us</a>
+              <a href="../contact.html" class="footer-link">Contact Us</a>
+            </div>
+          </div>
+
+          <!-- Contact + Follow Us -->
+          <div class="col-6">
+            <p class="font-syne fw-semibold text-uppercase"
+               style="font-size:14px;color:#fff;letter-spacing:-.28px;margin:0 0 16px;">Contact</p>
+            <div class="d-flex flex-column gap-3">
+              <div class="d-flex gap-3 align-items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sj-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span class="font-inter text-white" style="font-size:13px;line-height:1.6;">
+                  Plaza Sentral, 8th Floor<br>
+                  Jl. Jend. Sudirman Kav. 47m, Jakarta Selatan 12930, Indonesia
+                </span>
+              </div>
+              <div class="d-flex gap-3 align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sj-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span class="font-inter text-white" style="font-size:13px;">info@sasanajiwa.id</span>
+              </div>
+              <div class="d-flex gap-3 align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sj-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span class="font-inter text-white" style="font-size:13px;">+62 21 5000 0000</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <p class="font-syne fw-semibold text-uppercase"
+               style="font-size:14px;color:#fff;letter-spacing:-.28px;margin:0 0 20px;">Follow Us</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="social-box" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sj-navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="social-box" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="var(--sj-navy)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="border-top:1px solid #fff;padding-top:24px;">
+      <p class="font-inter mb-0" style="font-size:12px;color:#fff;">
+        &copy; 2026 Sasana Jiwa Keluarga. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script src="../src/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
