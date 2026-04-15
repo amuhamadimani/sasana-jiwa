@@ -1,0 +1,470 @@
+/* ══════════════════════════════════════════════════════
+   Past Events — Detail Page
+   ══════════════════════════════════════════════════════ */
+
+/* ── Page wrapper ────────────────────────────────────── */
+.event-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 80px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 128px 80px 128px 80px;
+}
+
+/* ── Back button ─────────────────────────────────────── */
+.event-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  text-decoration: none;
+}
+
+.event-detail__back-text {
+  color: var(--dark-blue, #1D3C72);
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 1.2px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  text-transform: uppercase;
+}
+
+.event-detail__back svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* ── Title ───────────────────────────────────────────── */
+.event-detail__title {
+  align-self: stretch;
+  text-align: center;
+}
+
+.event-detail__title--bold {
+  color: var(--dark-blue, #1D3C72);
+  font-family: 'Syne', sans-serif;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.event-detail__title--italic {
+  color: var(--dark-blue, #1D3C72);
+  font-family: 'Libre Caslon Condensed', serif;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 4px;
+}
+
+/* ── Hero image ──────────────────────────────────────── */
+.event-detail__hero {
+  display: flex;
+  height: 500px;
+  padding: 40px;
+  align-items: flex-end;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-detail__hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   Countdown Timer Section
+   ══════════════════════════════════════════════════════ */
+
+/* ── Outer wrapper ───────────────────────────────────── */
+.countdown {
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--grey, #F5F5F5);
+}
+
+/* ── Label "TOKYO IS YOUR START LINE IN" ─────────────── */
+.countdown__label {
+  align-self: stretch;
+  color: var(--dark-blue, #1D3C72);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* ── Numbers row ─────────────────────────────────────── */
+.countdown__row {
+  display: flex;
+  padding: 40px 80px;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+/* ── Each unit block (Days / Hours / Minutes / Seconds) ─ */
+.countdown__unit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex: 1 0 0;
+}
+
+.countdown__number {
+  color: var(--dark-blue, #1D3C72);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.countdown__unit-label {
+  color: var(--dark-blue, #1D3C72);
+  text-align: center;
+  font-family: 'Libre Caslon Condensed', serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 110%;
+  text-transform: capitalize;
+}
+
+/* ── Separator ":" ───────────────────────────────────── */
+.countdown__sep {
+  color: var(--dark-blue, #1D3C72);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 4px;
+  /* vertically align with the number */
+  padding-top: 0;
+  align-self: flex-start;
+}
+
+.features {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.feature-card {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--grey);
+}
+
+.feature-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.feature-card__title {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.feature-card__desc {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.36px;
+}
+
+.feature-card__btn {
+  display: inline-flex;
+  height: 32px;
+  padding: 6.667px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 6.667px;
+  border-radius: 8px;
+  border: 0.667px solid var(--dark-blue);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 9.333px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.187px;
+  text-transform: uppercase;
+}
+
+.feature-card__btn svg { display: block; }
+
+.feature-card__media {
+  display: flex;
+  height: 350px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: lightgray;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ──────────────────────────────────────────────────
+   SPONSORS BY (no provided design — kept minimal so
+   it harmonizes with the cards above)
+   ────────────────────────────────────────────────── */
+.sponsors {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: stretch;
+}
+
+.sponsors__title {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.sponsors__list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: 80px;
+  align-self: stretch;
+}
+
+.sponsors__logo {
+  height: 79.852px;
+  width: 100%;
+  aspect-ratio: 90 / 49;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sponsors__logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 767.98px) {
+
+  .event-detail {
+    padding: 0 16px 80px 16px;
+    gap: 40px;
+  }
+
+  .event-detail__top {
+    display: flex;
+    padding-top: 128px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    align-self: stretch;
+  }
+
+  .event-detail__back {
+    gap: 8px;
+  }
+
+  .event-detail__back svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .event-detail__back-text {
+    font-size: 16px;
+    letter-spacing: 0.8px;
+  }
+
+  .event-detail__title {
+    text-align: left;
+  }
+
+  .event-detail__title--bold {
+    font-size: 32px;
+    letter-spacing: 1.6px;
+  }
+
+  .event-detail__title--italic {
+    font-size: 32px;
+    letter-spacing: 1.6px;
+  }
+
+  .event-detail__hero {
+    height: 400px;
+    padding: 40px;
+    border-radius: 12px;
+  }
+
+
+  .countdown {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .countdown__label {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+  }
+
+  .countdown__row {
+    padding: 24px 0;
+  }
+
+  .countdown__unit {
+    gap: 4px;
+  }
+
+  .countdown__number {
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  .countdown__unit-label {
+    font-size: 12px;
+    line-height: 110%;
+  }
+
+  .countdown__sep {
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .feature-card {
+    padding: 16px;
+    gap: 24px;
+  }
+
+  .feature-card__body {
+    gap: 12px;
+  }
+
+  .feature-card__title {
+    font-size: 18px;
+    line-height: 110%;
+  }
+
+  .feature-card__desc {
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.28px;
+  }
+
+  .feature-card__btn {
+    height: 24px;
+    padding: 6.667px 12px;
+    gap: 4px;
+    font-size: 10px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+  }
+
+  .feature-card__media {
+    height: 200px;
+    padding: 40px;
+  }
+
+  .sponsors {
+    gap: 24px;
+  }
+
+  .sponsors__title {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+  }
+
+  .sponsors__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 32px;
+  }
+
+  .sponsors__logo {
+    height: auto;
+    width: 100%;
+    /* aspect-ratio 90/49 dipertahankan dari rule dasar
+       sehingga tiap cell menjaga proporsi presisi */
+  }
+}

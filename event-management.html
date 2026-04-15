@@ -9,7 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Libre+Caslon+Condensed:ital@1&family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/bootstrap.min.css">
   <link rel="stylesheet" href="./src/css/style.css">
-  <link rel="stylesheet" href="./src/css/contact.css">
+  <link rel="stylesheet" href="./src/css/event-management.css">
+  <link rel="stylesheet" href="./src/css/product.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
 <!-- ═══════════════════════════════════════════════════════
@@ -92,69 +95,143 @@
   </div>
 </div>
 
-<section class="contact">
-  <h1 class="contact__title">
-    Contact <span class="contact__title-italic">us</span>
-  </h1>
-
-  <div class="contact__content">
-    <!-- Info card -->
-    <div class="contact__card">
-      <img src="/assets/logo/logo-dark.svg" alt="Sasana Jiwa" class="contact__logo">
-
-      <p class="contact__address">
-        PT. Sasana Jiwa Keluarga<br><br>
-        Plaza Sentral, 8th Floor<br>
-        Jl. Jend. Sudirman Kav. 47m, Jakarta Selatan 12930, Indonesia
+<!-- HERO — split layout -->
+<section class="product-hero">
+  <div class="product-hero__text">
+    <h1 class="product-hero__title">
+      Event<br>
+      <span class="product-hero__title-italic">management</span>
+    </h1>
+    <div class="product-hero__content">
+      <p class="product-hero__desc">
+        We bring the "Power of Right Action" to every activation. Whether it's a global race or a corporate health initiative, we ensure your message reaches the right people with absolute precision.
       </p>
-
-      <div class="contact__links">
-        <a href="tel:+622150000000" class="contact__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M11 4H13M12 17V17.01M6 5C6 4.46957 6.21071 3.96086 6.58579 3.58579C6.96086 3.21071 7.46957 3 8 3H16C16.5304 3 17.0391 3.21071 17.4142 3.58579C17.7893 3.96086 18 4.46957 18 5V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H8C7.46957 21 6.96086 20.7893 6.58579 20.4142C6.21071 20.0391 6 19.5304 6 19V5Z" stroke="#1D3C72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          +62 21 5000 0000
-        </a>
-
-        <a href="mailto:info@sasanajiwa.id" class="contact__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M3 7C3 6.46957 3.21071 5.96086 3.58579 5.58579C3.96086 5.21071 4.46957 5 5 5H19C19.5304 5 20.0391 5.21071 20.4142 5.58579C20.7893 5.96086 21 6.46957 21 7M3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7M3 7L12 13L21 7" stroke="#1D3C72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          info@sasanajiwa.id
-        </a>
-
-        <a href="https://instagram.com/sasanajiwa.id" target="_blank" rel="noopener" class="contact__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15.9997 11.3703C16.1231 12.2025 15.981 13.0525 15.5935 13.7993C15.206 14.5461 14.5929 15.1517 13.8413 15.53C13.0898 15.9082 12.2382 16.0399 11.4075 15.9062C10.5768 15.7726 9.80947 15.3804 9.21455 14.7855C8.61962 14.1905 8.22744 13.4232 8.09377 12.5925C7.96011 11.7619 8.09177 10.9102 8.47003 10.1587C8.84829 9.40716 9.45389 8.79404 10.2007 8.40654C10.9475 8.01904 11.7975 7.87689 12.6297 8.0003C13.4786 8.12619 14.2646 8.52176 14.8714 9.12861C15.4782 9.73545 15.8738 10.5214 15.9997 11.3703Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M17.5 6.5H17.51" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          @sasanajiwa.id
-        </a>
-
-        <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6 9H2V21H6V9Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Sasana Jiwa Keluarga
-        </a>
-      </div>
-
-      <!-- Map -->
-      <div class="contact__map">
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.385!2d106.8189!3d-6.2146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInNTIuNiJTIDEwNsKwNDknMDguMCJF!5e0!3m2!1sen!2sid!4v1710000000000"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen>
-        </iframe>
-      </div>
+      <a href="#" class="product-hero__btn">Start Your Activation</a>
     </div>
+  </div>
 
-    <!-- Right image -->
-    <div class="contact__media" style="background-image: url('/assets/images/img-contact.webp');"></div>
+  <div class="product-hero__media" style="background-image: url('/assets/images/img-event-management.webp');"></div>
+</section>
+
+<!-- STATEMENT -->
+<section class="product-statement">
+  <h2 class="product-statement__headline">
+    Most events lack a core direction, leaving participants and brands without a lasting story.
+  </h2>
+  <p class="product-statement__body">
+    At Sasana Jiwa Keluarga, we bridge the gap between logistics and legacy. We believe life without sport, music, and self-love has no direction—so we provide the compass for your event.
+  </p>
+</section>
+
+<!-- SERVICES GRID — cards + tall image -->
+<section class="em-services">
+  <div class="em-services__cards">
+    <!-- Card 1 -->
+    <article class="em-service-card">
+      <svg class="em-service-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M4 15.9999H9.33333L13.3333 26.6666L18.6667 5.33325L22.6667 15.9999H28" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="em-service-card__body">
+        <h3 class="em-service-card__title">Strategic Brand Activations</h3>
+        <p class="em-service-card__desc">Curating environments that deliver your company's awareness goals to every sector, from private business to government.</p>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="em-service-card">
+      <svg class="em-service-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M19.3307 14L15.9974 17.3333M22.6641 10.6667L23.9974 9.33333M18.6641 4H13.3307M6.66406 17.3333C6.66406 18.559 6.90548 19.7727 7.37452 20.905C7.84356 22.0374 8.53105 23.0663 9.39773 23.933C10.2644 24.7997 11.2933 25.4872 12.4257 25.9562C13.5581 26.4253 14.7717 26.6667 15.9974 26.6667C17.2231 26.6667 18.4367 26.4253 19.5691 25.9562C20.7015 25.4872 21.7304 24.7997 22.5971 23.933C23.4637 23.0663 24.1512 22.0374 24.6203 20.905C25.0893 19.7727 25.3307 18.559 25.3307 17.3333C25.3307 14.858 24.3474 12.484 22.5971 10.7337C20.8467 8.98333 18.4727 8 15.9974 8C13.522 8 11.1481 8.98333 9.39773 10.7337C7.64739 12.484 6.66406 14.858 6.66406 17.3333Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="em-service-card__body">
+        <h3 class="em-service-card__title">Elite Race Direction</h3>
+        <p class="em-service-card__desc">Implementing global management standards learned through our ongoing work with the Tokyo Marathon Foundation.</p>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="em-service-card">
+      <svg class="em-service-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M17.9993 7.33317L24.666 13.9998M7.33268 17.9998L13.9993 24.6665M17.9993 24.6665L24.666 17.9998M13.9993 7.33317L7.33268 13.9998M18.666 26.6665C18.666 25.9593 18.3851 25.281 17.885 24.7809C17.3849 24.2808 16.7066 23.9998 15.9993 23.9998C15.2921 23.9998 14.6138 24.2808 14.1137 24.7809C13.6136 25.281 13.3327 25.9593 13.3327 26.6665C13.3327 27.3737 13.6136 28.052 14.1137 28.5521C14.6138 29.0522 15.2921 29.3332 15.9993 29.3332C16.7066 29.3332 17.3849 29.0522 17.885 28.5521C18.3851 28.052 18.666 27.3737 18.666 26.6665ZM18.666 5.33317C18.666 4.62593 18.3851 3.94765 17.885 3.44755C17.3849 2.94746 16.7066 2.6665 15.9993 2.6665C15.2921 2.6665 14.6138 2.94746 14.1137 3.44755C13.6136 3.94765 13.3327 4.62593 13.3327 5.33317C13.3327 6.04041 13.6136 6.71869 14.1137 7.21879C14.6138 7.71889 15.2921 7.99984 15.9993 7.99984C16.7066 7.99984 17.3849 7.71889 17.885 7.21879C18.3851 6.71869 18.666 6.04041 18.666 5.33317ZM7.99935 15.9998C7.99935 15.2926 7.7184 14.6143 7.2183 14.1142C6.7182 13.6141 6.03993 13.3332 5.33268 13.3332C4.62544 13.3332 3.94716 13.6141 3.44706 14.1142C2.94697 14.6143 2.66602 15.2926 2.66602 15.9998C2.66602 16.7071 2.94697 17.3854 3.44706 17.8855C3.94716 18.3856 4.62544 18.6665 5.33268 18.6665C6.03993 18.6665 6.7182 18.3856 7.2183 17.8855C7.7184 17.3854 7.99935 16.7071 7.99935 15.9998ZM29.3327 15.9998C29.3327 15.2926 29.0517 14.6143 28.5516 14.1142C28.0515 13.6141 27.3733 13.3332 26.666 13.3332C25.9588 13.3332 25.2805 13.6141 24.7804 14.1142C24.2803 14.6143 23.9993 15.2926 23.9993 15.9998C23.9993 16.7071 24.2803 17.3854 24.7804 17.8855C25.2805 18.3856 25.9588 18.6665 26.666 18.6665C27.3733 18.6665 28.0515 18.3856 28.5516 17.8855C29.0517 17.3854 29.3327 16.7071 29.3327 15.9998Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="em-service-card__body">
+        <h3 class="em-service-card__title">Wellness &amp; Lifestyle Curations</h3>
+        <p class="em-service-card__desc">Specialized health event management, as demonstrated through our partnership with the Marriott Group and Bonvoy Club.</p>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="em-service-card">
+      <svg class="em-service-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M17.9993 7.33317L24.666 13.9998M7.33268 17.9998L13.9993 24.6665M17.9993 24.6665L24.666 17.9998M13.9993 7.33317L7.33268 13.9998M18.666 26.6665C18.666 25.9593 18.3851 25.281 17.885 24.7809C17.3849 24.2808 16.7066 23.9998 15.9993 23.9998C15.2921 23.9998 14.6138 24.2808 14.1137 24.7809C13.6136 25.281 13.3327 25.9593 13.3327 26.6665C13.3327 27.3737 13.6136 28.052 14.1137 28.5521C14.6138 29.0522 15.2921 29.3332 15.9993 29.3332C16.7066 29.3332 17.3849 29.0522 17.885 28.5521C18.3851 28.052 18.666 27.3737 18.666 26.6665ZM18.666 5.33317C18.666 4.62593 18.3851 3.94765 17.885 3.44755C17.3849 2.94746 16.7066 2.6665 15.9993 2.6665C15.2921 2.6665 14.6138 2.94746 14.1137 3.44755C13.6136 3.94765 13.3327 4.62593 13.3327 5.33317C13.3327 6.04041 13.6136 6.71869 14.1137 7.21879C14.6138 7.71889 15.2921 7.99984 15.9993 7.99984C16.7066 7.99984 17.3849 7.71889 17.885 7.21879C18.3851 6.71869 18.666 6.04041 18.666 5.33317ZM7.99935 15.9998C7.99935 15.2926 7.7184 14.6143 7.2183 14.1142C6.7182 13.6141 6.03993 13.3332 5.33268 13.3332C4.62544 13.3332 3.94716 13.6141 3.44706 14.1142C2.94697 14.6143 2.66602 15.2926 2.66602 15.9998C2.66602 16.7071 2.94697 17.3854 3.44706 17.8855C3.94716 18.3856 4.62544 18.6665 5.33268 18.6665C6.03993 18.6665 6.7182 18.3856 7.2183 17.8855C7.7184 17.3854 7.99935 16.7071 7.99935 15.9998ZM29.3327 15.9998C29.3327 15.2926 29.0517 14.6143 28.5516 14.1142C28.0515 13.6141 27.3733 13.3332 26.666 13.3332C25.9588 13.3332 25.2805 13.6141 24.7804 14.1142C24.2803 14.6143 23.9993 15.2926 23.9993 15.9998C23.9993 16.7071 24.2803 17.3854 24.7804 17.8855C25.2805 18.3856 25.9588 18.6665 26.666 18.6665C27.3733 18.6665 28.0515 18.3856 28.5516 17.8855C29.0517 17.3854 29.3327 16.7071 29.3327 15.9998Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="em-service-card__body">
+        <h3 class="em-service-card__title">Full-Scale Logistics</h3>
+        <p class="em-service-card__desc">End-to-end coordination that ensures "Balanced Achievement" in every single activation of life.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="em-services__media" style="background-image: url('/assets/images/10km.jpg');"></div>
+</section>
+
+<!-- GLOBAL STANDARDS -->
+<section class="em-standards">
+  <h2 class="em-standards__title">The "Global Standards" Section</h2>
+
+  <div class="em-standards__cards">
+    <!-- Card 1 -->
+    <article class="em-standard-card">
+      <svg class="em-standard-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M4 15.9999H9.33333L13.3333 26.6666L18.6667 5.33325L22.6667 15.9999H28" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="em-standard-card__body">
+        <h3 class="em-standard-card__title">Proven Track Record</h3>
+        <p class="em-standard-card__desc">Serving as a dedicated contractor for the Tokyo Marathon Race Director team from 2023 to the present.</p>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="em-standard-card">
+      <svg class="em-standard-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="17.3333" r="9.33333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 12V17.3333L19.3333 19.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 4H20" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="em-standard-card__body">
+        <h3 class="em-standard-card__title">Corporate Excellence</h3>
+        <p class="em-standard-card__desc">Trusted by elite hospitality brands like Marriott Bali to organize high-impact health events since 2025.</p>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="em-standard-card">
+      <svg class="em-standard-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M18.0013 7.33341L24.668 14.0001M7.33464 18.0001L14.0013 24.6667M18.0013 24.6667L24.668 18.0001M14.0013 7.33341L7.33464 14.0001M18.668 26.6667C18.668 25.9595 18.387 25.2812 17.8869 24.7811C17.3868 24.281 16.7085 24.0001 16.0013 24.0001C15.2941 24.0001 14.6158 24.281 14.1157 24.7811C13.6156 25.2812 13.3346 25.9595 13.3346 26.6667C13.3346 27.374 13.6156 28.0523 14.1157 28.5524C14.6158 29.0525 15.2941 29.3334 16.0013 29.3334C16.7085 29.3334 17.3868 29.0525 17.8869 28.5524C18.387 28.0523 18.668 27.374 18.668 26.6667ZM18.668 5.33341C18.668 4.62617 18.387 3.94789 17.8869 3.4478C17.3868 2.9477 16.7085 2.66675 16.0013 2.66675C15.2941 2.66675 14.6158 2.9477 14.1157 3.4478C13.6156 3.94789 13.3346 4.62617 13.3346 5.33341C13.3346 6.04066 13.6156 6.71894 14.1157 7.21903C14.6158 7.71913 15.2941 8.00008 16.0013 8.00008C16.7085 8.00008 17.3868 7.71913 17.8869 7.21903C18.387 6.71894 18.668 6.04066 18.668 5.33341ZM8.0013 16.0001C8.0013 15.2928 7.72035 14.6146 7.22025 14.1145C6.72016 13.6144 6.04188 13.3334 5.33464 13.3334C4.62739 13.3334 3.94911 13.6144 3.44902 14.1145C2.94892 14.6146 2.66797 15.2928 2.66797 16.0001C2.66797 16.7073 2.94892 17.3856 3.44902 17.8857C3.94911 18.3858 4.62739 18.6667 5.33464 18.6667C6.04188 18.6667 6.72016 18.3858 7.22025 17.8857C7.72035 17.3856 8.0013 16.7073 8.0013 16.0001ZM29.3346 16.0001C29.3346 15.2928 29.0537 14.6146 28.5536 14.1145C28.0535 13.6144 27.3752 13.3334 26.668 13.3334C25.9607 13.3334 25.2824 13.6144 24.7823 14.1145C24.2823 14.6146 24.0013 15.2928 24.0013 16.0001C24.0013 16.7073 24.2823 17.3856 24.7823 17.8857C25.2824 18.3858 25.9607 18.6667 26.668 18.6667C27.3752 18.6667 28.0535 18.3858 28.5536 17.8857C29.0537 17.3856 29.3346 16.7073 29.3346 16.0001Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="em-standard-card__body">
+        <h3 class="em-standard-card__title">Universal Reach</h3>
+        <p class="em-standard-card__desc">Our expertise is designed to scale across all sectors, ensuring a "Good Life and Good Live" for every client.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="cta-section d-flex flex-column justify-content-center">
+  <div class="cta-banner d-flex flex-column align-items-center justify-content-center" style="background-image: url('/assets/images/img-cta.webp')">
+    <div class="cta-banner__overlay"></div>
+
+    <div class="cta-banner__content d-flex flex-column justify-content-center align-items-center">
+      <div class="cta-banner__heading">
+        <span class="cta-banner__title">READY TO ACHIEVE THE</span>
+        <span class="cta-banner__title--italic">flow state?</span>
+      </div>
+      <p class="cta-banner__subtitle">
+        Join us and experience the Power of Right Action in every activation we deliver.
+      </p>
+      <a href="#" class="cta-banner__btn">
+        Contact Our Team
+      </a>
+    </div>
   </div>
 </section>
 <!-- ═══════════════════════════════════════════════════════
@@ -273,4 +350,3 @@
 <script src="./src/js/main.js"></script>
 </body>
 </html>
-

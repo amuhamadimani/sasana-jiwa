@@ -1,0 +1,395 @@
+.er-gear {
+  display: flex;
+  padding: 80px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: stretch;
+}
+
+.er-gear__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: stretch;
+  gap: 24px;
+}
+
+.er-gear__heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.er-gear__title {
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -1.92px;
+  text-transform: uppercase;
+}
+
+.er-gear__desc {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.er-gear__nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.er-gear__nav-btn {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 9999px;
+  background: var(--dark-blue);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.er-gear__nav-btn:hover {
+  opacity: 0.85;
+}
+
+.er-gear__nav-btn.swiper-button-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.er-gear__nav-btn svg {
+  display: block;
+}
+
+/* Swiper wrapper */
+.er-gear__slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.er-gear__slider .swiper-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Swiper wrapper */
+.er-gear__slider-2 {
+  width: 100%;
+  overflow: hidden;
+}
+
+.er-gear__slider-2 .swiper-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Swiper wrapper */
+.er-gear__slider-3 {
+  width: 100%;
+  overflow: hidden;
+}
+
+.er-gear__slider-3 .swiper-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Card */
+.er-gear-card {
+  display: flex;
+  width: 411px;
+  height: 582px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--dark-blue);
+  background: #FFF;
+  box-sizing: border-box;
+}
+
+.er-gear-card__media {
+  display: flex;
+  height: 350px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: lightgray;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.er-gear-card__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.er-gear-card__title {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.er-gear-card__desc {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.36px;
+}
+
+/* Swiper slide sizing — auto so card width drives it */
+.er-gear__slider .swiper-slide {
+  width: auto;
+  height: auto;
+}
+
+/* Swiper slide sizing — auto so card width drives it */
+.er-gear__slider-2 .swiper-slide {
+  width: auto;
+  height: auto;
+}
+
+/* Swiper slide sizing — auto so card width drives it */
+.er-gear__slider-3 .swiper-slide {
+  width: auto;
+  height: auto;
+}
+
+/* ──────────────────────────────────────────────────
+   RENTAL TIERS & PACKAGES — table section
+   ────────────────────────────────────────────────── */
+.er-tiers {
+  display: flex;
+  padding: 80px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  align-self: stretch;
+}
+
+.er-tiers__title {
+  margin: 0;
+  color: var(--dark-blue);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -2.56px;
+  text-transform: uppercase;
+}
+
+.er-tiers__table {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.er-tiers__row {
+  display: flex;
+  padding: 24px 0;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.24);
+}
+
+.er-tiers__cell {
+  flex: 1 0 0;
+  min-width: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+/* Header row cells */
+.er-tiers__row--head .er-tiers__cell {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 110%;
+}
+
+/* Data row cells (package name / best for) */
+.er-tiers__row--data .er-tiers__cell {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 110%;
+}
+
+/* Highlights column — regular weight, normal case, tracked */
+.er-tiers__row--data .er-tiers__cell--highlight {
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.48px;
+  text-transform: none;
+}
+
+/* ──────────────────────────────────────────────────
+   TABLET (768 – 1199)
+   ────────────────────────────────────────────────── */
+@media (max-width: 1199.98px) {
+  .er-gear {
+    padding: 64px 40px;
+    gap: 32px;
+  }
+
+  .er-gear__title {
+    font-size: 40px;
+    letter-spacing: -1.6px;
+  }
+
+  .er-gear__desc {
+    font-size: 20px;
+  }
+
+  .er-gear__nav-btn {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   MOBILE (≤ 767)
+   ────────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .er-gear {
+    padding: 40px 16px;
+    gap: 40px;
+  }
+
+  .er-gear__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .er-gear__heading {
+    gap: 12px;
+  }
+
+  .er-gear__title {
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -1.28px;
+  }
+
+  .er-gear__desc {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+  }
+
+  .er-gear__nav-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .er-gear-card {
+    width: 247.165px;
+    height: 350px;
+    padding: 14.433px;
+    gap: 14.433px;
+    border-radius: 8px;
+  }
+
+  .er-gear-card__media {
+    height: 210.481px;
+    padding: 24.055px;
+    gap: 6.014px;
+    border-radius: 4.811px;
+  }
+
+  .er-gear-card__text {
+    gap: 9.622px;
+  }
+
+  .er-gear-card__title {
+    font-size: 16.838px;
+    line-height: 110%;
+  }
+
+  .er-gear-card__desc {
+    font-size: 10.825px;
+    line-height: 150%;
+    letter-spacing: -0.216px;
+  }
+
+  /* ── Rental tiers (mobile) ── */
+  .er-tiers {
+    padding: 40px 16px;
+    gap: 40px;
+  }
+
+  .er-tiers__title {
+    align-self: stretch;
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: -1.28px;
+  }
+
+  .er-tiers__row {
+    padding: 24px 0;
+    gap: 24px;
+  }
+
+  .er-tiers__row--head .er-tiers__cell {
+    font-size: 14px;
+    line-height: 110%;
+  }
+
+  .er-tiers__row--data .er-tiers__cell {
+    font-size: 16px;
+    line-height: 110%;
+  }
+
+  .er-tiers__row--data .er-tiers__cell--highlight {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -0.24px;
+  }
+}

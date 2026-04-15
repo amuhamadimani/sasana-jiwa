@@ -1,0 +1,303 @@
+/* ──────────────────────────────────────────────────
+   TIMING SERVICE PROVIDER — Conflict / Resolution
+   ────────────────────────────────────────────────── */
+
+.ts-contrast {
+  display: flex;
+  padding: 80px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.ts-contrast__card {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  /*max-width: 628.5px;*/
+  background-color: var(--grey);
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: stretch;
+  border-radius: 8px;
+}
+
+.ts-contrast__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.ts-contrast__title {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.ts-contrast__desc {
+  height: 81px;
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.36px;
+}
+
+.ts-contrast__media {
+  display: flex;
+  height: 350px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: var(--grey);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ──────────────────────────────────────────────────
+   PERFORMANCE GRID — 4 feature cards
+   ────────────────────────────────────────────────── */
+.ts-grid {
+  display: flex;
+  padding: 80px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 64px;
+  align-self: stretch;
+}
+
+.ts-grid__title {
+  margin: 0;
+  color: var(--dark-blue);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -2.56px;
+  text-transform: uppercase;
+}
+
+.ts-grid__cards {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.ts-grid-card {
+  display: flex;
+  padding: 24px 24px 40px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex: 1 0 0;
+  min-width: 0;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--grey);
+}
+
+.ts-grid-card__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.ts-grid-card__icon--sm {
+  display: none;
+}
+
+.ts-grid-card__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.ts-grid-card__title {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.ts-grid-card__desc {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.32px;
+}
+
+/* ──────────────────────────────────────────────────
+   TABLET (768 – 1199)
+   ────────────────────────────────────────────────── */
+@media (max-width: 1199.98px) {
+  /* Performance grid — 2 per row */
+  .ts-grid {
+    padding: 64px 40px;
+    gap: 48px;
+  }
+
+  .ts-grid__title {
+    font-size: 48px;
+    letter-spacing: -1.92px;
+  }
+
+  .ts-grid__cards {
+    flex-wrap: wrap;
+  }
+
+  .ts-grid-card {
+    flex: 1 1 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+  }
+
+  .ts-contrast {
+    padding: 64px 40px;
+    gap: 24px;
+  }
+
+  .ts-contrast__card {
+    padding: 16px;
+    gap: 32px;
+  }
+
+  .ts-contrast__title {
+    font-size: 24px;
+  }
+
+  .ts-contrast__desc {
+    height: auto;
+    font-size: 16px;
+  }
+
+  .ts-contrast__media {
+    height: 280px;
+    padding: 32px;
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   MOBILE (≤ 767)
+   ────────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .ts-contrast {
+    padding: 40px 16px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .ts-contrast__card {
+    max-width: 100%;
+    padding: 16px;
+    gap: 24px;
+  }
+
+  .ts-contrast__text {
+    gap: 12px;
+  }
+
+  .ts-contrast__title {
+    font-size: 18px;
+    line-height: 110%;
+  }
+
+  .ts-contrast__desc {
+    height: auto;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.28px;
+  }
+
+  .ts-contrast__media {
+    height: 200px;
+    padding: 40px;
+  }
+
+  /* Performance grid — stack 1 per row */
+  .ts-grid {
+    padding: 40px 16px;
+    justify-content: flex-end;
+    gap: 40px;
+  }
+
+  .ts-grid__title {
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: -1.28px;
+  }
+
+  .ts-grid__cards {
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: nowrap;
+  }
+
+  .ts-grid-card {
+    flex: 0 0 auto;
+    max-width: 100%;
+    padding: 16px;
+    gap: 24px;
+  }
+
+  .ts-grid-card__icon {
+    display: none;
+  }
+
+  .ts-grid-card__icon--sm {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .ts-grid-card__text {
+    gap: 16px;
+  }
+
+  .ts-grid-card__title {
+    font-size: 16px;
+    line-height: 110%;
+  }
+
+  .ts-grid-card__desc {
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.28px;
+  }
+}

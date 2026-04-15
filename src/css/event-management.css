@@ -1,0 +1,473 @@
+/* ── HERO (split: text left / image right) ─────── */
+.em-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 144px 80px 0 80px;
+}
+
+.em-hero__text {
+  display: flex;
+  min-width: 0;
+  height: 609px;
+  padding: 24px 40px 24px 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.em-hero__title {
+  flex: 1 0 0;
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -3.2px;
+  text-transform: uppercase;
+}
+
+.em-hero__title-italic {
+  color: var(--dark-blue);
+  font-family: 'Libre Caslon Condensed', 'Instrument Serif', serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: -3.2px;
+  text-transform: none;
+}
+
+.em-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: stretch;
+}
+
+.em-hero__desc {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.em-hero__btn {
+  display: inline-flex;
+  height: 48px;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--dark-blue);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  color: var(--white);
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+}
+
+.em-hero__media {
+  display: flex;
+  min-width: 0;
+  height: 609px;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 12px;
+  background-color: lightgray;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ── STATEMENT (big headline + small paragraph) ── */
+.em-statement {
+  display: flex;
+  width: 100%;
+  padding: 128px 80px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.em-statement__headline {
+  width: 631px;
+  flex-shrink: 0;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.em-statement__body {
+  width: 518px;
+  flex-shrink: 0;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.449px;
+}
+
+/* ── SERVICES GRID (cards + tall image) ───────── */
+.em-services {
+  display: flex;
+  width: 100%;
+  /*max-width: 1440px;*/
+  margin: 0 auto;
+  padding: 80px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.em-services__cards {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 24px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  max-width: 736px; /* fits exactly 2 × 356px cards + 24px gap */
+}
+
+.em-service-card {
+  display: flex;
+  width: 356px;
+  height: 310px;
+  padding: 24px 24px 40px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  border-radius: 8px;
+  background: var(--grey);
+}
+
+.em-service-card__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.em-service-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.em-service-card__title {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.em-service-card__desc {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.32px;
+}
+
+.em-services__media {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: lightgray;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ── GLOBAL STANDARDS SECTION ───────────────────── */
+.em-standards {
+  position: relative;
+  display: flex;
+  padding: 128px 80px;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  align-self: stretch;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Rotated background layer (overview image flipped 180°) */
+.em-standards::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/img-bg-overview.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  z-index: -1;
+}
+
+.em-standards__title {
+  width: 847px;
+  max-width: 100%;
+  margin: 0;
+  color: var(--dark-blue);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -2.56px;
+  text-transform: uppercase;
+}
+
+.em-standards__cards {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.em-standard-card {
+  display: flex;
+  width: 411px;
+  max-width: 100%;
+  flex: 1 1 320px;
+  padding: 24px 24px 40px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 8px;
+  background: #FFF;
+}
+
+.em-standard-card__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.em-standard-card__title {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.em-standard-card__desc {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.32px;
+}
+
+/* ──────────────────────────────────────────────────
+   TABLET (768 – 1199)
+   ────────────────────────────────────────────────── */
+@media (max-width: 1199.98px) {
+  /* ── Services grid — image stacks, cards 2 per row ── */
+  .em-services {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 64px 40px;
+    gap: 24px;
+  }
+
+  .em-services__cards {
+    width: 100%;
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
+  .em-service-card {
+    width: calc(50% - 12px); /* 2 per row (gap 24 / 2) */
+    height: auto;
+    min-height: 280px;
+    flex: 0 0 calc(50% - 12px);
+  }
+
+  .em-services__media {
+    width: 100%;
+    min-height: 400px;
+    align-self: stretch;
+  }
+
+  /* ── Global Standards ── */
+  .em-standards {
+    padding: 96px 40px;
+    gap: 48px;
+  }
+
+  .em-standards__title {
+    font-size: 48px;
+    letter-spacing: -1.92px;
+  }
+
+  .em-standard-card {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   MOBILE
+   ────────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  /* ── Services grid ── */
+  .em-services {
+    width: 100%;
+    /*max-width: 412px;*/
+    padding: 40px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .em-services__cards {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+
+  .em-service-card {
+    width: 100%;
+    /*max-width: 379px;*/
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 0;
+    padding: 16px 16px 24px 16px;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .em-service-card__body {
+    gap: 12px;
+    flex: 1 0 0;
+  }
+
+  .em-service-card__title {
+    font-size: 16px;
+    line-height: 110%;
+  }
+
+  .em-service-card__desc {
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.28px;
+  }
+
+  .em-services__media {
+    width: 100%;
+    height: 406px;
+    padding: 40px;
+    align-self: stretch;
+  }
+
+  /* ── Global Standards ── */
+  .em-standards {
+    padding: 64px 16px;
+    gap: 40px;
+  }
+
+  .em-standards__title {
+    width: 100%;
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: -1.28px;
+  }
+
+  .em-standards__cards {
+    flex-direction: column;
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+
+  .em-standard-card {
+    width: 100%;
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    padding: 16px 16px 24px 16px;
+  }
+
+  .em-standard-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1 0 0;
+  }
+
+  .em-standard-card__title {
+    font-size: 16px;
+    line-height: 110%;
+  }
+
+  .em-standard-card__desc {
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.28px;
+  }
+}

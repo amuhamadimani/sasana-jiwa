@@ -9,7 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Libre+Caslon+Condensed:ital@1&family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/bootstrap.min.css">
   <link rel="stylesheet" href="./src/css/style.css">
-  <link rel="stylesheet" href="./src/css/about.css">
+  <link rel="stylesheet" href="./src/css/timing-service-provider.css">
+  <link rel="stylesheet" href="./src/css/product.css">
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
@@ -94,54 +95,116 @@
   </div>
 </div>
 
-<section class="about-hero d-flex justify-content-center align-items-center">
-  <div class="about-hero__inner d-flex justify-content-between align-items-center">
-    <span class="about-hero__title-syne">ABOUT</span>
-    <span class="about-hero__title-italic">us</span>
+<!-- HERO — split layout -->
+<section class="product-hero">
+  <div class="product-hero__text">
+    <h1 class="product-hero__title">
+      Timing System<br>
+      <span class="product-hero__title-italic">provider</span>
+    </h1>
+    <div class="product-hero__content">
+      <p class="product-hero__desc">
+        In the world of elite performance, the only truth is the clock. We provide the "Right Result" through advanced transponder technology and global timing standards.
+      </p>
+      <a href="#" class="product-hero__btn">Secure Your Results</a>
+    </div>
   </div>
+
+  <div class="product-hero__media" style="background-image: url('../assets/images/img-timing-system.webp');"></div>
 </section>
 
-<section class="about-values">
-  <div class="about-values__header">
-    <h2 class="about-values__title">
-      Crafting legacies through the power of
-      <span class="about-values__title-italic">right action</span>
-    </h2>
-    <p class="about-values__desc">
-      At Sasana Jiwa Keluarga, we believe that a life without sport, music, and self-love lacks direction. Established in 2025, our journey is rooted in the philosophy of "Live for Live"—a commitment to achieving a true balance in every activation of life. We don't just manage events; we create the legacy and story of each individual we serve.
-    </p>
-  </div>
+<!-- STATEMENT -->
+<section class="product-statement">
+  <h2 class="product-statement__headline">
+    High-stakes events often suffer from "data drift"—lagging results that kill the momentum of a finish line.
+  </h2>
+  <p class="product-statement__body">
+    We apply the Power of Right Action to your data. By integrating real-time tracking, we ensure that every athlete's story is told accurately, the moment they cross the line.
+  </p>
+</section>
 
-  <div class="about-values__list">
-    <div class="about-values__item">
-      <div class="about-values__item-head">
-        <span class="about-values__item-number">01</span>
-        <h3 class="about-values__item-title">Vision &amp; Mission</h3>
-      </div>
-      <p class="about-values__item-body">
-        We empower one another to overcome obstacles and pursue excellence, fostering deep connection and personal growth through the collaborative art of storytelling.
-      </p>
+<!-- CONFLICT / RESOLUTION -->
+<section class="ts-contrast">
+  <!-- The Conflict -->
+  <article class="ts-contrast__card">
+    <div class="ts-contrast__text">
+      <h3 class="ts-contrast__title">The Conflict</h3>
+      <p class="ts-contrast__desc">High-stakes events often suffer from "data drift"—lagging results that kill the momentum of a finish line.</p>
     </div>
+    <div class="ts-contrast__media" style="background-image: url('/assets/images/features/feature-1.jpg');"></div>
+  </article>
 
-    <div class="about-values__item">
-      <div class="about-values__item-head">
-        <span class="about-values__item-number">02</span>
-        <h3 class="about-values__item-title">Core Values</h3>
-      </div>
-      <p class="about-values__item-body">
-        We are guided by the Power of Right Action, ensuring that every project is executed with precision, integrity, and soul.
-      </p>
+  <!-- The Resolution -->
+  <article class="ts-contrast__card">
+    <div class="ts-contrast__text">
+      <h3 class="ts-contrast__title">The Resolution</h3>
+      <p class="ts-contrast__desc">We apply the Power of Right Action to your data. By integrating real-time tracking, we ensure that every athlete's story is told accurately, the moment they cross the line.</p>
     </div>
+    <div class="ts-contrast__media" style="background-image: url('/assets/images/features/feature-2.jpg');"></div>
+  </article>
+</section>
 
-    <div class="about-values__item">
-      <div class="about-values__item-head">
-        <span class="about-values__item-number">03</span>
-        <h3 class="about-values__item-title">Philosophy</h3>
+
+<!-- PERFORMANCE GRID -->
+<section class="ts-grid">
+  <h2 class="ts-grid__title">The Performance Grid</h2>
+
+  <div class="ts-grid__cards">
+    <!-- Card 1 -->
+    <article class="ts-grid-card">
+      <svg class="ts-grid-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M4 15.9999H9.33333L13.3333 26.6666L18.6667 5.33325L22.6667 15.9999H28" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="ts-grid-card__icon--sm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M3 11.9998H7L10 19.9998L14 3.99976L17 11.9998H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="ts-grid-card__text">
+        <h3 class="ts-grid-card__title">Active Transponder Systems</h3>
+        <p class="ts-grid-card__desc">High-frequency chips for zero-latency detection at high speeds.</p>
       </div>
-      <p class="about-values__item-body">
-        We believe in "Good Life and Good Live," providing the expertise and passion needed to help our clients find their direction.
-      </p>
-    </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="ts-grid-card">
+      <svg class="ts-grid-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M19.3327 14L15.9993 17.3333M22.666 10.6667L23.9993 9.33333M18.666 4H13.3327M6.66602 17.3333C6.66602 18.559 6.90743 19.7727 7.37647 20.905C7.84552 22.0374 8.53301 23.0663 9.39969 23.933C10.2664 24.7997 11.2953 25.4872 12.4276 25.9562C13.56 26.4253 14.7737 26.6667 15.9993 26.6667C17.225 26.6667 18.4387 26.4253 19.5711 25.9562C20.7034 25.4872 21.7323 24.7997 22.599 23.933C23.4657 23.0663 24.1532 22.0374 24.6222 20.905C25.0913 19.7727 25.3327 18.559 25.3327 17.3333C25.3327 14.858 24.3494 12.484 22.599 10.7337C20.8487 8.98333 18.4747 8 15.9993 8C13.524 8 11.15 8.98333 9.39969 10.7337C7.64935 12.484 6.66602 14.858 6.66602 17.3333Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="ts-grid-card__icon--sm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M14.5 10.5L12 13M17 8L18 7M14 3H10M5 13C5 13.9193 5.18106 14.8295 5.53284 15.6788C5.88463 16.5281 6.40024 17.2997 7.05025 17.9497C7.70026 18.5998 8.47194 19.1154 9.32122 19.4672C10.1705 19.8189 11.0807 20 12 20C12.9193 20 13.8295 19.8189 14.6788 19.4672C15.5281 19.1154 16.2997 18.5998 16.9497 17.9497C17.5998 17.2997 18.1154 16.5281 18.4672 15.6788C18.8189 14.8295 19 13.9193 19 13C19 11.1435 18.2625 9.36301 16.9497 8.05025C15.637 6.7375 13.8565 6 12 6C10.1435 6 8.36301 6.7375 7.05025 8.05025C5.7375 9.36301 5 11.1435 5 13Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="ts-grid-card__text">
+        <h3 class="ts-grid-card__title">Live Leaderboards</h3>
+        <p class="ts-grid-card__desc">Instant cloud-syncing for spectators and remote tracking.</p>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="ts-grid-card">
+      <svg class="ts-grid-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M17.9993 7.33317L24.666 13.9998M7.33268 17.9998L13.9993 24.6665M17.9993 24.6665L24.666 17.9998M13.9993 7.33317L7.33268 13.9998M18.666 26.6665C18.666 25.9593 18.3851 25.281 17.885 24.7809C17.3849 24.2808 16.7066 23.9998 15.9993 23.9998C15.2921 23.9998 14.6138 24.2808 14.1137 24.7809C13.6136 25.281 13.3327 25.9593 13.3327 26.6665C13.3327 27.3737 13.6136 28.052 14.1137 28.5521C14.6138 29.0522 15.2921 29.3332 15.9993 29.3332C16.7066 29.3332 17.3849 29.0522 17.885 28.5521C18.3851 28.052 18.666 27.3737 18.666 26.6665ZM18.666 5.33317C18.666 4.62593 18.3851 3.94765 17.885 3.44755C17.3849 2.94746 16.7066 2.6665 15.9993 2.6665C15.2921 2.6665 14.6138 2.94746 14.1137 3.44755C13.6136 3.94765 13.3327 4.62593 13.3327 5.33317C13.3327 6.04041 13.6136 6.71869 14.1137 7.21879C14.6138 7.71889 15.2921 7.99984 15.9993 7.99984C16.7066 7.99984 17.3849 7.71889 17.885 7.21879C18.3851 6.71869 18.666 6.04041 18.666 5.33317ZM7.99935 15.9998C7.99935 15.2926 7.7184 14.6143 7.2183 14.1142C6.7182 13.6141 6.03993 13.3332 5.33268 13.3332C4.62544 13.3332 3.94716 13.6141 3.44706 14.1142C2.94697 14.6143 2.66602 15.2926 2.66602 15.9998C2.66602 16.7071 2.94697 17.3854 3.44706 17.8855C3.94716 18.3856 4.62544 18.6665 5.33268 18.6665C6.03993 18.6665 6.7182 18.3856 7.2183 17.8855C7.7184 17.3854 7.99935 16.7071 7.99935 15.9998ZM29.3327 15.9998C29.3327 15.2926 29.0517 14.6143 28.5516 14.1142C28.0515 13.6141 27.3733 13.3332 26.666 13.3332C25.9588 13.3332 25.2805 13.6141 24.7804 14.1142C24.2803 14.6143 23.9993 15.2926 23.9993 15.9998C23.9993 16.7071 24.2803 17.3854 24.7804 17.8855C25.2805 18.3856 25.9588 18.6665 26.666 18.6665C27.3733 18.6665 28.0515 18.3856 28.5516 17.8855C29.0517 17.3854 29.3327 16.7071 29.3327 15.9998Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="ts-grid-card__icon--sm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M13.5 5.50024L18.5 10.5002M5.5 13.5002L10.5 18.5002M13.5 18.5002L18.5 13.5002M10.5 5.50024L5.5 10.5002M14 20.0002C14 19.4698 13.7893 18.9611 13.4142 18.586C13.0391 18.211 12.5304 18.0002 12 18.0002C11.4696 18.0002 10.9609 18.211 10.5858 18.586C10.2107 18.9611 10 19.4698 10 20.0002C10 20.5307 10.2107 21.0394 10.5858 21.4145C10.9609 21.7895 11.4696 22.0002 12 22.0002C12.5304 22.0002 13.0391 21.7895 13.4142 21.4145C13.7893 21.0394 14 20.5307 14 20.0002ZM14 4.00024C14 3.46981 13.7893 2.9611 13.4142 2.58603C13.0391 2.21096 12.5304 2.00024 12 2.00024C11.4696 2.00024 10.9609 2.21096 10.5858 2.58603C10.2107 2.9611 10 3.46981 10 4.00024C10 4.53068 10.2107 5.03939 10.5858 5.41446C10.9609 5.78953 11.4696 6.00024 12 6.00024C12.5304 6.00024 13.0391 5.78953 13.4142 5.41446C13.7893 5.03939 14 4.53068 14 4.00024ZM6 12.0002C6 11.4698 5.78929 10.9611 5.41421 10.586C5.03914 10.211 4.53043 10.0002 4 10.0002C3.46957 10.0002 2.96086 10.211 2.58579 10.586C2.21071 10.9611 2 11.4698 2 12.0002C2 12.5307 2.21071 13.0394 2.58579 13.4145C2.96086 13.7895 3.46957 14.0002 4 14.0002C4.53043 14.0002 5.03914 13.7895 5.41421 13.4145C5.78929 13.0394 6 12.5307 6 12.0002ZM22 12.0002C22 11.4698 21.7893 10.9611 21.4142 10.586C21.0391 10.211 20.5304 10.0002 20 10.0002C19.4696 10.0002 18.9609 10.211 18.5858 10.586C18.2107 10.9611 18 11.4698 18 12.0002C18 12.5307 18.2107 13.0394 18.5858 13.4145C18.9609 13.7895 19.4696 14.0002 20 14.0002C20.5304 14.0002 21.0391 13.7895 21.4142 13.4145C21.7893 13.0394 22 12.5307 22 12.0002Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="ts-grid-card__text">
+        <h3 class="ts-grid-card__title">Verified Data Integrity</h3>
+        <p class="ts-grid-card__desc">Rigorous audit trails for official race records and foundations.</p>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="ts-grid-card">
+      <svg class="ts-grid-card__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M17.9993 7.33317L24.666 13.9998M7.33268 17.9998L13.9993 24.6665M17.9993 24.6665L24.666 17.9998M13.9993 7.33317L7.33268 13.9998M18.666 26.6665C18.666 25.9593 18.3851 25.281 17.885 24.7809C17.3849 24.2808 16.7066 23.9998 15.9993 23.9998C15.2921 23.9998 14.6138 24.2808 14.1137 24.7809C13.6136 25.281 13.3327 25.9593 13.3327 26.6665C13.3327 27.3737 13.6136 28.052 14.1137 28.5521C14.6138 29.0522 15.2921 29.3332 15.9993 29.3332C16.7066 29.3332 17.3849 29.0522 17.885 28.5521C18.3851 28.052 18.666 27.3737 18.666 26.6665ZM18.666 5.33317C18.666 4.62593 18.3851 3.94765 17.885 3.44755C17.3849 2.94746 16.7066 2.6665 15.9993 2.6665C15.2921 2.6665 14.6138 2.94746 14.1137 3.44755C13.6136 3.94765 13.3327 4.62593 13.3327 5.33317C13.3327 6.04041 13.6136 6.71869 14.1137 7.21879C14.6138 7.71889 15.2921 7.99984 15.9993 7.99984C16.7066 7.99984 17.3849 7.71889 17.885 7.21879C18.3851 6.71869 18.666 6.04041 18.666 5.33317ZM7.99935 15.9998C7.99935 15.2926 7.7184 14.6143 7.2183 14.1142C6.7182 13.6141 6.03993 13.3332 5.33268 13.3332C4.62544 13.3332 3.94716 13.6141 3.44706 14.1142C2.94697 14.6143 2.66602 15.2926 2.66602 15.9998C2.66602 16.7071 2.94697 17.3854 3.44706 17.8855C3.94716 18.3856 4.62544 18.6665 5.33268 18.6665C6.03993 18.6665 6.7182 18.3856 7.2183 17.8855C7.7184 17.3854 7.99935 16.7071 7.99935 15.9998ZM29.3327 15.9998C29.3327 15.2926 29.0517 14.6143 28.5516 14.1142C28.0515 13.6141 27.3733 13.3332 26.666 13.3332C25.9588 13.3332 25.2805 13.6141 24.7804 14.1142C24.2803 14.6143 23.9993 15.2926 23.9993 15.9998C23.9993 16.7071 24.2803 17.3854 24.7804 17.8855C25.2805 18.3856 25.9588 18.6665 26.666 18.6665C27.3733 18.6665 28.0515 18.3856 28.5516 17.8855C29.0517 17.3854 29.3327 16.7071 29.3327 15.9998Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="ts-grid-card__icon--sm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M13.5 5.50024L18.5 10.5002M5.5 13.5002L10.5 18.5002M13.5 18.5002L18.5 13.5002M10.5 5.50024L5.5 10.5002M14 20.0002C14 19.4698 13.7893 18.9611 13.4142 18.586C13.0391 18.211 12.5304 18.0002 12 18.0002C11.4696 18.0002 10.9609 18.211 10.5858 18.586C10.2107 18.9611 10 19.4698 10 20.0002C10 20.5307 10.2107 21.0394 10.5858 21.4145C10.9609 21.7895 11.4696 22.0002 12 22.0002C12.5304 22.0002 13.0391 21.7895 13.4142 21.4145C13.7893 21.0394 14 20.5307 14 20.0002ZM14 4.00024C14 3.46981 13.7893 2.9611 13.4142 2.58603C13.0391 2.21096 12.5304 2.00024 12 2.00024C11.4696 2.00024 10.9609 2.21096 10.5858 2.58603C10.2107 2.9611 10 3.46981 10 4.00024C10 4.53068 10.2107 5.03939 10.5858 5.41446C10.9609 5.78953 11.4696 6.00024 12 6.00024C12.5304 6.00024 13.0391 5.78953 13.4142 5.41446C13.7893 5.03939 14 4.53068 14 4.00024ZM6 12.0002C6 11.4698 5.78929 10.9611 5.41421 10.586C5.03914 10.211 4.53043 10.0002 4 10.0002C3.46957 10.0002 2.96086 10.211 2.58579 10.586C2.21071 10.9611 2 11.4698 2 12.0002C2 12.5307 2.21071 13.0394 2.58579 13.4145C2.96086 13.7895 3.46957 14.0002 4 14.0002C4.53043 14.0002 5.03914 13.7895 5.41421 13.4145C5.78929 13.0394 6 12.5307 6 12.0002ZM22 12.0002C22 11.4698 21.7893 10.9611 21.4142 10.586C21.0391 10.211 20.5304 10.0002 20 10.0002C19.4696 10.0002 18.9609 10.211 18.5858 10.586C18.2107 10.9611 18 11.4698 18 12.0002C18 12.5307 18.2107 13.0394 18.5858 13.4145C18.9609 13.7895 19.4696 14.0002 20 14.0002C20.5304 14.0002 21.0391 13.7895 21.4142 13.4145C21.7893 13.0394 22 12.5307 22 12.0002Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="ts-grid-card__text">
+        <h3 class="ts-grid-card__title">Redundant Backup</h3>
+        <p class="ts-grid-card__desc">Multiple fail-safe finish lines to ensure no result is ever lost.</p>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -279,3 +342,4 @@
 <script src="./src/js/main.js"></script>
 </body>
 </html>
+

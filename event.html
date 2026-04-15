@@ -9,7 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Libre+Caslon+Condensed:ital@1&family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/bootstrap.min.css">
   <link rel="stylesheet" href="./src/css/style.css">
-  <link rel="stylesheet" href="./src/css/contact.css">
+  <link rel="stylesheet" href="./src/css/event.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
 <!-- ═══════════════════════════════════════════════════════
@@ -92,71 +94,154 @@
   </div>
 </div>
 
-<section class="contact">
-  <h1 class="contact__title">
-    Contact <span class="contact__title-italic">us</span>
-  </h1>
+<!-- ═══════════════════════════════════════════════════════
+   MOMENTS OF IMPACT
+═══════════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════
+     EVENT DETAIL PAGE
+     Link: <link rel="stylesheet" href="event-detail.css">
+     ════════════════════════════════════════════════════ -->
 
-  <div class="contact__content">
-    <!-- Info card -->
-    <div class="contact__card">
-      <img src="/assets/logo/logo-dark.svg" alt="Sasana Jiwa" class="contact__logo">
+<section class="event-detail">
 
-      <p class="contact__address">
-        PT. Sasana Jiwa Keluarga<br><br>
-        Plaza Sentral, 8th Floor<br>
-        Jl. Jend. Sudirman Kav. 47m, Jakarta Selatan 12930, Indonesia
-      </p>
+  <!-- Top block: back + title (wrapped for mobile padding) -->
+  <div class="event-detail__top" style="display:contents;">
 
-      <div class="contact__links">
-        <a href="tel:+622150000000" class="contact__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M11 4H13M12 17V17.01M6 5C6 4.46957 6.21071 3.96086 6.58579 3.58579C6.96086 3.21071 7.46957 3 8 3H16C16.5304 3 17.0391 3.21071 17.4142 3.58579C17.7893 3.96086 18 4.46957 18 5V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H8C7.46957 21 6.96086 20.7893 6.58579 20.4142C6.21071 20.0391 6 19.5304 6 19V5Z" stroke="#1D3C72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          +62 21 5000 0000
-        </a>
+    <!-- Back button -->
+    <a href="/past-events" class="event-detail__back">
+      <!-- Desktop arrow (32x32) -->
+      <svg class="d-none d-md-block" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M6.66602 16H25.3327M6.66602 16L14.666 24M6.66602 16L14.666 8" stroke="#1D3C72" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <!-- Mobile arrow (24x24) -->
+      <svg class="d-md-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12H19M5 12L11 18M5 12L11 6" stroke="#1D3C72" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="event-detail__back-text">Back</span>
+    </a>
 
-        <a href="mailto:info@sasanajiwa.id" class="contact__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M3 7C3 6.46957 3.21071 5.96086 3.58579 5.58579C3.96086 5.21071 4.46957 5 5 5H19C19.5304 5 20.0391 5.21071 20.4142 5.58579C20.7893 5.96086 21 6.46957 21 7M3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7M3 7L12 13L21 7" stroke="#1D3C72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          info@sasanajiwa.id
-        </a>
+    <!-- Title -->
+    <h1 class="event-detail__title">
+      <span class="event-detail__title--bold">TOKYO&nbsp;</span>
+      <span class="event-detail__title--italic">marathon</span>
+    </h1>
 
-        <a href="https://instagram.com/sasanajiwa.id" target="_blank" rel="noopener" class="contact__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15.9997 11.3703C16.1231 12.2025 15.981 13.0525 15.5935 13.7993C15.206 14.5461 14.5929 15.1517 13.8413 15.53C13.0898 15.9082 12.2382 16.0399 11.4075 15.9062C10.5768 15.7726 9.80947 15.3804 9.21455 14.7855C8.61962 14.1905 8.22744 13.4232 8.09377 12.5925C7.96011 11.7619 8.09177 10.9102 8.47003 10.1587C8.84829 9.40716 9.45389 8.79404 10.2007 8.40654C10.9475 8.01904 11.7975 7.87689 12.6297 8.0003C13.4786 8.12619 14.2646 8.52176 14.8714 9.12861C15.4782 9.73545 15.8738 10.5214 15.9997 11.3703Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M17.5 6.5H17.51" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          @sasanajiwa.id
-        </a>
+  </div><!-- /.event-detail__top -->
 
-        <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6 9H2V21H6V9Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Sasana Jiwa Keluarga
-        </a>
+  <!-- Hero image — pakai <img> bukan background -->
+  <div class="event-detail__hero">
+    <img
+            class="event-detail__hero-img"
+            src="./assets/images/img-tokyo-marathon.webp"
+            alt="Tokyo Marathon"
+    />
+  </div>
+
+  <div class="countdown">
+
+    <!-- Label -->
+    <p class="countdown__label">Tokyo is your start line in</p>
+
+    <!-- Numbers row -->
+    <div class="countdown__row">
+
+      <!-- Days -->
+      <div class="countdown__unit">
+        <span class="countdown__number" id="cd-days">000</span>
+        <span class="countdown__unit-label">Days</span>
       </div>
 
-      <!-- Map -->
-      <div class="contact__map">
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.385!2d106.8189!3d-6.2146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInNTIuNiJTIDEwNsKwNDknMDguMCJF!5e0!3m2!1sen!2sid!4v1710000000000"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen>
-        </iframe>
+      <!-- Separator -->
+      <span class="countdown__sep">:</span>
+
+      <!-- Hours -->
+      <div class="countdown__unit">
+        <span class="countdown__number" id="cd-hours">00</span>
+        <span class="countdown__unit-label">Hours</span>
       </div>
+
+      <!-- Separator -->
+      <span class="countdown__sep">:</span>
+
+      <!-- Minutes -->
+      <div class="countdown__unit">
+        <span class="countdown__number" id="cd-minutes">00</span>
+        <span class="countdown__unit-label">Minutes</span>
+      </div>
+
+      <!-- Separator -->
+      <span class="countdown__sep">:</span>
+
+      <!-- Seconds -->
+      <div class="countdown__unit">
+        <span class="countdown__number" id="cd-seconds">00</span>
+        <span class="countdown__unit-label">Seconds</span>
+      </div>
+
+    </div><!-- /.countdown__row -->
+  </div>
+
+  <div class="features">
+    <!-- Card 1 — Run for Charity -->
+    <article class="feature-card">
+      <div class="feature-card__body">
+        <h3 class="feature-card__title">Run for<br>Charity</h3>
+        <p class="feature-card__desc">We apply the Power of Right Action to your data. By integrating real-time tracking, we ensure that every athlete’s story is told </p>
+        <a href="#" class="feature-card__btn">
+          Learn More
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M4.5 9L7.5 6L4.5 3" stroke="#1D3C72" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="feature-card__media" style="background-image: url('assets/images/features/feature-1.jpg');"></div>
+    </article>
+
+    <!-- Card 2 — Participant Info -->
+    <article class="feature-card">
+      <div class="feature-card__body">
+        <h3 class="feature-card__title">Participant<br>Info</h3>
+        <p class="feature-card__desc">We apply the Power of Right Action to your data. By integrating real-time tracking, we ensure that every athlete's story is told</p>
+        <a href="#" class="feature-card__btn">
+          Learn More
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M4.5 9L7.5 6L4.5 3" stroke="#1D3C72" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="feature-card__media" style="background-image: url('assets/images/features/feature-2.jpg');"></div>
+    </article>
+
+    <!-- Card 3 — Searchable Result -->
+    <article class="feature-card">
+      <div class="feature-card__body">
+        <h3 class="feature-card__title">Searchable<br>Result</h3>
+        <p class="feature-card__desc">We apply the Power of Right Action to your data. By integrating real-time tracking, we ensure that every athlete’s story is told </p>
+        <a href="#" class="feature-card__btn">
+          Learn More
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M4.5 9L7.5 6L4.5 3" stroke="#1D3C72" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="feature-card__media" style="background-image: url('assets/images/features/feature-2.jpg');"></div>
+    </article>
+  </div>
+
+  <!-- Sponsors -->
+  <div class="sponsors">
+    <h4 class="sponsors__title">Sponsors By</h4>
+    <div class="sponsors__list">
+      <div class="sponsors__logo"><img src="/assets/images/sponsors/sponsor-1.png" alt="Sponsor 1"></div>
+      <div class="sponsors__logo"><img src="/assets/images/sponsors/sponsor-2.png" alt="Sponsor 2"></div>
+      <div class="sponsors__logo"><img src="/assets/images/sponsors/sponsor-3.png" alt="Sponsor 3"></div>
+      <div class="sponsors__logo"><img src="/assets/images/sponsors/sponsor-4.png" alt="Sponsor 4"></div>
+      <div class="sponsors__logo"><img src="/assets/images/sponsors/sponsor-5.png" alt="Sponsor 5"></div>
+      <div class="sponsors__logo"><img src="/assets/images/sponsors/sponsor-6.png" alt="Sponsor 6"></div>
     </div>
-
-    <!-- Right image -->
-    <div class="contact__media" style="background-image: url('/assets/images/img-contact.webp');"></div>
   </div>
 </section>
+
 <!-- ═══════════════════════════════════════════════════════
  FOOTER
 ═══════════════════════════════════════════════════════ -->
@@ -271,6 +356,66 @@
 
 <script src="./src/js/bootstrap.bundle.min.js"></script>
 <script src="./src/js/main.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const testimonialSwiper = new Swiper('.testimonial-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    breakpoints: {
+      0: {
+        spaceBetween: 16,
+      },
+      769: {
+        spaceBetween: 24,
+      }
+    },
+    navigation: {
+      prevEl: '.testimonial-nav-btn--prev',
+      nextEl: '.testimonial-nav-btn--next',
+    },
+  });
+
+  const momentsSwiper = new Swiper('.current-events-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    allowTouchMove: true,
+    navigation: {
+      prevEl: '.current-events-nav-btn--prev',
+      nextEl: '.current-events-nav-btn--next',
+    },
+  });
+</script>
+<script>
+  const TARGET_DATE = new Date('2026-10-18T00:00:00');
+
+  function updateCountdown() {
+    const now  = new Date();
+    const diff = TARGET_DATE - now;
+
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent    = '000';
+      document.getElementById('cd-hours').textContent   = '00';
+      document.getElementById('cd-minutes').textContent = '00';
+      document.getElementById('cd-seconds').textContent = '00';
+      return;
+    }
+
+    const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent    = String(days).padStart(3, '0');
+    document.getElementById('cd-hours').textContent   = String(hours).padStart(2, '0');
+    document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
-

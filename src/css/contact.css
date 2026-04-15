@@ -1,0 +1,248 @@
+.contact {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 168px 80px 128px;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.contact__title {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.contact__title-italic {
+  color: var(--dark-blue);
+  font-family: 'Libre Caslon Condensed', 'Instrument Serif', serif;
+  font-size: 64px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 110%;
+  text-transform: none;
+}
+
+.contact__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+/* ── Info card (left) ───────────────────────────── */
+.contact__card {
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex: 1 0 0;
+  min-width: 0;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--grey);
+}
+
+.contact__logo {
+  display: block;
+  height: auto;
+}
+
+.contact__address {
+  align-self: stretch;
+  margin: 0;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.449px;
+}
+
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.contact__link {
+  display: flex;
+  padding: 16px 0;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 8px;
+  color: var(--dark-blue);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.449px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+.contact__link svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.contact__map {
+  height: 316.395px;
+  align-self: stretch;
+  aspect-ratio: 168 / 97;
+  border-radius: 8px;
+  overflow: hidden;
+  background: lightgray;
+}
+
+.contact__map iframe,
+.contact__map img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+/* ── Image (right) ──────────────────────────────── */
+.contact__media {
+  flex: 1 0 0;
+  min-width: 0;
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: lightgray;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ──────────────────────────────────────────────────
+   TABLET (768 – 1199)
+   ────────────────────────────────────────────────── */
+@media (max-width: 1199.98px) {
+  .contact {
+    padding: 140px 40px 96px;
+    gap: 56px;
+  }
+
+  .contact__title,
+  .contact__title-italic {
+    font-size: 56px;
+  }
+
+  .contact__card {
+    padding: 32px;
+    gap: 32px;
+  }
+
+  .contact__media {
+    min-height: 600px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .contact {
+    padding: 120px 24px 80px;
+    gap: 48px;
+  }
+
+  .contact__title,
+  .contact__title-italic {
+    font-size: 48px;
+  }
+
+  .contact__content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact__card {
+    padding: 24px;
+    gap: 32px;
+    align-self: stretch;
+  }
+
+  .contact__media {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 500px;
+    min-height: 0;
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   MOBILE (≤ 767)
+   ────────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .contact {
+    padding: 128px 16px 80px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .contact__title,
+  .contact__title-italic {
+    font-size: 48px;
+    line-height: 110%;
+  }
+
+  .contact__content {
+    flex-direction: column;
+    gap: 24px;
+    align-self: stretch;
+  }
+
+  .contact__card {
+    padding: 16px;
+    gap: 24px;
+  }
+
+  .contact__address {
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.449px;
+  }
+
+  .contact__links {
+    gap: 8px;
+  }
+
+  .contact__link {
+    padding: 16px 0;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: -0.449px;
+  }
+
+  .contact__map {
+    height: 191.684px;
+    aspect-ratio: 168 / 97;
+  }
+
+  .contact__media {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 450px;
+    align-self: stretch;
+  }
+}

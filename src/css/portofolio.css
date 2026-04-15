@@ -1,0 +1,534 @@
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.current-events-section {
+  padding: 198px 80px 128px 80px;
+  gap: 48px;
+}
+
+.current-events-swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.current-events-swiper .swiper-slide {
+  width: 100%;
+}
+
+.current-events-slide {
+  width: 100%; /* tambah ini */
+  position: relative;
+  display: flex;
+  height: 650px;
+  padding: 40px;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-radius: 12px;
+  overflow: hidden;
+  box-sizing: border-box; /* tambah ini */
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+.current-events-section__header {
+  gap: 24px;
+}
+
+.current-events-section__title {
+  color: var(--dark-blue);
+  font-family: "Syne", sans-serif;
+  font-size: 80px;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -3.2px;
+  text-transform: uppercase;
+}
+
+.current-events-section__title--italic {
+  color: var(--dark-blue);
+  font-family: "Libre Caslon Condensed", serif;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: -3.2px;
+  text-transform: lowercase;
+}
+
+.current-events-section__subtitle {
+  width: 628px;
+  color: var(--dark-blue);
+  font-family: "Syne", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 130%;
+  margin: 0;
+}
+
+/* ─── Slide Card ────────────────────────────────────────── */
+.current-events-slide {
+  position: relative;
+  display: flex;
+  height: 650px;
+  padding: 40px;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: stretch;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.current-events-slide__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.current-events-slide__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.64) 37.5%, rgba(102, 102, 102, 0) 100%);
+  z-index: 1;
+}
+
+.current-events-slide__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── Slide Left ────────────────────────────────────────── */
+.current-events-slide__left {
+  display: flex;
+  width: 692px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.current-events-slide__text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.current-events-slide__title {
+  color: #FFF;
+  font-family: "Syne", sans-serif;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 110%;
+  text-transform: uppercase;
+  align-self: stretch;
+  margin: 0;
+}
+
+.current-events-slide__desc {
+  width: 649px;
+  color: #FFF;
+  font-family: "Syne", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.36px;
+  margin: 0;
+}
+
+/* ─── Slide Button ──────────────────────────────────────── */
+.current-events-slide__btn {
+  display: flex;
+  height: 48px;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid #FFF;
+  color: #FFF;
+  font-family: "Syne", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.current-events-slide__btn:hover {
+  color: #FFF;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Nav Arrows ────────────────────────────────────────── */
+.current-events-slider-wrapper {
+  position: relative;
+  align-self: stretch;
+}
+
+.current-events-slide__nav {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+  width: 140px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-events-slide__nav {
+  display: flex;
+  width: 140px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.current-events-slide__nav-btn {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: #FFF;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.current-events-slide__nav-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+
+/* ══════════════════════════════════════════════════════
+   Past Events Section
+   ══════════════════════════════════════════════════════ */
+
+/* ── Section wrapper ─────────────────────────────────── */
+.past-events-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 40px 80px 128px 80px;
+  width: 100%;
+  /*max-width: 1290px;*/
+  margin: 0 auto;
+}
+
+/* ── Section title ───────────────────────────────────── */
+.past-events-section__title {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  align-self: stretch;
+}
+
+.past-events-section__title--bold {
+  color: var(--dark-blue, #1D3C72);
+  font-family: 'Syne', sans-serif;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -4px;
+  text-transform: uppercase;
+}
+
+.past-events-section__title--italic {
+  color: var(--dark-blue, #1D3C72);
+  font-family: 'Libre Caslon Condensed', serif;
+  font-size: 100px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: -4px;
+}
+
+/* ── Cards grid ──────────────────────────────────────── */
+.past-events-grid {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 14px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+/* ── Single event card ───────────────────────────────── */
+.past-events-card {
+  display: flex;
+  width: 638px;
+  height: 500px;
+  padding: 24px;
+  align-items: flex-end;
+  gap: 10px;
+  border-radius: 12px;
+  background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.64) 37.5%,
+          rgba(102, 102, 102, 0.00) 100%
+  ), lightgray center / cover no-repeat;
+  background-size: cover;
+  background-position: center;
+  flex: 1 1 calc(50% - 7px);
+  min-width: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Card inner content ──────────────────────────────── */
+.past-events-card__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
+  border-radius: 8px;
+}
+
+/* ── Card header (title + badge) ─────────────────────── */
+.past-events-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.past-events-card__name {
+  align-self: stretch;
+  color: var(--white, #FFF);
+  font-family: 'Syne', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+/* ── Year badge ──────────────────────────────────────── */
+.past-events-card__badge {
+  display: inline-flex;
+  height: 28px;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 9999px;
+  background: var(--grey, #F5F5F5);
+}
+
+.past-events-card__badge-text {
+  color: var(--dark-blue, #1D3C72);
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.24px;
+}
+
+/* ── Card description ────────────────────────────────── */
+.past-events-card__desc {
+  align-self: stretch;
+  color: var(--white, #FFF);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.32px;
+}
+
+/* ── Learn more button ───────────────────────────────── */
+.past-events-card__btn {
+  display: inline-flex;
+  height: 32px;
+  padding: 6.667px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 6.667px;
+  border-radius: 8px;
+  border: 0.667px solid var(--white, #FFF);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.past-events-card__btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.past-events-card__btn-text {
+  color: #FFF;
+  font-family: 'Syne', sans-serif;
+  font-size: 9.333px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.187px;
+  text-transform: uppercase;
+}
+
+.past-events-card__btn svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .current-events-section {
+    padding: 128px 16px 40px 16px;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .current-events-section__header {
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .current-events-section__title {
+    font-size: 32px;
+    letter-spacing: -1.28px;
+  }
+
+  .current-events-section__title--italic {
+    font-size: 32px;
+    letter-spacing: -1.28px;
+  }
+
+  .current-events-section__subtitle {
+    width: auto;
+    font-size: 16px;
+    align-self: stretch;
+  }
+
+  .current-events-slide {
+    height: 400px;
+    padding: 16px;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .current-events-slide__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .current-events-slide__left {
+    width: auto;
+    align-self: stretch;
+  }
+
+  .current-events-slide__title {
+    font-size: 28px;
+  }
+
+  .current-events-slide__desc {
+    width: auto;
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    align-self: stretch;
+  }
+
+  .current-events-slide__btn {
+    height: 32px;
+    padding: 6.667px 16px;
+    gap: 6.667px;
+    border-radius: 8px;
+    border-width: 0.667px;
+    font-size: 9.333px;
+    letter-spacing: 0.187px;
+  }
+
+  .current-events-slide__btn svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .current-events-slide__nav {
+    display: none;
+  }
+
+
+  .past-events-section {
+    padding: 40px 16px 80px 16px;
+    gap: 40px;
+  }
+
+  .past-events-section__title--bold {
+    font-size: 32px;
+    letter-spacing: -1.28px;
+  }
+
+  .past-events-section__title--italic {
+    font-size: 32px;
+    letter-spacing: -1.28px;
+  }
+
+  .past-events-grid {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .past-events-card {
+    width: 100%;
+    height: 400px;
+    padding: 16px;
+    flex: unset;
+    align-items: flex-end;
+  }
+
+  .past-events-card__inner {
+    gap: 16px;
+  }
+
+  .past-events-card__header {
+    gap: 16px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .past-events-card__name {
+    font-size: 24px;
+  }
+
+  .past-events-card__badge {
+    height: 18px;
+    padding: 10px 12px;
+  }
+
+  .past-events-card__desc {
+    font-size: 14px;
+    letter-spacing: -0.28px;
+  }
+
+  .past-events-card__btn {
+    height: 28px;
+    border-radius: 8px;
+    border-width: 0.667px;
+  }
+
+  .past-events-card__btn-text {
+    font-size: 9.333px;
+    letter-spacing: 0.187px;
+  }
+
+  .past-events-card__btn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
