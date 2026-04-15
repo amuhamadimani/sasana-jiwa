@@ -1563,7 +1563,7 @@ button:focus-visible {
 /* Mobile */
 @media (max-width: 768px) {
   .hero-section {
-    height: 600px;
+    height: 844px;
   }
 
   .hero-section__content {
