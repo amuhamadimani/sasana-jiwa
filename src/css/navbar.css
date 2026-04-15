@@ -16,10 +16,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 16px;
+  padding: 16px;
   /* smooth bg, shadow, AND color transitions */
   transition: background-color .3s ease, box-shadow .3s ease, color .3s ease;
+  overflow: hidden;
 }
+
+/* Logo anchor wrapper */
+.nav-logo-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;   /* jangan menyusut di flex parent */
+  line-height: 0;   /* hilangkan ghost whitespace dari inline */
+}
+
+/* Container kiri (logo + nav links) */
+.navbar-sj > div:first-child {
+  flex-shrink: 0;   /* ← ini yang cegah dia "makan" ruang tengah */
+}
+
 @media (max-width: 767.98px) {
   .navbar-sj { width: calc(100% - 32px); top: 16px; }
 }
@@ -31,7 +46,13 @@
 .navbar-sj.navbar-light { background: #fff; box-shadow: 0 0 16px rgba(0,0,0,.08); }
 
 /* ── Logo swap ───────────────────────────────────── */
-.nav-logo              { display: block; height: 48px; max-height: 48px; }
+.nav-logo {
+  display: block;
+  height: 48px;
+  max-height: 48px;
+  width: auto;
+  flex-shrink: 0;
+}
 .navbar-dark  .nav-logo-white { display: block; }
 .navbar-dark  .nav-logo-navy  { display: none; }
 .navbar-light .nav-logo-white { display: none; }
