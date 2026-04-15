@@ -8,429 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Libre+Caslon+Condensed:ital@1&family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/bootstrap.min.css">
-
-  <style>
-    /* ── Brand tokens ────────────────────────────────── */
-    :root {
-      --sj-navy:   #1D3C72;
-      --sj-orange: #FF8700;
-      --sj-grey:   #F5F5F5;
-      --sj-dark:   #111111;
-    }
-
-    /* ── Base ───────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; }
-    body { font-family: 'Syne', sans-serif; color: var(--sj-navy); overflow-x: hidden; }
-    a    { text-decoration: none; }
-    img  { display: block; }
-
-    /* ── Font helpers ───────────────────────────────── */
-    .font-inter   { font-family: 'Inter', sans-serif; }
-    .font-caslon  { font-family: 'Libre Caslon Condensed', serif; font-style: italic; font-weight: 400; }
-
-    /* ── Spacing util ───────────────────────────────── */
-    .container-sj { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; }
-    .px-section   { padding-left: 80px; padding-right: 80px; }
-    .py-section   { padding-top: 128px; padding-bottom: 128px; }
-    @media (max-width: 991.98px) {
-      .px-section { padding-left: 24px; padding-right: 24px; }
-      .py-section { padding-top: 80px;  padding-bottom: 80px; }
-    }
-    @media (max-width: 767.98px) {
-      .px-section { padding-left: 20px; padding-right: 20px; }
-      .py-section { padding-top: 60px;  padding-bottom: 60px; }
-    }
-
-    /* ── Navbar ─────────────────────────────────────── */
-    .navbar-sj {
-      position: fixed;
-      top: 24px; left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 160px);
-      max-width: 1280px;
-      border-radius: 4px;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 16px;
-      height: 64px;
-      transition: background-color .3s, box-shadow .3s;
-    }
-    @media (max-width: 767.98px) {
-      .navbar-sj { width: calc(100% - 32px); top: 16px; }
-    }
-    .navbar-sj.navbar-light { background: #fff; box-shadow: 0 0 16px rgba(0,0,0,.08); }
-    .navbar-sj.navbar-dark  { background: transparent; box-shadow: none; }
-    /* -- Product dropdown ---------------------------------------------- */
-    .products-menu {
-      position: fixed;
-      top: calc(24px + 64px + 8px); left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 160px); max-width: 1280px;
-      background: #fff; border-radius: 4px;
-      box-shadow: 0 0 16px rgba(0,0,0,.08);
-      padding: 16px; display: flex; gap: 24px;
-      z-index: 998;
-    }
-    @media (max-width: 767.98px) {
-      .products-menu { top: calc(16px + 64px + 8px); width: calc(100% - 32px); flex-direction: column; gap: 16px; }
-    }
-    .products-menu-item {
-      display: flex; align-items: center; gap: 16px;
-      flex: 1; text-decoration: none; padding: 8px;
-      border-radius: 4px; transition: background .15s;
-    }
-    .products-menu-item:hover { background: var(--sj-grey); }
-    .products-menu-item img {
-      width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
-    }
-    .products-menu-item .pm-title {
-      font-family: 'Syne', sans-serif; font-weight: 500;
-      font-size: 14px; text-transform: uppercase; letter-spacing: .28px;
-      color: var(--sj-navy); margin: 0 0 4px;
-    }
-    .products-menu-item .pm-link {
-      font-family: 'Syne', sans-serif; font-weight: 400;
-      font-size: 12px; text-transform: uppercase; letter-spacing: .24px;
-      color: var(--sj-navy); text-decoration: underline;
-    }
-    .prod-chevron { transition: transform .2s; }
-    .prod-chevron.open { transform: rotate(180deg); }
-    .btn-prod-toggle {
-      background: transparent; border: 0; padding: 0;
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 0 16px; height: 48px;
-      font-family: 'Syne', sans-serif; font-weight: 500;
-      font-size: 14px; letter-spacing: .28px; text-transform: uppercase;
-      white-space: nowrap; cursor: pointer; transition: color .2s;
-    }
-    .navbar-light .btn-prod-toggle { color: var(--sj-navy); }
-    .navbar-dark  .btn-prod-toggle { color: #fff; }
-    .btn-prod-toggle:hover { color: var(--sj-orange); }
-    .nav-link-sj {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 0 16px; height: 48px;
-      font-family: 'Syne', sans-serif; font-weight: 500;
-      font-size: 14px; letter-spacing: .28px; text-transform: uppercase;
-      white-space: nowrap; text-decoration: none; transition: color .2s;
-    }
-    .navbar-light .nav-link-sj { color: var(--sj-navy); }
-    .navbar-dark  .nav-link-sj { color: #fff; }
-    .nav-link-sj:hover         { color: var(--sj-orange); }
-    .nav-link-sj.active        { color: var(--sj-orange) !important; }
-    .nav-logo { display: block; height: 48px; max-height: 48px; }
-    @media (max-width: 767.98px) { .nav-logo { height: 36px; max-height: 36px; } }
-    .navbar-light .nav-logo-white { display: none; }
-    .navbar-dark  .nav-logo-white { display: block; }
-    .navbar-light .nav-logo-navy  { display: block; }
-    .navbar-dark  .nav-logo-navy  { display: none; }
-    .btn-nav-cta {
-      display: inline-flex; align-items: center; justify-content: center;
-      height: 48px; padding: 0 24px;
-      font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 500;
-      letter-spacing: .28px; text-transform: uppercase; white-space: nowrap;
-      border: none; border-radius: 12px; cursor: pointer;
-      transition: opacity .2s; text-decoration: none;
-    }
-    .btn-nav-cta:hover { opacity: .85; }
-    .navbar-light .btn-nav-cta { background: var(--sj-navy); color: #fff; }
-    .navbar-light .btn-nav-cta:hover { color: #fff; }
-    .navbar-dark  .btn-nav-cta { background: #fff; color: var(--sj-navy); }
-    .navbar-dark  .btn-nav-cta:hover { color: var(--sj-navy); }
-    .nav-hamburger { background: transparent; border: 0; padding: 4px; cursor: pointer; }
-    .navbar-light .nav-hamburger { color: var(--sj-navy); }
-    .navbar-dark  .nav-hamburger { color: #fff; }
-
-    /* ── Buttons ─────────────────────────────────────── */
-    .btn-sj {
-      display: inline-flex; align-items: center; justify-content: center;
-      height: 48px; padding: 0 24px;
-      font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 400;
-      letter-spacing: .28px; text-transform: uppercase; white-space: nowrap;
-      border: none; border-radius: 4px; cursor: pointer;
-      transition: opacity .2s; color: inherit; text-decoration: none;
-    }
-    .btn-sj:hover { opacity: .85; color: inherit; }
-    .btn-sj-orange { background: var(--sj-orange); color: #fff; }
-    .btn-sj-orange:hover { color: #fff; }
-    .btn-sj-navy   { background: var(--sj-navy);   color: #fff; }
-    .btn-sj-navy:hover { color: #fff; }
-    .btn-sj-white  { background: #fff; color: var(--sj-navy); }
-    .btn-sj-white:hover { color: var(--sj-navy); }
-    .btn-sj-outline-white {
-      background: transparent; color: #fff;
-      border: 1px solid rgba(255,255,255,.8);
-      border-radius: 12px;
-    }
-    .btn-sj-outline-white:hover { background: rgba(255,255,255,.1); opacity: 1; color: #fff; }
-
-    /* ── Mobile menu ─────────────────────────────────── */
-    .mobile-overlay  { position: fixed; inset: 0; z-index: 999; }
-    .mobile-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
-    .mobile-panel {
-      position: absolute; top: 76px; left: 50%; transform: translateX(-50%);
-      width: calc(100% - 32px); max-width: 480px;
-      background: #fff; border-radius: 4px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.12);
-      overflow: hidden;
-    }
-    .mobile-nav-link {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 56px; padding: 0; border-bottom: 1px solid var(--sj-grey);
-      font-family: 'Syne', sans-serif; font-weight: 500;
-      font-size: 14px; letter-spacing: .28px; text-transform: uppercase;
-      color: var(--sj-navy);
-    }
-    .mobile-nav-link:hover { color: var(--sj-orange); }
-
-    /* ── HERO ────────────────────────────────────────── */
-    .hero-section {
-      position: relative; overflow: hidden;
-      height: 100vh; min-height: 560px;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 110%;
-      object-fit: cover; object-position: top;
-    }
-    /* LIVE text elements – absolute positioned per Figma percentages */
-    .hero-live-1 {
-      position: absolute;
-      left: 13.2%;   /* calc(8.33% + 69px) / 1440 */
-      top: 28.9%;    /* 243px / 840 */
-      font-family: 'Syne', sans-serif; font-weight: 500;
-      font-size: clamp(52px, 7vw, 100px);
-      letter-spacing: .05em; line-height: 1;
-      color: #fff; white-space: nowrap;
-    }
-    .hero-subtitle {
-      position: absolute;
-      left: 13.2%; top: 42.3%; /* 356/840 */
-      font-family: 'Syne', sans-serif; font-weight: 500;
-      font-size: clamp(14px, 1.4vw, 20px);
-      color: #fff; line-height: 1.5;
-      max-width: min(255px, 18vw);
-    }
-    .hero-for {
-      position: absolute;
-      left: 64.2%;  /* calc(66.67% - 35px) */
-      top: 67.9%;   /* 571/840 */
-      font-family: 'Instrument Serif', serif; font-style: italic;
-      font-size: clamp(36px, 4.4vw, 64px);
-      letter-spacing: .05em; line-height: 1;
-      color: #fff; white-space: nowrap;
-    }
-    .hero-live-2 {
-      position: absolute;
-      left: 72.1%;  /* calc(75% - 41px) */
-      top: 77%;     /* 647/840 */
-      font-family: 'Syne', sans-serif; font-weight: 500;
-      font-size: clamp(52px, 7vw, 100px);
-      letter-spacing: .05em; line-height: 1;
-      color: #fff; white-space: nowrap;
-    }
-    /* Mobile: simplify hero text to a flow layout */
-    @media (max-width: 767.98px) {
-      .hero-live-1, .hero-subtitle, .hero-for, .hero-live-2 { display: none; }
-      .hero-mobile-text { display: flex !important; }
-    }
-    .hero-mobile-text {
-      display: none;
-      position: absolute; inset: 0;
-      flex-direction: column; justify-content: flex-end;
-      padding: 0 24px 60px;
-    }
-
-    /* ── POWER section ───────────────────────────────── */
-    .power-section { background: var(--sj-navy); overflow: hidden; }
-
-    /* Circle portraits staggered row */
-    .portraits-container {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 0;
-      margin-bottom: 64px;
-      position: relative;
-    }
-    .portrait-img {
-      width: 137px; height: 137px;
-      border-radius: 50%;
-      object-fit: cover; object-position: top;
-      flex-shrink: 0;
-      position: relative;
-    }
-    /* Stagger: heights from Figma (mt values): 298, 112, 0 → translate down 298 and 112 */
-    .portrait-img:nth-child(1) { transform: translateY(0);    margin-right: -10px; z-index:3; }
-    .portrait-img:nth-child(2) { transform: translateY(-110px); margin-right: -10px; z-index:4; }
-    .portrait-img:nth-child(3) { transform: translateY(-180px); margin-right: 80px;  z-index:5; }
-    .portrait-img:nth-child(4) { transform: translateY(-180px); margin-left:  80px;  z-index:5; }
-    .portrait-img:nth-child(5) { transform: translateY(-110px); margin-left: -10px;  z-index:4; }
-    .portrait-img:nth-child(6) { transform: translateY(0);    margin-left: -10px;  z-index:3; }
-    @media (max-width: 991.98px) {
-      .portrait-img { width: 100px; height: 100px; }
-      .portrait-img:nth-child(2), .portrait-img:nth-child(5) { transform: translateY(-70px); }
-      .portrait-img:nth-child(3), .portrait-img:nth-child(4) { transform: translateY(-120px); margin-left: 40px; margin-right: 40px; }
-      .portraits-container { margin-bottom: 48px; }
-    }
-    @media (max-width: 767.98px) {
-      .portrait-img { width: 72px; height: 72px; }
-      .portrait-img:nth-child(2), .portrait-img:nth-child(5) { transform: translateY(-40px); }
-      .portrait-img:nth-child(3), .portrait-img:nth-child(4) { transform: translateY(-80px); margin-left: 20px; margin-right: 20px; }
-      .portraits-container { margin-bottom: 32px; }
-    }
-
-    /* ── DELIVERING cards ────────────────────────────── */
-    .service-card {
-      position: relative;
-      height: 700px; border-radius: 12px; overflow: hidden;
-      display: flex; flex-direction: column; justify-content: space-between;
-      padding: 40px;
-    }
-    @media (max-width: 991.98px) { .service-card { height: 450px; padding: 24px; } }
-    @media (max-width: 767.98px) { .service-card { height: 480px; padding: 20px; } }
-    .service-card-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover; z-index: 0;
-    }
-    .service-card-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to top, rgba(0,0,0,.4) 30%, rgba(102,102,102,0) 100%);
-    }
-    .service-card-inner { position: relative; z-index: 2; }
-    .service-card-title {
-      font-family: 'Syne', sans-serif; font-weight: 700;
-      font-size: clamp(28px, 4vw, 48px); line-height: 1.1;
-      color: #fff; text-transform: uppercase;
-    }
-
-    /* ── PORTFOLIO / Moments ─────────────────────────── */
-    .portfolio-img-wrap {
-      position: relative;
-      height: 650px; border-radius: 12px; overflow: hidden;
-    }
-    @media (max-width: 767.98px) { .portfolio-img-wrap { height: 400px; } }
-    .portfolio-img-wrap img.bg-img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .portfolio-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.64) 37.5%, transparent);
-    }
-    .portfolio-content {
-      position: absolute; bottom: 40px; left: 40px;
-      max-width: 640px;
-    }
-    @media (max-width: 767.98px) { .portfolio-content { bottom: 20px; left: 20px; right: 20px; } }
-    .carousel-btn {
-      width: 64px; height: 64px; border-radius: 50%; border: none; flex-shrink: 0;
-      display: inline-flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: opacity .2s;
-    }
-    .carousel-btn:hover { opacity: .8; }
-    @media (max-width: 767.98px) { .carousel-btn { width: 44px; height: 44px; } }
-    .carousel-indicators, .carousel-control-prev, .carousel-control-next { display: none !important; }
-
-    /* ── Tags ─────────────────────────────────────────── */
-    .tag-pill {
-      display: inline-flex; align-items: center;
-      background: var(--sj-grey); border-radius: 9999px;
-      padding: 2px 16px; height: 28px;
-      font-size: 12px; letter-spacing: .24px;
-      color: var(--sj-navy); white-space: nowrap;
-    }
-
-    /* ── Expertise icons ─────────────────────────────── */
-    .expertise-icon {
-      width: 80px; height: 80px; border-radius: 9999px;
-      background: var(--sj-navy);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    @media (max-width: 991.98px) { .expertise-icon { width: 48px; height: 48px; } }
-    @media (max-width: 991.98px) { .expertise-icon img { width: 20px; height: 20px; } }
-    @media (max-width: 767.98px) { .expertise-icon { width: 48px; height: 48px; } }
-    .expertise-grid .d-flex { gap: 40px; }
-    @media (max-width: 991.98px) { .expertise-grid .d-flex { gap: 24px; } }
-
-    /* ── Testimonial cards ───────────────────────────── */
-    .testimonial-card {
-      background: var(--sj-grey); border-radius: 8px;
-      padding: 40px;
-      display: flex; flex-direction: column; gap: 40px;
-    }
-    @media (max-width: 991.98px) { .testimonial-card { padding: 28px; gap: 28px; } }
-    @media (max-width: 767.98px) { .testimonial-card { padding: 20px; gap: 20px; } }
-    .testimonial-quote {
-      font-size: clamp(16px, 1.8vw, 24px);
-      line-height: 1.5; letter-spacing: -.48px;
-      color: var(--sj-navy); font-weight: 400;
-    }
-
-    /* ── CTA ──────────────────────────────────────────── */
-    .cta-wrap {
-      position: relative; border-radius: 12px; overflow: hidden;
-      min-height: 700px;
-      display: flex; align-items: center; justify-content: center;
-      padding: 80px 40px;
-    }
-    @media (max-width: 767.98px) { .cta-wrap { min-height: 480px; padding: 60px 24px; } }
-    .cta-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .cta-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.24); }
-    .cta-content { position: relative; z-index: 1; max-width: 780px; text-align: center; }
-
-    /* ── Footer ───────────────────────────────────────── */
-    footer .footer-link {
-      font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 400;
-      color: #fff; transition: opacity .2s;
-    }
-    footer .footer-link:hover { opacity: .6; }
-    .social-box {
-      width: 38px; height: 38px; border-radius: 8px;
-      background: #fff;
-      display: inline-flex; align-items: center; justify-content: center;
-      transition: background .2s;
-    }
-    .social-box:hover { background: rgba(255,255,255,.85); }
-    .social-box img { width: 15px; height: 15px; object-fit: contain; }
-
-    /* ── Mixed headings ──────────────────────────────── */
-    /* Used everywhere: "Delivering the / right message" style */
-    .mixed-heading {
-      font-family: 'Syne', sans-serif; font-weight: 500;
-      font-size: clamp(40px, 6vw, 80px);
-      line-height: 1.1; letter-spacing: -3.2px; text-transform: uppercase;
-    }
-    @media (max-width: 767.98px) { .mixed-heading { letter-spacing: -1.6px; } }
-    .mixed-heading .italic-line {
-      font-family: 'Libre Caslon Condensed', serif;
-      font-style: italic; font-weight: 400;
-    }
-    .mixed-heading .lower-line { text-transform: none; }
-
-    /* ── Color utilities ─────────────────────────── */
-    .text-navy   { color: var(--sj-navy)   !important; }
-    .text-orange { color: var(--sj-orange) !important; }
-    .bg-sj-grey  { background-color: var(--sj-grey) !important; }
-
-    /* ── Component helpers ───────────────────────── */
-    .testimonial-author {
-      font-weight: 700; font-size: 18px; line-height: 1.1;
-      text-transform: uppercase; color: var(--sj-navy); margin-bottom: 0;
-    }
-    .portfolio-title {
-      font-weight: 500; line-height: 1.1;
-      font-size: clamp(28px, 4vw, 48px);
-      text-transform: uppercase; color: #fff; margin-bottom: 1rem;
-    }
-  </style>
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/navbar.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
-<body>
+<body class="page-home">
 
 <!-- ═══════════════════════════════════════════════════════
      NAVBAR
@@ -512,80 +95,6 @@
   </div>
 </div>
 
-<script>
-  (function(){
-    var t=document.getElementById('nav-toggle'), m=document.getElementById('mobile-menu'),
-        b=document.getElementById('m-backdrop'), io=document.getElementById('ic-open'), ic=document.getElementById('ic-close');
-    function open(){  m.classList.remove('d-none'); io.classList.add('d-none');    ic.classList.remove('d-none'); t.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; closeProducts(); }
-    function close(){ m.classList.add('d-none');    io.classList.remove('d-none'); ic.classList.add('d-none');    t.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-    t.addEventListener('click',function(){ m.classList.contains('d-none')?open():close(); });
-    b.addEventListener('click',close);
-    document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ close(); closeProducts(); } });
-  })();
-</script>
-
-<script>
-  (function(){
-    var nav = document.getElementById('main-nav');
-    function updateNav() {
-      if (window.scrollY > 60) {
-        nav.classList.replace('navbar-dark', 'navbar-light');
-      } else {
-        nav.classList.replace('navbar-light', 'navbar-dark');
-      }
-    }
-    window.addEventListener('scroll', updateNav, { passive: true });
-  })();
-</script>
-
-<script>
-  (function(){
-    var btn    = document.getElementById('prod-toggle');
-    var menu   = document.getElementById('products-menu');
-    var chev   = btn ? btn.querySelector('.prod-chevron') : null;
-    var mBtn   = document.getElementById('m-prod-toggle');
-    var mSub   = document.getElementById('m-products-sub');
-    var mChev  = mBtn ? mBtn.querySelector('.prod-chevron') : null;
-
-    function closeProducts() {
-      if (menu)  menu.classList.add('d-none');
-      if (chev)  chev.classList.remove('open');
-    }
-    window.closeProducts = closeProducts;
-
-    if (btn) {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var isOpen = !menu.classList.contains('d-none');
-        if (isOpen) {
-          closeProducts();
-        } else {
-          menu.classList.remove('d-none');
-          chev.classList.add('open');
-        }
-      });
-    }
-
-    if (mBtn) {
-      mBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var isOpen = !mSub.classList.contains('d-none');
-        mSub.classList.toggle('d-none', isOpen);
-        mSub.style.display = isOpen ? 'none' : 'flex';
-        if (mChev) mChev.classList.toggle('open', !isOpen);
-      });
-    }
-
-    document.addEventListener('click', function(e) {
-      if (menu && !menu.classList.contains('d-none')) {
-        if (!menu.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
-          closeProducts();
-        }
-      }
-    });
-  })();
-</script>
-
 
 <!-- ═══════════════════════════════════════════════════════
      HERO  — "LIVE for LIVE"
@@ -593,112 +102,138 @@
 <section class="hero-section">
   <picture>
     <source media="(max-width: 767px)" srcset="/assets/images/img-header-mobile.webp">
-    <img src="/assets/images/img-header.webp" alt="" class="hero-bg">
+    <img src="/assets/images/img-header.webp" alt="" class="hero-section__img">
   </picture>
+  <div class="hero-section__overlay"></div>
+
+  <!--  <div class="hero-section__content d-flex flex-column align-items-start">-->
+  <!--    <div class="hero-section__heading">-->
+  <!--      <span class="hero-section__title">The Power of </span>-->
+  <!--      <span class="hero-section__title&#45;&#45;italic">right action</span>-->
+  <!--    </div>-->
+  <!--    <p class="hero-section__subtitle">-->
+  <!--      We exist to bring balance and achievement to every dimension of life.-->
+  <!--    </p>-->
+  <!--    <a href="#" class="hero-section__btn">-->
+  <!--      Explore More-->
+  <!--      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">-->
+  <!--        <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>-->
+  <!--      </svg>-->
+  <!--    </a>-->
+  <!--  </div>-->
 </section>
 
 
 <!-- ═══════════════════════════════════════════════════════
      THE POWER OF RIGHT ACTION
 ═══════════════════════════════════════════════════════ -->
-<section class="px-section" style="background-image:url('/assets/images/img-bg-overview.webp');background-size:cover;background-position:center top;padding-top:200px;padding-bottom:400px;">
-  <div class="container-sj">
-    <!-- 6 circle portraits staggered -->
-    <div class="portraits-container" style="display: none;">
-      <img src="/assets/images/img-circle-potrait-6webp.webp" alt="" class="portrait-img">
-      <img src="/assets/images/img-circle-potrait-5.webp"     alt="" class="portrait-img">
-      <img src="/assets/images/img-circle-timing.webp"     alt="" class="portrait-img">
-      <img src="/assets/images/img-circle-event.webp"     alt="" class="portrait-img">
-      <img src="/assets/images/img-circle-potrait-2.webp"     alt="" class="portrait-img">
-      <img src="/assets/images/img-circle-potrait-1.webp"     alt="" class="portrait-img">
-    </div>
+<section class="power-section">
 
-    <!-- Centred heading + body -->
-    <div class="text-center mx-auto" style="max-width:626px;">
-      <h2 class="mixed-heading text-white mb-4">
-        the power of<br>
-        <span class="italic-line lower-line">right action</span>
-      </h2>
-      <p style="font-size:18px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.9);margin:0;">
-        We exist to bring balance and achievement to every dimension of life. Sport, music, and
-        self-love aren't extras — they're the pillars that give life direction. Our vision is to
-        honor that truth by building a lasting legacy, one individual story at a time.
-      </p>
-    </div>
+  <!-- Background -->
+  <div class="power-section__bg"></div>
+
+  <!-- Circle Images — Desktop (arc) -->
+  <div class="power-section__circles d-none d-md-block">
+    <img src="/assets/images/img-circle-potrait-6webp.webp" alt="" class="power-circle power-circle--1">
+    <img src="/assets/images/img-circle-potrait-5.webp" alt="" class="power-circle power-circle--2">
+    <img src="/assets/images/img-circle-timing.webp" alt="" class="power-circle power-circle--3">
+    <img src="/assets/images/img-circle-event.webp" alt="" class="power-circle power-circle--4">
+    <img src="/assets/images/img-circle-potrait-2.webp" alt="" class="power-circle power-circle--5">
+    <img src="/assets/images/img-circle-potrait-1.webp" alt="" class="power-circle power-circle--6">
   </div>
+
+  <!-- Circle Images — Mobile (row) -->
+  <div class="power-section__circles-mobile d-flex d-md-none">
+    <img src="/assets/images/img-circle-potrait-1.webp" alt="" class="power-circle-mobile">
+    <img src="/assets/images/img-circle-potrait-1.webp" alt="" class="power-circle-mobile">
+    <img src="/assets/images/img-circle-potrait-1.webp" alt="" class="power-circle-mobile">
+  </div>
+
+  <!-- Text -->
+  <div class="power-section__text d-flex flex-column align-items-center">
+    <div class="power-section__heading text-center">
+      <span class="power-section__title">The Power of </span>
+      <span class="power-section__title--italic">right action</span>
+    </div>
+    <p class="power-section__subtitle">
+      We exist to bring balance and achievement to every dimension of life.
+      Sport, music, and self-love aren't extras — they're the pillars that give
+      life direction. Our vision is to honor that truth by building a lasting
+      legacy, one individual story at a time.
+    </p>
+  </div>
+
 </section>
 
 
 <!-- ═══════════════════════════════════════════════════════
      DELIVERING THE RIGHT MESSAGE
 ═══════════════════════════════════════════════════════ -->
-<section class="bg-white py-section px-section">
-  <div class="container-sj">
-
-    <!-- centred section header -->
-    <div class="text-center mx-auto mb-5 text-navy" style="max-width:628px;">
-      <h2 class="mixed-heading mb-4">
-        Delivering the<br>
-        <span class="italic-line lower-line">right message</span>
-      </h2>
-      <p style="font-size:18px;font-weight:500;line-height:1.5;margin:0;">
-        We embrace the "Flow State," where every movement feels natural and peak. Using our
-        health, beauty, sport, and music expertise, we help you align mind and body to boost
-        focus and ease stress.
-      </p>
+<section class="delivering-section d-flex flex-column align-self-stretch">
+  <div class="delivering-section__inner d-flex flex-column justify-content-center align-items-center w-100">
+    <div class="d-flex flex-column">
+      <h1 class="delivering-section__title text-center text-uppercase m-0">Delivering the</h1>
+      <h1 class="delivering-section__title--italic text-center m-0">right message</h1>
     </div>
+    <p class="delivering-section__subtitle text-center m-0">
+      We embrace the "Flow State," where every movement feels natural and peak. Using our health, beauty, sport, and music expertise, we help you align mind and body to boost focus and ease stress.
+    </p>
+  </div>
 
-    <!-- Two service cards -->
-    <div class="row g-4">
-      <!-- Event Management -->
-      <div class="col-12 col-md-6">
-        <div class="service-card">
-          <img src="/assets/images/img-event-management.webp" alt="" class="service-card-bg">
-          <div class="service-card-overlay"></div>
-          <div class="service-card-inner">
-            <p class="service-card-title mb-0">
-              Event<br><span class="font-caslon" style="font-size:.95em;">management</span>
-            </p>
-          </div>
-          <div class="service-card-inner d-flex flex-column gap-3" style="max-width:479px;">
-            <p style="font-size:14px;font-weight:500;line-height:1.5;color:#fff;margin:0;">
-              We bring the right people together to create high-awareness company events that
-              resonate with your target audience. From conceptualization to execution, we ensure
-              every activation reflects your brand's mission with elegance and agility.
-            </p>
-            <a href="#" class="btn-sj btn-sj-outline-white align-self-start d-inline-flex align-items-center gap-2">
-              Learn More
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-            </a>
-          </div>
-        </div>
+  <div class="service-cards d-flex flex-column">
+    <div class="service-card">
+      <img src="/assets/images/img-event-management.webp" alt="Event Management" class="service-card__img">
+      <div class="service-card__overlay"></div>
+      <div class="service-card__header">
+        <h2 class="service-card__title">Event</h2>
+        <h2 class="service-card__title--italic">management</h2>
       </div>
-
-      <!-- Timing System -->
-      <div class="col-12 col-md-6">
-        <div class="service-card">
-          <img src="/assets/images/img-timing-system.webp" alt="" class="service-card-bg">
-          <div class="service-card-overlay"></div>
-          <div class="service-card-inner">
-            <p class="service-card-title mb-0">
-              Timing<br><span class="font-caslon" style="font-size:.95em;">system provider</span>
-            </p>
-          </div>
-          <div class="service-card-inner d-flex flex-column gap-3" style="max-width:479px;">
-            <p style="font-size:14px;font-weight:500;line-height:1.5;color:#fff;margin:0;">
-              Providing the right results for your sporting events. Our advanced timing systems
-              ensure accuracy and reliability, allowing athletes to focus entirely on achieving
-              their personal flow state.
-            </p>
-            <a href="#" class="btn-sj btn-sj-outline-white align-self-start d-inline-flex align-items-center gap-2">
-              Learn More
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-            </a>
-          </div>
-        </div>
+      <div class="service-card__body">
+        <p class="service-card__desc">Access the same precision tools used in global marathons and elite wellness activations. From advanced timing technology to professional audio and recovery setups, we provide the industrial-grade equipment required to turn your vision into a legacy</p>
+        <a href="#" class="service-card__btn">
+          Learn More
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
 
+    <div class="service-card">
+      <img src="/assets/images/img-timing-system.webp" alt="Timing System Provider" class="service-card__img">
+      <div class="service-card__overlay"></div>
+      <div class="service-card__header">
+        <h2 class="service-card__title">Timing</h2>
+        <h2 class="service-card__title--italic">system provider</h2>
+      </div>
+      <div class="service-card__body">
+        <p class="service-card__desc">We equip your event with high-performance gear for sport, music, and wellness. Whether you need world-class timing hardware or premium audio systems, our rental inventory ensures every activation is executed with the Power of Right Action.</p>
+        <a href="#" class="service-card__btn">
+          Learn More
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="/assets/images/img-equipment-rental.png" alt="Equipment Rental" class="service-card__img">
+      <div class="service-card__overlay"></div>
+      <div class="service-card__header">
+        <h2 class="service-card__title">Equipment</h2>
+        <h2 class="service-card__title--italic">rental</h2>
+      </div>
+      <div class="service-card__body">
+        <p class="service-card__desc">Life without the right tools has no direction. We provide a curated selection of elite sporting and wellness equipment designed to support "Good Life and Good Live". Gear up with the professional standards trusted by global race directors and luxury hospitality groups.</p>
+        <a href="#" class="service-card__btn">
+          Learn More
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -706,87 +241,82 @@
 <!-- ═══════════════════════════════════════════════════════
      MOMENTS OF IMPACT
 ═══════════════════════════════════════════════════════ -->
-<section class="bg-white px-section" style="padding-bottom:128px;">
-  <div class="container-sj">
-    <!-- Header -->
-    <div class="mb-5 text-navy">
-      <h2 class="mixed-heading mb-3">
-        Moments of <span class="italic-line lower-line">impact</span>
-      </h2>
-      <p style="font-size:18px;font-weight:500;line-height:1.3;margin:0;max-width:628px;">
-        A legacy of precision and elite execution in global sports management.
-      </p>
+<section class="moments-section d-flex flex-column align-self-stretch">
+
+  <!-- Header -->
+  <div class="moments-section__header d-flex flex-column">
+    <div>
+      <span class="moments-section__title">Moments of </span>
+      <span class="moments-section__title--italic">impact</span>
     </div>
+    <p class="moments-section__subtitle">
+      A legacy of precision and elite execution in global sports management.
+    </p>
+  </div>
 
-    <!-- Carousel -->
-    <div id="portfolioCarousel" class="carousel slide" data-bs-ride="false">
-      <div class="carousel-inner">
+  <!-- Slider -->
+  <div class="moments-slider-wrapper">
 
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-          <div class="portfolio-img-wrap">
-            <img src="/assets/images/img-tokyo-marathon.webp" alt="Tokyo Marathon" class="bg-img">
-            <div class="portfolio-overlay"></div>
-            <div class="portfolio-content">
-              <p class="portfolio-title">
-                Tokyo Marathon
-              </p>
-              <p class="mb-4" style="font-size:16px;line-height:1.5;letter-spacing:-.32px;color:rgba(255,255,255,.9);max-width:649px;">
-                Our long-standing partnership with the Tokyo Marathon Foundation highlights our
-                commitment to professional excellence and high-level sports management on a global scale.
-              </p>
-              <a href="#" class="btn-sj btn-sj-outline-white d-inline-flex align-items-center gap-2">
-                Learn More
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-              </a>
+    <div class="swiper moments-swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="moments-slide">
+            <img src="/assets/images/img-tokyo-marathon.webp" alt="Tokyo Marathon" class="moments-slide__img">
+            <div class="moments-slide__overlay"></div>
+            <div class="moments-slide__content d-flex justify-content-between align-items-end w-100">
+              <div class="moments-slide__left">
+                <div class="moments-slide__text-group">
+                  <h3 class="moments-slide__title">Tokyo Marathon</h3>
+                  <p class="moments-slide__desc">Our long-standing partnership with the Tokyo Marathon Foundation highlights our commitment to professional excellence and high-level sports management on a global scale.</p>
+                </div>
+                <a href="#" class="moments-slide__btn">
+                  Learn More
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-          <div class="portfolio-img-wrap">
-            <img src="/assets/images/img-event-management.webp" alt="Bali Marathon" class="bg-img">
-            <div class="portfolio-overlay"></div>
-            <div class="portfolio-content">
-              <p class="portfolio-title">
-                Bali Marathon
-              </p>
-              <p class="mb-4" style="font-size:16px;line-height:1.5;letter-spacing:-.32px;color:rgba(255,255,255,.9);max-width:649px;">
-                Delivering world-class timing precision for one of Southeast Asia's most celebrated
-                running events, ensuring every athlete's achievement is captured accurately.
-              </p>
-              <a href="#" class="btn-sj btn-sj-outline-white d-inline-flex align-items-center gap-2">
-                Learn More
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-item">
-          <div class="portfolio-img-wrap">
-            <img src="/assets/images/img-timing-system.webp" alt="Jakarta International Marathon" class="bg-img">
-            <div class="portfolio-overlay"></div>
-            <div class="portfolio-content">
-              <p class="portfolio-title">
-                Jakarta International Marathon
-              </p>
-              <p class="mb-4" style="font-size:16px;line-height:1.5;letter-spacing:-.32px;color:rgba(255,255,255,.9);max-width:649px;">
-                End-to-end event management for Indonesia's premier city marathon, from course
-                planning and volunteer coordination to race-day execution and post-event reporting.
-              </p>
-              <a href="#" class="btn-sj btn-sj-outline-white d-inline-flex align-items-center gap-2">
-                Learn More
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-              </a>
+        <div class="swiper-slide">
+          <div class="moments-slide">
+            <img src="/assets/images/img-timing-system.webp" alt="Slide 2" class="moments-slide__img">
+            <div class="moments-slide__overlay"></div>
+            <div class="moments-slide__content d-flex justify-content-between align-items-end w-100">
+              <div class="moments-slide__left">
+                <div class="moments-slide__text-group">
+                  <h3 class="moments-slide__title">Event Title</h3>
+                  <p class="moments-slide__desc">Description of the second slide event goes here.</p>
+                </div>
+                <a href="#" class="moments-slide__btn">
+                  Learn More
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
+    </div>
 
+    <!-- Single nav, outside swiper, desktop only -->
+    <div class="moments-slide__nav d-none d-md-flex">
+      <button class="moments-slide__nav-btn moments-nav-btn--prev" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="moments-slide__nav-btn moments-nav-btn--next" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
 
   </div>
@@ -796,79 +326,71 @@
 <!-- ═══════════════════════════════════════════════════════
      UNIVERSAL EXPERTISE FOR DIVERSE NEEDS
 ═══════════════════════════════════════════════════════ -->
-<section class="bg-sj-grey py-section px-section">
-  <div class="container-sj">
+<section class="expertise-section d-flex flex-column align-self-stretch">
 
-    <!-- Section header -->
-    <div class="mb-5 text-navy" style="max-width:900px;">
-      <h2 class="mixed-heading mb-4">
-        Universal Expertise<br>
-        for <span class="italic-line lower-line">diverse needs</span>
-      </h2>
-      <p style="font-size:18px;font-weight:500;line-height:1.5;margin:0;">
-        At Sasana Jiwa Keluarga, we believe that the "Power of Right Action" knows no boundaries.
-        Our mission is to deliver balanced achievement and precision across all industries, ensuring
-        every activation creates a lasting story.
-      </p>
+  <!-- Header -->
+  <div class="expertise-section__header d-flex flex-column">
+    <div>
+      <span class="expertise-section__title">Universal Expertise For </span>
+      <span class="expertise-section__title--italic">diverse needs</span>
+    </div>
+    <p class="expertise-section__subtitle">
+      At Sasana Jiwa Keluarga, we believe that the "Power of Right Action" knows no boundaries.
+      Our mission is to deliver balanced achievement and precision across all industries,
+      ensuring every activation creates a lasting story
+    </p>
+  </div>
+
+  <!-- Grid -->
+  <div class="expertise-grid">
+    <div class="expertise-item d-flex align-items-flex-start">
+      <div class="expertise-item__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <path d="M16.6166 14.6354C16.7327 14.7516 16.8706 14.8438 17.0223 14.9067C17.1741 14.9696 17.3367 15.002 17.501 15.002C17.6653 15.002 17.8279 14.9696 17.9797 14.9067C18.1314 14.8438 18.2693 14.7516 18.3854 14.6354L24.6354 8.38536C24.7516 8.26927 24.8438 8.13141 24.9067 7.97966C24.9696 7.82791 25.002 7.66525 25.002 7.50098C25.002 7.33671 24.9696 7.17406 24.9067 7.02231C24.8438 6.87056 24.7516 6.7327 24.6354 6.61661L18.3854 0.366608C18.2693 0.250388 18.1314 0.158189 17.9797 0.0952835C17.8279 0.0323782 17.6653 0 17.501 0C17.3367 0 17.1741 0.0323782 17.0223 0.0952835C16.8706 0.158189 16.7327 0.250388 16.6166 0.366608L10.3666 6.61661C10.2504 6.7327 10.1582 6.87056 10.0953 7.02231C10.0324 7.17406 10 7.33671 10 7.50098C10 7.66525 10.0324 7.82791 10.0953 7.97966C10.1582 8.13141 10.2504 8.26927 10.3666 8.38536L16.6166 14.6354ZM17.501 3.01817L21.9838 7.50098L17.501 11.9838L13.0182 7.50098L17.501 3.01817ZM18.3854 20.3619C18.2693 20.2457 18.1314 20.1535 17.9797 20.0906C17.8279 20.0277 17.6653 19.9953 17.501 19.9953C17.3367 19.9953 17.1741 20.0277 17.0223 20.0906C16.8706 20.1535 16.7327 20.2457 16.6166 20.3619L10.3666 26.6119C10.2504 26.728 10.1582 26.8659 10.0953 27.0176C10.0324 27.1694 10 27.332 10 27.4963C10 27.6606 10.0324 27.8232 10.0953 27.975C10.1582 28.1267 10.2504 28.2646 10.3666 28.3807L16.6166 34.6307C16.7327 34.7469 16.8706 34.8391 17.0223 34.902C17.1741 34.9649 17.3367 34.9973 17.501 34.9973C17.6653 34.9973 17.8279 34.9649 17.9797 34.902C18.1314 34.8391 18.2693 34.7469 18.3854 34.6307L24.6354 28.3807C24.7516 28.2646 24.8438 28.1267 24.9067 27.975C24.9696 27.8232 25.002 27.6606 25.002 27.4963C25.002 27.332 24.9696 27.1694 24.9067 27.0176C24.8438 26.8659 24.7516 26.728 24.6354 26.6119L18.3854 20.3619ZM17.501 31.9838L13.0182 27.501L17.501 23.0182L21.9838 27.501L17.501 31.9838ZM34.6354 16.6166L28.3854 10.3666C28.2693 10.2504 28.1314 10.1582 27.9797 10.0953C27.8279 10.0324 27.6653 10 27.501 10C27.3367 10 27.1741 10.0324 27.0223 10.0953C26.8706 10.1582 26.7327 10.2504 26.6166 10.3666L20.3666 16.6166C20.2504 16.7327 20.1582 16.8706 20.0953 17.0223C20.0324 17.1741 20 17.3367 20 17.501C20 17.6653 20.0324 17.8279 20.0953 17.9797C20.1582 18.1314 20.2504 18.2693 20.3666 18.3854L26.6166 24.6354C26.7327 24.7516 26.8706 24.8438 27.0223 24.9067C27.1741 24.9696 27.3367 25.002 27.501 25.002C27.6653 25.002 27.8279 24.9696 27.9797 24.9067C28.1314 24.8438 28.2693 24.7516 28.3854 24.6354L34.6354 18.3854C34.7516 18.2693 34.8438 18.1314 34.9067 17.9797C34.9696 17.8279 35.002 17.6653 35.002 17.501C35.002 17.3367 34.9696 17.1741 34.9067 17.0223C34.8438 16.8706 34.7516 16.7327 34.6354 16.6166ZM27.501 21.9838L23.0182 17.501L27.501 13.0182L31.9838 17.501L27.501 21.9838ZM14.6354 16.6166L8.38536 10.3666C8.26927 10.2504 8.13141 10.1582 7.97966 10.0953C7.82791 10.0324 7.66525 10 7.50098 10C7.33671 10 7.17406 10.0324 7.02231 10.0953C6.87056 10.1582 6.7327 10.2504 6.61661 10.3666L0.366608 16.6166C0.250388 16.7327 0.158189 16.8706 0.0952835 17.0223C0.0323782 17.1741 0 17.3367 0 17.501C0 17.6653 0.0323782 17.8279 0.0952835 17.9797C0.158189 18.1314 0.250388 18.2693 0.366608 18.3854L6.61661 24.6354C6.7327 24.7516 6.87056 24.8438 7.02231 24.9067C7.17406 24.9696 7.33671 25.002 7.50098 25.002C7.66525 25.002 7.82791 24.9696 7.97966 24.9067C8.13141 24.8438 8.26927 24.7516 8.38536 24.6354L14.6354 18.3854C14.7516 18.2693 14.8438 18.1314 14.9067 17.9797C14.9696 17.8279 15.002 17.6653 15.002 17.501C15.002 17.3367 14.9696 17.1741 14.9067 17.0223C14.8438 16.8706 14.7516 16.7327 14.6354 16.6166ZM7.50098 21.9838L3.01817 17.501L7.50098 13.0182L11.9838 17.501L7.50098 21.9838Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="expertise-item__content d-flex flex-column">
+        <h3 class="expertise-item__title">Corporate & Business Excellence</h3>
+        <p class="expertise-item__desc">We partner with businesses to deliver the right message through professional event management and brand awareness strategies.</p>
+      </div>
     </div>
 
-    <!-- 2 × 2 expertise grid -->
-    <div class="row g-5 expertise-grid">
-      <div class="col-12 col-md-6">
-        <div class="d-flex gap-4 align-items-start">
-          <div class="expertise-icon flex-shrink-0">
-            <img src="/assets/icons/value-icon.svg" alt="" width="35" height="35">
-          </div>
-          <div>
-            <h3 style="font-size:clamp(18px,2.2vw,32px);font-weight:500;line-height:1.1;text-transform:uppercase;color:var(--sj-navy);margin:0 0 16px;">Corporate &amp; Business Excellence</h3>
-            <p style="font-size:16px;line-height:1.5;letter-spacing:-.32px;color:var(--sj-navy);margin:0;">
-              We partner with businesses to deliver the right message through professional event
-              management and brand awareness strategies.
-            </p>
-          </div>
-        </div>
+    <div class="expertise-item d-flex align-items-flex-start">
+      <div class="expertise-item__icon">
+        <!-- same SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <path d="M16.6166 14.6354C16.7327 14.7516 16.8706 14.8438 17.0223 14.9067C17.1741 14.9696 17.3367 15.002 17.501 15.002C17.6653 15.002 17.8279 14.9696 17.9797 14.9067C18.1314 14.8438 18.2693 14.7516 18.3854 14.6354L24.6354 8.38536C24.7516 8.26927 24.8438 8.13141 24.9067 7.97966C24.9696 7.82791 25.002 7.66525 25.002 7.50098C25.002 7.33671 24.9696 7.17406 24.9067 7.02231C24.8438 6.87056 24.7516 6.7327 24.6354 6.61661L18.3854 0.366608C18.2693 0.250388 18.1314 0.158189 17.9797 0.0952835C17.8279 0.0323782 17.6653 0 17.501 0C17.3367 0 17.1741 0.0323782 17.0223 0.0952835C16.8706 0.158189 16.7327 0.250388 16.6166 0.366608L10.3666 6.61661C10.2504 6.7327 10.1582 6.87056 10.0953 7.02231C10.0324 7.17406 10 7.33671 10 7.50098C10 7.66525 10.0324 7.82791 10.0953 7.97966C10.1582 8.13141 10.2504 8.26927 10.3666 8.38536L16.6166 14.6354ZM17.501 3.01817L21.9838 7.50098L17.501 11.9838L13.0182 7.50098L17.501 3.01817ZM18.3854 20.3619C18.2693 20.2457 18.1314 20.1535 17.9797 20.0906C17.8279 20.0277 17.6653 19.9953 17.501 19.9953C17.3367 19.9953 17.1741 20.0277 17.0223 20.0906C16.8706 20.1535 16.7327 20.2457 16.6166 20.3619L10.3666 26.6119C10.2504 26.728 10.1582 26.8659 10.0953 27.0176C10.0324 27.1694 10 27.332 10 27.4963C10 27.6606 10.0324 27.8232 10.0953 27.975C10.1582 28.1267 10.2504 28.2646 10.3666 28.3807L16.6166 34.6307C16.7327 34.7469 16.8706 34.8391 17.0223 34.902C17.1741 34.9649 17.3367 34.9973 17.501 34.9973C17.6653 34.9973 17.8279 34.9649 17.9797 34.902C18.1314 34.8391 18.2693 34.7469 18.3854 34.6307L24.6354 28.3807C24.7516 28.2646 24.8438 28.1267 24.9067 27.975C24.9696 27.8232 25.002 27.6606 25.002 27.4963C25.002 27.332 24.9696 27.1694 24.9067 27.0176C24.8438 26.8659 24.7516 26.728 24.6354 26.6119L18.3854 20.3619ZM17.501 31.9838L13.0182 27.501L17.501 23.0182L21.9838 27.501L17.501 31.9838ZM34.6354 16.6166L28.3854 10.3666C28.2693 10.2504 28.1314 10.1582 27.9797 10.0953C27.8279 10.0324 27.6653 10 27.501 10C27.3367 10 27.1741 10.0324 27.0223 10.0953C26.8706 10.1582 26.7327 10.2504 26.6166 10.3666L20.3666 16.6166C20.2504 16.7327 20.1582 16.8706 20.0953 17.0223C20.0324 17.1741 20 17.3367 20 17.501C20 17.6653 20.0324 17.8279 20.0953 17.9797C20.1582 18.1314 20.2504 18.2693 20.3666 18.3854L26.6166 24.6354C26.7327 24.7516 26.8706 24.8438 27.0223 24.9067C27.1741 24.9696 27.3367 25.002 27.501 25.002C27.6653 25.002 27.8279 24.9696 27.9797 24.9067C28.1314 24.8438 28.2693 24.7516 28.3854 24.6354L34.6354 18.3854C34.7516 18.2693 34.8438 18.1314 34.9067 17.9797C34.9696 17.8279 35.002 17.6653 35.002 17.501C35.002 17.3367 34.9696 17.1741 34.9067 17.0223C34.8438 16.8706 34.7516 16.7327 34.6354 16.6166ZM27.501 21.9838L23.0182 17.501L27.501 13.0182L31.9838 17.501L27.501 21.9838ZM14.6354 16.6166L8.38536 10.3666C8.26927 10.2504 8.13141 10.1582 7.97966 10.0953C7.82791 10.0324 7.66525 10 7.50098 10C7.33671 10 7.17406 10.0324 7.02231 10.0953C6.87056 10.1582 6.7327 10.2504 6.61661 10.3666L0.366608 16.6166C0.250388 16.7327 0.158189 16.8706 0.0952835 17.0223C0.0323782 17.1741 0 17.3367 0 17.501C0 17.6653 0.0323782 17.8279 0.0952835 17.9797C0.158189 18.1314 0.250388 18.2693 0.366608 18.3854L6.61661 24.6354C6.7327 24.7516 6.87056 24.8438 7.02231 24.9067C7.17406 24.9696 7.33671 25.002 7.50098 25.002C7.66525 25.002 7.82791 24.9696 7.97966 24.9067C8.13141 24.8438 8.26927 24.7516 8.38536 24.6354L14.6354 18.3854C14.7516 18.2693 14.8438 18.1314 14.9067 17.9797C14.9696 17.8279 15.002 17.6653 15.002 17.501C15.002 17.3367 14.9696 17.1741 14.9067 17.0223C14.8438 16.8706 14.7516 16.7327 14.6354 16.6166ZM7.50098 21.9838L3.01817 17.501L7.50098 13.0182L11.9838 17.501L7.50098 21.9838Z" fill="white"/>
+        </svg>
       </div>
-      <div class="col-12 col-md-6">
-        <div class="d-flex gap-4 align-items-start">
-          <div class="expertise-icon flex-shrink-0">
-            <img src="/assets/icons/value-icon.svg" alt="" width="35" height="35">
-          </div>
-          <div>
-            <h3 style="font-size:clamp(18px,2.2vw,32px);font-weight:500;line-height:1.1;text-transform:uppercase;color:var(--sj-navy);margin:0 0 16px;">Elite Sporting &amp; Global Foundations</h3>
-            <p style="font-size:16px;line-height:1.5;letter-spacing:-.32px;color:var(--sj-navy);margin:0;">
-              Providing world-class race direction and precision timing systems for prestigious
-              international events, such as the Tokyo Marathon.
-            </p>
-          </div>
-        </div>
+      <div class="expertise-item__content d-flex flex-column">
+        <h3 class="expertise-item__title">Elite Sporting & Global Foundations</h3>
+        <p class="expertise-item__desc">Providing world-class race direction and precision timing systems for prestigious international events, such as the Tokyo Marathon.</p>
       </div>
-      <div class="col-12 col-md-6">
-        <div class="d-flex gap-4 align-items-start">
-          <div class="expertise-icon flex-shrink-0">
-            <img src="/assets/icons/value-icon.svg" alt="" width="35" height="35">
-          </div>
-          <div>
-            <h3 style="font-size:clamp(18px,2.2vw,32px);font-weight:500;line-height:1.1;text-transform:uppercase;color:var(--sj-navy);margin:0 0 16px;">Hospitality &amp; Wellness Partnerships</h3>
-            <p style="font-size:16px;line-height:1.5;letter-spacing:-.32px;color:var(--sj-navy);margin:0;">
-              Collaborating with premium lifestyle groups like Marriott Bali and Bonvoy Club to
-              organise high-standard health and community activations.
-            </p>
-          </div>
-        </div>
+    </div>
+
+    <div class="expertise-item d-flex align-items-flex-start">
+      <div class="expertise-item__icon">
+        <!-- same SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <path d="M16.6166 14.6354C16.7327 14.7516 16.8706 14.8438 17.0223 14.9067C17.1741 14.9696 17.3367 15.002 17.501 15.002C17.6653 15.002 17.8279 14.9696 17.9797 14.9067C18.1314 14.8438 18.2693 14.7516 18.3854 14.6354L24.6354 8.38536C24.7516 8.26927 24.8438 8.13141 24.9067 7.97966C24.9696 7.82791 25.002 7.66525 25.002 7.50098C25.002 7.33671 24.9696 7.17406 24.9067 7.02231C24.8438 6.87056 24.7516 6.7327 24.6354 6.61661L18.3854 0.366608C18.2693 0.250388 18.1314 0.158189 17.9797 0.0952835C17.8279 0.0323782 17.6653 0 17.501 0C17.3367 0 17.1741 0.0323782 17.0223 0.0952835C16.8706 0.158189 16.7327 0.250388 16.6166 0.366608L10.3666 6.61661C10.2504 6.7327 10.1582 6.87056 10.0953 7.02231C10.0324 7.17406 10 7.33671 10 7.50098C10 7.66525 10.0324 7.82791 10.0953 7.97966C10.1582 8.13141 10.2504 8.26927 10.3666 8.38536L16.6166 14.6354ZM17.501 3.01817L21.9838 7.50098L17.501 11.9838L13.0182 7.50098L17.501 3.01817ZM18.3854 20.3619C18.2693 20.2457 18.1314 20.1535 17.9797 20.0906C17.8279 20.0277 17.6653 19.9953 17.501 19.9953C17.3367 19.9953 17.1741 20.0277 17.0223 20.0906C16.8706 20.1535 16.7327 20.2457 16.6166 20.3619L10.3666 26.6119C10.2504 26.728 10.1582 26.8659 10.0953 27.0176C10.0324 27.1694 10 27.332 10 27.4963C10 27.6606 10.0324 27.8232 10.0953 27.975C10.1582 28.1267 10.2504 28.2646 10.3666 28.3807L16.6166 34.6307C16.7327 34.7469 16.8706 34.8391 17.0223 34.902C17.1741 34.9649 17.3367 34.9973 17.501 34.9973C17.6653 34.9973 17.8279 34.9649 17.9797 34.902C18.1314 34.8391 18.2693 34.7469 18.3854 34.6307L24.6354 28.3807C24.7516 28.2646 24.8438 28.1267 24.9067 27.975C24.9696 27.8232 25.002 27.6606 25.002 27.4963C25.002 27.332 24.9696 27.1694 24.9067 27.0176C24.8438 26.8659 24.7516 26.728 24.6354 26.6119L18.3854 20.3619ZM17.501 31.9838L13.0182 27.501L17.501 23.0182L21.9838 27.501L17.501 31.9838ZM34.6354 16.6166L28.3854 10.3666C28.2693 10.2504 28.1314 10.1582 27.9797 10.0953C27.8279 10.0324 27.6653 10 27.501 10C27.3367 10 27.1741 10.0324 27.0223 10.0953C26.8706 10.1582 26.7327 10.2504 26.6166 10.3666L20.3666 16.6166C20.2504 16.7327 20.1582 16.8706 20.0953 17.0223C20.0324 17.1741 20 17.3367 20 17.501C20 17.6653 20.0324 17.8279 20.0953 17.9797C20.1582 18.1314 20.2504 18.2693 20.3666 18.3854L26.6166 24.6354C26.7327 24.7516 26.8706 24.8438 27.0223 24.9067C27.1741 24.9696 27.3367 25.002 27.501 25.002C27.6653 25.002 27.8279 24.9696 27.9797 24.9067C28.1314 24.8438 28.2693 24.7516 28.3854 24.6354L34.6354 18.3854C34.7516 18.2693 34.8438 18.1314 34.9067 17.9797C34.9696 17.8279 35.002 17.6653 35.002 17.501C35.002 17.3367 34.9696 17.1741 34.9067 17.0223C34.8438 16.8706 34.7516 16.7327 34.6354 16.6166ZM27.501 21.9838L23.0182 17.501L27.501 13.0182L31.9838 17.501L27.501 21.9838ZM14.6354 16.6166L8.38536 10.3666C8.26927 10.2504 8.13141 10.1582 7.97966 10.0953C7.82791 10.0324 7.66525 10 7.50098 10C7.33671 10 7.17406 10.0324 7.02231 10.0953C6.87056 10.1582 6.7327 10.2504 6.61661 10.3666L0.366608 16.6166C0.250388 16.7327 0.158189 16.8706 0.0952835 17.0223C0.0323782 17.1741 0 17.3367 0 17.501C0 17.6653 0.0323782 17.8279 0.0952835 17.9797C0.158189 18.1314 0.250388 18.2693 0.366608 18.3854L6.61661 24.6354C6.7327 24.7516 6.87056 24.8438 7.02231 24.9067C7.17406 24.9696 7.33671 25.002 7.50098 25.002C7.66525 25.002 7.82791 24.9696 7.97966 24.9067C8.13141 24.8438 8.26927 24.7516 8.38536 24.6354L14.6354 18.3854C14.7516 18.2693 14.8438 18.1314 14.9067 17.9797C14.9696 17.8279 15.002 17.6653 15.002 17.501C15.002 17.3367 14.9696 17.1741 14.9067 17.0223C14.8438 16.8706 14.7516 16.7327 14.6354 16.6166ZM7.50098 21.9838L3.01817 17.501L7.50098 13.0182L11.9838 17.501L7.50098 21.9838Z" fill="white"/>
+        </svg>
       </div>
-      <div class="col-12 col-md-6">
-        <div class="d-flex gap-4 align-items-start">
-          <div class="expertise-icon flex-shrink-0">
-            <img src="/assets/icons/value-icon.svg" alt="" width="35" height="35">
-          </div>
-          <div>
-            <h3 style="font-size:clamp(18px,2.2vw,32px);font-weight:500;line-height:1.1;text-transform:uppercase;color:var(--sj-navy);margin:0 0 16px;">Public Sector &amp; Community Impact</h3>
-            <p style="font-size:16px;line-height:1.5;letter-spacing:-.32px;color:var(--sj-navy);margin:0;">
-              Applying our rigorous event standards to government projects and large-scale public
-              initiatives to ensure results that benefit every sector.
-            </p>
-          </div>
-        </div>
+      <div class="expertise-item__content d-flex flex-column">
+        <h3 class="expertise-item__title">Hospitality & Wellness Partnerships</h3>
+        <p class="expertise-item__desc">Collaborating with premium lifestyle groups like Marriott Bali and Bonvoy Club to organize high-standard health and community activations.</p>
+      </div>
+    </div>
+
+    <div class="expertise-item d-flex align-items-flex-start">
+      <div class="expertise-item__icon">
+        <!-- same SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <path d="M16.6166 14.6354C16.7327 14.7516 16.8706 14.8438 17.0223 14.9067C17.1741 14.9696 17.3367 15.002 17.501 15.002C17.6653 15.002 17.8279 14.9696 17.9797 14.9067C18.1314 14.8438 18.2693 14.7516 18.3854 14.6354L24.6354 8.38536C24.7516 8.26927 24.8438 8.13141 24.9067 7.97966C24.9696 7.82791 25.002 7.66525 25.002 7.50098C25.002 7.33671 24.9696 7.17406 24.9067 7.02231C24.8438 6.87056 24.7516 6.7327 24.6354 6.61661L18.3854 0.366608C18.2693 0.250388 18.1314 0.158189 17.9797 0.0952835C17.8279 0.0323782 17.6653 0 17.501 0C17.3367 0 17.1741 0.0323782 17.0223 0.0952835C16.8706 0.158189 16.7327 0.250388 16.6166 0.366608L10.3666 6.61661C10.2504 6.7327 10.1582 6.87056 10.0953 7.02231C10.0324 7.17406 10 7.33671 10 7.50098C10 7.66525 10.0324 7.82791 10.0953 7.97966C10.1582 8.13141 10.2504 8.26927 10.3666 8.38536L16.6166 14.6354ZM17.501 3.01817L21.9838 7.50098L17.501 11.9838L13.0182 7.50098L17.501 3.01817ZM18.3854 20.3619C18.2693 20.2457 18.1314 20.1535 17.9797 20.0906C17.8279 20.0277 17.6653 19.9953 17.501 19.9953C17.3367 19.9953 17.1741 20.0277 17.0223 20.0906C16.8706 20.1535 16.7327 20.2457 16.6166 20.3619L10.3666 26.6119C10.2504 26.728 10.1582 26.8659 10.0953 27.0176C10.0324 27.1694 10 27.332 10 27.4963C10 27.6606 10.0324 27.8232 10.0953 27.975C10.1582 28.1267 10.2504 28.2646 10.3666 28.3807L16.6166 34.6307C16.7327 34.7469 16.8706 34.8391 17.0223 34.902C17.1741 34.9649 17.3367 34.9973 17.501 34.9973C17.6653 34.9973 17.8279 34.9649 17.9797 34.902C18.1314 34.8391 18.2693 34.7469 18.3854 34.6307L24.6354 28.3807C24.7516 28.2646 24.8438 28.1267 24.9067 27.975C24.9696 27.8232 25.002 27.6606 25.002 27.4963C25.002 27.332 24.9696 27.1694 24.9067 27.0176C24.8438 26.8659 24.7516 26.728 24.6354 26.6119L18.3854 20.3619ZM17.501 31.9838L13.0182 27.501L17.501 23.0182L21.9838 27.501L17.501 31.9838ZM34.6354 16.6166L28.3854 10.3666C28.2693 10.2504 28.1314 10.1582 27.9797 10.0953C27.8279 10.0324 27.6653 10 27.501 10C27.3367 10 27.1741 10.0324 27.0223 10.0953C26.8706 10.1582 26.7327 10.2504 26.6166 10.3666L20.3666 16.6166C20.2504 16.7327 20.1582 16.8706 20.0953 17.0223C20.0324 17.1741 20 17.3367 20 17.501C20 17.6653 20.0324 17.8279 20.0953 17.9797C20.1582 18.1314 20.2504 18.2693 20.3666 18.3854L26.6166 24.6354C26.7327 24.7516 26.8706 24.8438 27.0223 24.9067C27.1741 24.9696 27.3367 25.002 27.501 25.002C27.6653 25.002 27.8279 24.9696 27.9797 24.9067C28.1314 24.8438 28.2693 24.7516 28.3854 24.6354L34.6354 18.3854C34.7516 18.2693 34.8438 18.1314 34.9067 17.9797C34.9696 17.8279 35.002 17.6653 35.002 17.501C35.002 17.3367 34.9696 17.1741 34.9067 17.0223C34.8438 16.8706 34.7516 16.7327 34.6354 16.6166ZM27.501 21.9838L23.0182 17.501L27.501 13.0182L31.9838 17.501L27.501 21.9838ZM14.6354 16.6166L8.38536 10.3666C8.26927 10.2504 8.13141 10.1582 7.97966 10.0953C7.82791 10.0324 7.66525 10 7.50098 10C7.33671 10 7.17406 10.0324 7.02231 10.0953C6.87056 10.1582 6.7327 10.2504 6.61661 10.3666L0.366608 16.6166C0.250388 16.7327 0.158189 16.8706 0.0952835 17.0223C0.0323782 17.1741 0 17.3367 0 17.501C0 17.6653 0.0323782 17.8279 0.0952835 17.9797C0.158189 18.1314 0.250388 18.2693 0.366608 18.3854L6.61661 24.6354C6.7327 24.7516 6.87056 24.8438 7.02231 24.9067C7.17406 24.9696 7.33671 25.002 7.50098 25.002C7.66525 25.002 7.82791 24.9696 7.97966 24.9067C8.13141 24.8438 8.26927 24.7516 8.38536 24.6354L14.6354 18.3854C14.7516 18.2693 14.8438 18.1314 14.9067 17.9797C14.9696 17.8279 15.002 17.6653 15.002 17.501C15.002 17.3367 14.9696 17.1741 14.9067 17.0223C14.8438 16.8706 14.7516 16.7327 14.6354 16.6166ZM7.50098 21.9838L3.01817 17.501L7.50098 13.0182L11.9838 17.501L7.50098 21.9838Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="expertise-item__content d-flex flex-column">
+        <h3 class="expertise-item__title">Public Sector & Community Impact</h3>
+        <p class="expertise-item__desc">Applying our rigorous event standards to government projects and large-scale public initiatives to ensure results that benefit every sector.</p>
       </div>
     </div>
 
@@ -879,232 +401,274 @@
 <!-- ═══════════════════════════════════════════════════════
      TAKE A WALK ON THE WELLNESS SIDE  (testimonials)
 ═══════════════════════════════════════════════════════ -->
-<section class="bg-white py-section px-section">
-  <div class="container-sj">
+<section class="testimonial-section d-flex flex-column">
 
-    <!-- Header row: heading left, arrows right -->
-    <div class="d-flex align-items-end justify-content-between flex-wrap gap-4 mb-5">
-      <h2 class="mixed-heading mb-0" style="color:var(--sj-navy);">
-        Take a walk on<br>
-        the <span class="italic-line lower-line">wellness side</span>
-      </h2>
-      <div class="d-flex flex-shrink-0" style="gap:24px;">
-        <button class="carousel-btn" data-bs-target="#testimonialCarousel" data-bs-slide="prev"
-                style="background:var(--sj-navy);" aria-label="Previous">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="carousel-btn" data-bs-target="#testimonialCarousel" data-bs-slide="next"
-                style="background:var(--sj-navy);" aria-label="Next">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
+  <!-- Header -->
+  <div class="testimonial-section__header d-flex justify-content-between align-items-end align-self-stretch">
+    <div class="testimonial-section__title-wrap">
+      <span class="testimonial-section__title">Take a walk on the </span>
+      <span class="testimonial-section__title--italic">wellness side</span>
     </div>
-
-    <!-- Testimonial carousel — 3 cards per slide on desktop -->
-    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="false">
-      <div class="carousel-inner">
-
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-          <div class="row g-4">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <p class="testimonial-quote">
-                  "We bring the right people together to create high-awareness company events that
-                  resonate with your target audience. From conceptualization to execution, we ensure
-                  every activation reflects your brand's mission with elegance and agility."
-                </p>
-                <p class="testimonial-author">
-                  Marriott Bali (Bonvoy Club)
-                </p>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <p class="testimonial-quote">
-                  "We bring the right people together to create high-awareness company events that
-                  resonate with your target audience. From conceptualization to execution, we ensure
-                  every activation reflects your brand's mission with elegance and agility."
-                </p>
-                <p class="testimonial-author">
-                  Marriott Bali (Bonvoy Club)
-                </p>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <p class="testimonial-quote">
-                  "We bring the right people together to create high-awareness company events that
-                  resonate with your target audience. From conceptualization to execution, we ensure
-                  every activation reflects your brand's mission with elegance and agility."
-                </p>
-                <p class="testimonial-author">
-                  Marriott Bali (Bonvoy Club)
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-          <div class="row g-4">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <p class="testimonial-quote">
-                  "Sasana Jiwa's precision and professionalism transformed our sporting event into
-                  a world-class experience. Their timing systems are flawless."
-                </p>
-                <p class="testimonial-author">
-                  Tokyo Marathon Foundation
-                </p>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <p class="testimonial-quote">
-                  "From concept to execution, they delivered a seamless activation that connected
-                  deeply with our audience."
-                </p>
-                <p class="testimonial-author">
-                  Nike Indonesia
-                </p>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <p class="testimonial-quote">
-                  "Every detail was handled with the utmost professionalism. Sasana Jiwa elevated
-                  our Bali Marathon to an entirely new level."
-                </p>
-                <p class="testimonial-author">
-                  Bali Marathon Committee
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <div class="testimonial-section__nav d-none d-md-flex align-items-center">
+      <button class="testimonial-nav-btn testimonial-nav-btn--prev" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="testimonial-nav-btn testimonial-nav-btn--next" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
-
   </div>
+
+  <!-- Swiper -->
+  <div class="swiper testimonial-swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <div class="testimonial-card d-flex flex-column align-items-end">
+          <div class="testimonial-card__inner d-flex flex-column align-items-start align-self-stretch">
+            <p class="testimonial-card__quote">
+              “We bring the right people together to create high-awareness company events that resonate with your target audience. From conceptualization to execution, we ensure every activation reflects your brand’s mission with elegance and agility.”
+            </p>
+            <p class="testimonial-card__author">Marriott Bali (Bonvoy Club)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial-card d-flex flex-column align-items-end">
+          <div class="testimonial-card__inner d-flex flex-column align-items-start align-self-stretch">
+            <p class="testimonial-card__quote">
+              “We bring the right people together to create high-awareness company events that resonate with your target audience. From conceptualization to execution, we ensure every activation reflects your brand’s mission with elegance and agility.”
+            </p>
+            <p class="testimonial-card__author">Marriott Bali (Bonvoy Club)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial-card d-flex flex-column align-items-end">
+          <div class="testimonial-card__inner d-flex flex-column align-items-start align-self-stretch">
+            <p class="testimonial-card__quote">
+              “We bring the right people together to create high-awareness company events that resonate with your target audience. From conceptualization to execution, we ensure every activation reflects your brand’s mission with elegance and agility.”
+            </p>
+            <p class="testimonial-card__author">Marriott Bali (Bonvoy Club)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial-card d-flex flex-column align-items-end">
+          <div class="testimonial-card__inner d-flex flex-column align-items-start align-self-stretch">
+            <p class="testimonial-card__quote">
+              “We bring the right people together to create high-awareness company events that resonate with your target audience. From conceptualization to execution, we ensure every activation reflects your brand’s mission with elegance and agility.”
+            </p>
+            <p class="testimonial-card__author">Marriott Bali (Bonvoy Club)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial-card d-flex flex-column align-items-end">
+          <div class="testimonial-card__inner d-flex flex-column align-items-start align-self-stretch">
+            <p class="testimonial-card__quote">
+              “We bring the right people together to create high-awareness company events that resonate with your target audience. From conceptualization to execution, we ensure every activation reflects your brand’s mission with elegance and agility.”
+            </p>
+            <p class="testimonial-card__author">Marriott Bali (Bonvoy Club)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial-card d-flex flex-column align-items-end">
+          <div class="testimonial-card__inner d-flex flex-column align-items-start align-self-stretch">
+            <p class="testimonial-card__quote">
+              “We bring the right people together to create high-awareness company events that resonate with your target audience. From conceptualization to execution, we ensure every activation reflects your brand’s mission with elegance and agility.”
+            </p>
+            <p class="testimonial-card__author">Marriott Bali (Bonvoy Club)</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
 
 <!-- ═══════════════════════════════════════════════════════
      READY TO ACHIEVE THE FLOW STATE?  (CTA)
 ═══════════════════════════════════════════════════════ -->
-<section class="bg-white py-section px-section">
-  <div class="container-sj">
-    <div class="cta-wrap">
-      <img src="/assets/images/img-cta.webp" alt="" class="cta-bg">
-      <div class="cta-overlay"></div>
-      <div class="cta-content">
-        <h2 class="mixed-heading text-white mb-4">
-          Ready to achieve the<br>
-          <span class="italic-line lower-line">flow state?</span>
-        </h2>
-        <p class="mb-5" style="font-size:18px;font-weight:500;line-height:1.3;color:#fff;">
-          Experience the power of right action in your next sports activation or corporate event.
-        </p>
-        <div class="d-flex gap-4 justify-content-center flex-wrap">
-          <a href="#" class="btn-sj btn-sj-navy">Start Your Journey</a>
-          <a href="#" class="btn-sj btn-sj-white">Contact Our Team</a>
-        </div>
+<section class="cta-section d-flex flex-column justify-content-center">
+  <div class="cta-banner d-flex flex-column align-items-center justify-content-center"
+       style="background-image: url('/assets/images/img-cta.webp')">
+    <div class="cta-banner__overlay"></div>
+
+    <div class="cta-banner__content d-flex flex-column justify-content-center align-items-center">
+      <div class="cta-banner__heading">
+        <span class="cta-banner__title">READY TO ACHIEVE THE</span>
+        <span class="cta-banner__title--italic">flow state?</span>
       </div>
+      <p class="cta-banner__subtitle">
+        Join us and experience the Power of Right Action in every activation we deliver.
+      </p>
+      <a href="#" class="cta-banner__btn">
+        Contact Our Team
+      </a>
     </div>
   </div>
+
 </section>
 
 
 <!-- ═══════════════════════════════════════════════════════
      FOOTER
 ═══════════════════════════════════════════════════════ -->
-<footer style="background:var(--sj-navy);">
-  <div class="container-sj px-section" style="padding-top:128px;padding-bottom:24px;">
+<footer class="footer d-flex flex-column align-items-center">
 
-    <div class="row gy-5 mb-5">
+  <!-- Desktop Layout -->
+  <div class="footer__inner d-flex justify-content-between align-items-start align-self-stretch">
 
-      <!-- Brand column: logo -->
-      <div class="col-12 col-md-4">
-        <img src="/assets/logo/footer-logo.svg" alt="Sasana Jiwa" style="max-width:200px;height:auto;">
-      </div>
+    <!-- Left: Logo -->
+    <div class="footer__brand">
+      <img src="/assets/images/sasana-jiwa-logo-footer.png" alt="Sasana Jiwa" class="footer__logo d-none d-md-block">
+      <img src="/assets/images/sasana-jiwa-logo-footer-mobile.png" alt="Sasana Jiwa" class="footer__logo d-block d-md-none">
+    </div>
 
-      <!-- Nav columns: 2×2 grid -->
-      <div class="col-12 col-md-8">
-        <div class="row gy-5">
+    <!-- Right: Nav + Contact + Social -->
+    <div class="footer__content d-flex flex-column justify-content-between align-items-start">
 
-          <!-- Row 1: Services + Company -->
-          <div class="col-6">
-            <p class="font-syne fw-semibold text-uppercase"
-               style="font-size:14px;color:#fff;letter-spacing:-.28px;margin:0 0 20px;">Services</p>
-            <div class="d-flex flex-column gap-3">
-              <a href="#" class="footer-link">Event Management</a>
-              <a href="#" class="footer-link">Timing System Provider</a>
-            </div>
+      <!-- Nav Links -->
+      <div class="footer__nav d-flex align-items-start align-self-stretch">
+
+        <div class="footer__nav-group d-flex flex-column align-items-start">
+          <span class="footer__nav-label">Services</span>
+          <div class="footer__nav-links d-flex flex-column align-items-start">
+            <a href="#" class="footer__nav-link">Event Management</a>
+            <a href="#" class="footer__nav-link">Timing System Provider</a>
           </div>
-
-          <div class="col-6">
-            <p class="font-syne fw-semibold text-uppercase"
-               style="font-size:14px;color:#fff;letter-spacing:-.28px;margin:0 0 20px;">Company</p>
-            <div class="d-flex flex-column gap-3">
-              <a href="/about.html" class="footer-link">About Us</a>
-              <a href="/contact.html" class="footer-link">Contact Us</a>
-            </div>
-          </div>
-
-          <!-- Row 2: Contact + Follow Us -->
-          <div class="col-6">
-            <p class="font-syne fw-semibold text-uppercase"
-               style="font-size:14px;color:#fff;letter-spacing:-.28px;margin:0 0 16px;">Contact</p>
-            <div class="d-flex flex-column gap-3">
-              <div class="d-flex gap-3 align-items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sj-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span class="font-inter text-white" style="font-size:13px;line-height:1.6;">
-                  Plaza Sentral, 8th Floor<br>
-                  Jl. Jend. Sudirman Kav. 47m, Jakarta Selatan 12930, Indonesia
-                </span>
-              </div>
-              <div class="d-flex gap-3 align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sj-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span class="font-inter text-white" style="font-size:13px;">info@sasanajiwa.id</span>
-              </div>
-              <div class="d-flex gap-3 align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sj-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span class="font-inter text-white" style="font-size:13px;">+62 21 5000 0000</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-6">
-            <p class="font-syne fw-semibold text-uppercase"
-               style="font-size:14px;color:#fff;letter-spacing:-.28px;margin:0 0 20px;">Follow Us</p>
-            <div class="d-flex gap-2">
-              <a href="#" class="social-box" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sj-navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              </a>
-              <a href="#" class="social-box" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="var(--sj-navy)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
-            </div>
-          </div>
-
         </div>
+
+        <div class="footer__nav-group d-flex flex-column align-items-start">
+          <span class="footer__nav-label">Company</span>
+          <div class="footer__nav-links d-flex flex-column align-items-start">
+            <a href="#" class="footer__nav-link">About Us</a>
+            <a href="#" class="footer__nav-link">Contact US</a>
+          </div>
+        </div>
+
       </div>
 
-    </div>
+      <!-- Contact + Social -->
+      <div class="footer__bottom-row d-flex align-items-start align-self-stretch">
 
-    <!-- Bottom bar -->
-    <div style="border-top:1px solid #fff;padding-top:24px;">
-      <p class="font-inter mb-0" style="font-size:12px;color:#fff;">
-        © 2026 Sasana Jiwa Keluarga. All rights reserved.
-      </p>
-    </div>
+        <!-- Contact -->
+        <div class="footer__contact d-flex flex-column align-items-start">
 
+          <span class="footer__nav-label">Contact</span>
+
+          <div class="footer__contact-list d-flex flex-column align-items-start">
+
+            <div class="footer__contact-item d-flex align-items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="flex-shrink-0 mt-1">
+                <path d="M12.5 6.25C12.5 9.37063 9.03812 12.6206 7.87562 13.6244C7.76733 13.7058 7.6355 13.7498 7.5 13.7498C7.3645 13.7498 7.23267 13.7058 7.12438 13.6244C5.96188 12.6206 2.5 9.37063 2.5 6.25C2.5 4.92392 3.02678 3.65215 3.96447 2.71447C4.90215 1.77678 6.17392 1.25 7.5 1.25C8.82608 1.25 10.0979 1.77678 11.0355 2.71447C11.9732 3.65215 12.5 4.92392 12.5 6.25Z" stroke="#FF8700" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.5 8.125C8.53553 8.125 9.375 7.28553 9.375 6.25C9.375 5.21447 8.53553 4.375 7.5 4.375C6.46447 4.375 5.625 5.21447 5.625 6.25C5.625 7.28553 6.46447 8.125 7.5 8.125Z" stroke="#FF8700" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="footer__contact-text">Plaza Sentral, 8th Floor Jl. Jend. Sudirman Kav. 47m, Jakarta Selatan 12930, Indonesia</span>
+            </div>
+
+            <div class="footer__contact-item d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="flex-shrink-0">
+                <path d="M12.5 2.5H2.5C1.80964 2.5 1.25 3.05964 1.25 3.75V11.25C1.25 11.9404 1.80964 12.5 2.5 12.5H12.5C13.1904 12.5 13.75 11.9404 13.75 11.25V3.75C13.75 3.05964 13.1904 2.5 12.5 2.5Z" stroke="#FF8700" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.75 4.375L8.14375 7.9375C7.95079 8.05839 7.7277 8.12251 7.5 8.12251C7.2723 8.12251 7.04921 8.05839 6.85625 7.9375L1.25 4.375" stroke="#FF8700" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="footer__contact-text">info@sasanajiwa.id</span>
+            </div>
+
+            <div class="footer__contact-item d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="flex-shrink-0">
+                <g clip-path="url(#clip0_3_397)">
+                  <path d="M13.7504 10.5751V12.4501C13.7511 12.6241 13.7154 12.7964 13.6457 12.9559C13.576 13.1154 13.4737 13.2586 13.3454 13.3762C13.2172 13.4939 13.0657 13.5835 12.9009 13.6393C12.736 13.695 12.5612 13.7157 12.3879 13.7001C10.4647 13.4911 8.61726 12.8339 6.99414 11.7813C5.48403 10.8217 4.20372 9.54142 3.24414 8.03131C2.18787 6.40081 1.53054 4.54443 1.32539 2.61256C1.30977 2.43973 1.33031 2.26554 1.3857 2.10108C1.44109 1.93662 1.53012 1.78549 1.64711 1.65732C1.76411 1.52916 1.90651 1.42675 2.06525 1.35664C2.224 1.28652 2.3956 1.25022 2.56914 1.25006H4.44414C4.74745 1.24708 5.04151 1.35448 5.27149 1.55227C5.50147 1.75005 5.65168 2.02471 5.69414 2.32506C5.77327 2.9251 5.92004 3.51426 6.13164 4.08131C6.21573 4.30501 6.23392 4.54813 6.18408 4.78186C6.13423 5.01559 6.01842 5.23013 5.85039 5.40006L5.05664 6.19381C5.94636 7.75853 7.24192 9.05409 8.80664 9.94381L9.60039 9.15006C9.77032 8.98202 9.98486 8.86622 10.2186 8.81637C10.4523 8.76652 10.6954 8.78472 10.9191 8.86881C11.4862 9.0804 12.0753 9.22717 12.6754 9.30631C12.979 9.34914 13.2563 9.50206 13.4545 9.73599C13.6527 9.96993 13.758 10.2685 13.7504 10.5751Z" stroke="#FF8700" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_3_397"><rect width="15" height="15" fill="white"/></clipPath>
+                </defs>
+              </svg>
+              <span class="footer__contact-text">+62 21 5000 0000</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Follow Us -->
+        <div class="footer__social d-flex flex-column align-items-start">
+          <span class="footer__nav-label">Follow Us</span>
+          <div class="footer__social-links d-flex align-items-start">
+            <a href="#" class="footer__social-btn" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M10.625 1.25H4.375C2.64911 1.25 1.25 2.64911 1.25 4.375V10.625C1.25 12.3509 2.64911 13.75 4.375 13.75H10.625C12.3509 13.75 13.75 12.3509 13.75 10.625V4.375C13.75 2.64911 12.3509 1.25 10.625 1.25Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.0003 7.10595C10.0774 7.6261 9.98859 8.15734 9.7464 8.62408C9.50422 9.09083 9.12102 9.46933 8.65132 9.70575C8.18162 9.94216 7.64933 10.0244 7.13017 9.94091C6.61101 9.85737 6.13141 9.61225 5.75958 9.24043C5.38775 8.8686 5.14264 8.389 5.0591 7.86983C4.97556 7.35067 5.05785 6.81838 5.29426 6.34868C5.53067 5.87898 5.90917 5.49579 6.37592 5.2536C6.84267 5.01141 7.3739 4.92257 7.89406 4.9997C8.42463 5.07838 8.91584 5.32561 9.29511 5.70489C9.67439 6.08417 9.92163 6.57537 10.0003 7.10595Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.9375 4.0625H10.9438" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="footer__social-btn" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M10 5C10.9946 5 11.9484 5.39509 12.6517 6.09835C13.3549 6.80161 13.75 7.75544 13.75 8.75V13.125H11.25V8.75C11.25 8.41848 11.1183 8.10054 10.8839 7.86612C10.6495 7.6317 10.3315 7.5 10 7.5C9.66848 7.5 9.35054 7.6317 9.11612 7.86612C8.8817 8.10054 8.75 8.41848 8.75 8.75V13.125H6.25V8.75C6.25 7.75544 6.64509 6.80161 7.34835 6.09835C8.05161 5.39509 9.00544 5 10 5Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.75 5.625H1.25V13.125H3.75V5.625Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 3.75C3.19036 3.75 3.75 3.19036 3.75 2.5C3.75 1.80964 3.19036 1.25 2.5 1.25C1.80964 1.25 1.25 1.80964 1.25 2.5C1.25 3.19036 1.80964 3.75 2.5 3.75Z" stroke="#1D3C72" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
+
+  <!-- Copyright -->
+  <div class="footer__copyright d-flex flex-column align-items-start align-self-stretch">
+    <p class="footer__copyright-text">© 2026 Sasana Jiwa Keluarga. All rights reserved.</p>
+  </div>
+
 </footer>
 
 <script src="./src/js/bootstrap.bundle.min.js"></script>
+<script src="./src/js/main.js"></script>
+<script src="./src/js/navbar.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const testimonialSwiper = new Swiper('.testimonial-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    breakpoints: {
+      0: {
+        spaceBetween: 16,
+      },
+      769: {
+        spaceBetween: 24,
+      }
+    },
+    navigation: {
+      prevEl: '.testimonial-nav-btn--prev',
+      nextEl: '.testimonial-nav-btn--next',
+    },
+  });
+
+  const momentsSwiper = new Swiper('.moments-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    allowTouchMove: true,
+    navigation: {
+      prevEl: '.moments-nav-btn--prev',
+      nextEl: '.moments-nav-btn--next',
+    },
+  });
+</script>
 </body>
 </html>

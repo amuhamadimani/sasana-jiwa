@@ -1,0 +1,225 @@
+/* ══════════════════════════════════════════════════════
+   Sasana Jiwa — Navbar Styles
+   (Replace the "── Navbar ──" block in style.css)
+   ══════════════════════════════════════════════════════ */
+
+/* ── Navbar shell ────────────────────────────────── */
+.navbar-sj {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 160px);
+  height: 64px;
+  border-radius: 4px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  /* smooth bg, shadow, AND color transitions */
+  transition: background-color .3s ease, box-shadow .3s ease, color .3s ease;
+}
+@media (max-width: 767.98px) {
+  .navbar-sj { width: calc(100% - 32px); top: 16px; }
+}
+
+/* ── Navbar themes ───────────────────────────────── */
+/* transparent — home page before scroll */
+.navbar-sj.navbar-dark  { background: transparent; box-shadow: none; }
+/* white card — home page after scroll & all other pages */
+.navbar-sj.navbar-light { background: #fff; box-shadow: 0 0 16px rgba(0,0,0,.08); }
+
+/* ── Logo swap ───────────────────────────────────── */
+.nav-logo              { display: block; height: 48px; max-height: 48px; }
+.navbar-dark  .nav-logo-white { display: block; }
+.navbar-dark  .nav-logo-navy  { display: none; }
+.navbar-light .nav-logo-white { display: none; }
+.navbar-light .nav-logo-navy  { display: block; }
+@media (max-width: 767.98px) {
+  .nav-logo { height: 36px; max-height: 36px; }
+}
+
+/* ── Desktop nav links ───────────────────────────── */
+.nav-link-sj {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  height: 48px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: .28px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color .2s;
+}
+.navbar-dark  .nav-link-sj { color: #fff; }
+.navbar-light .nav-link-sj { color: var(--sj-navy); }
+.nav-link-sj:hover          { color: var(--sj-orange); }
+.nav-link-sj.active         { color: var(--sj-orange) !important; }
+
+/* ── Product & Services toggle button ───────────── */
+.btn-prod-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  height: 48px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: .28px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color .2s;
+}
+.navbar-dark  .btn-prod-toggle { color: #fff; }
+.navbar-light .btn-prod-toggle { color: var(--sj-navy); }
+.btn-prod-toggle:hover          { color: var(--sj-orange); }
+
+.prod-chevron      { transition: transform .2s; }
+.prod-chevron.open { transform: rotate(180deg); }
+
+/* ── CTA button ──────────────────────────────────── */
+.btn-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .28px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color .3s ease, color .3s ease, opacity .2s;
+}
+.btn-nav-cta:hover               { opacity: .85; }
+.navbar-dark  .btn-nav-cta       { background: #fff; color: var(--sj-navy); }
+.navbar-dark  .btn-nav-cta:hover { color: var(--sj-navy); }
+.navbar-light .btn-nav-cta       { background: var(--sj-navy); color: #fff; }
+.navbar-light .btn-nav-cta:hover { color: #fff; }
+
+/* ── Hamburger button (mobile) ───────────────────── */
+/*
+  dark navbar (transparent, home before scroll):
+    → white background, navy icon
+
+  light navbar (white, home after scroll / all other pages):
+    → dark-blue background, white icon
+*/
+.nav-hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color .3s ease, color .3s ease;
+}
+.navbar-dark  .nav-hamburger { background: #fff;            color: var(--sj-navy); }
+.navbar-light .nav-hamburger { background: var(--sj-navy);  color: #fff;           }
+
+/* ── Products dropdown ───────────────────────────── */
+.products-menu {
+  position: fixed;
+  top: calc(24px + 64px + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 160px);
+  max-width: 1280px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 16px rgba(0,0,0,.08);
+  padding: 16px;
+  display: flex;
+  gap: 24px;
+  z-index: 998;
+}
+@media (max-width: 767.98px) {
+  .products-menu {
+    top: calc(16px + 64px + 8px);
+    width: calc(100% - 32px);
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.products-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.products-menu-item:hover { background: var(--sj-grey); }
+.products-menu-item img   { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+
+.products-menu-item .pm-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .28px;
+  color: var(--sj-navy);
+  margin: 0 0 4px;
+}
+.products-menu-item .pm-link {
+  font-family: 'Syne', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .24px;
+  color: var(--sj-navy);
+  text-decoration: underline;
+}
+
+/* ── Mobile overlay & panel ──────────────────────── */
+.mobile-overlay  { position: fixed; inset: 0; z-index: 999; }
+.mobile-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.mobile-panel {
+  position: absolute;
+  top: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 480px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.12);
+  overflow: hidden;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0;
+  border-bottom: 1px solid var(--sj-grey);
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: .28px;
+  text-transform: uppercase;
+  color: var(--sj-navy);
+  text-decoration: none;
+}
+.mobile-nav-link:hover { color: var(--sj-orange); }
