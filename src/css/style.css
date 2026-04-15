@@ -1504,7 +1504,11 @@ button:focus-visible {
 }
 
 .footer__contact-item {
-  gap: 8px;
+  gap: 16px;
+}
+
+.box-address {
+  gap: 2px;
 }
 
 .footer__contact-text {
@@ -1518,12 +1522,12 @@ button:focus-visible {
 
 /* ─── Social ────────────────────────────────────────────── */
 .footer__social {
-  gap: 16px;
+  gap: 20px;
   flex: 1 0 0;
 }
 
 .footer__social-links {
-  gap: 8px;
+  gap: 12px;
 }
 
 .footer__social-btn {
@@ -1953,7 +1957,7 @@ button:focus-visible {
   .footer__inner {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 48px;
     align-self: stretch;
   }
 
