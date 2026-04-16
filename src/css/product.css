@@ -85,6 +85,9 @@
   letter-spacing: 0.28px;
   text-transform: uppercase;
 }
+.product-hero__btn:hover {
+  color: var(--white);
+}
 
 .product-hero__media {
   display: flex;

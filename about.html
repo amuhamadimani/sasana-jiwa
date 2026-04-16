@@ -21,7 +21,7 @@
 <nav class="navbar-sj navbar-dark" id="main-nav">
   <!-- Left: Logo + Desktop links -->
   <div class="d-flex align-items-center" style="gap:24px;">
-    <a href="/index.html">
+    <a href="/index.html" class="nav-logo-wrap">
       <img src="/assets/logo/logo-dark.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-navy">
       <img src="/assets/logo/logo-white.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-white">
     </a>
@@ -31,8 +31,7 @@
         Product &amp; Services
         <svg class="prod-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
       </button>
-      <a href="/portfolio/list.html" class="nav-link-sj">Portfolio</a>
-      <a href="/news/news.html" class="nav-link-sj">News</a>
+      <a href="/events/list.html" class="nav-link-sj">Current Event</a>
     </div>
   </div>
 
@@ -42,30 +41,30 @@
       <a href="/contact.html" class="btn-nav-cta">Contact Us</a>
     </div>
     <button id="nav-toggle" class="nav-hamburger d-md-none" aria-label="Menu" aria-expanded="false">
-      <svg id="ic-open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg id="ic-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="d-none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      <svg id="ic-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="ic-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="d-none"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
   </div>
 </nav>
 
 <!-- Product dropdown -->
 <div id="products-menu" class="products-menu d-none">
-  <a href="event-management.html" class="products-menu-item">
+  <a href="/services/event-management.html" class="products-menu-item">
     <img src="/assets/images/img-circle-event.webp" alt="Event Management">
     <div>
       <p class="pm-title">Event Management</p>
       <span class="pm-link">Learn More &rsaquo;</span>
     </div>
   </a>
-  <a href="timing-service-provider.html" class="products-menu-item">
+  <a href="/services/timing-service-provider.html" class="products-menu-item">
     <img src="/assets/images/img-circle-timing.webp" alt="Timing System Provider">
     <div>
       <p class="pm-title">Timing System Provider</p>
       <span class="pm-link">Learn More &rsaquo;</span>
     </div>
   </a>
-  <a href="equipment-rental.html" class="products-menu-item">
-    <img src="/assets/images/img-circle-event.webp" alt="Timing System Provider">
+  <a href="/services/equipment-rental.html" class="products-menu-item">
+    <img src="/assets/images/img-equipment-rental.png" alt="Equipment Rental">
     <div>
       <p class="pm-title">Equipment Rental</p>
       <span class="pm-link">Learn More &rsaquo;</span>
@@ -88,13 +87,16 @@
           <img src="/assets/images/img-circle-event.webp" alt="Event Management">
           <div><p class="pm-title">Event Management</p><span class="pm-link">Learn More &rsaquo;</span></div>
         </a>
-        <a href="#" class="products-menu-item" style="padding:6px 0;">
+        <a href="/services/timing-service-provider.html" class="products-menu-item" style="padding:6px 0;">
           <img src="/assets/images/img-circle-timing.webp" alt="Timing System Provider">
           <div><p class="pm-title">Timing System Provider</p><span class="pm-link">Learn More &rsaquo;</span></div>
         </a>
+        <a href="/services/equipment-rental.html" class="products-menu-item" style="padding:6px 0;">
+          <img src="/assets/images/img-equipment-rental.png" alt="Equipment Rental">
+          <div><p class="pm-title">Equipment Rental</p><span class="pm-link">Learn More &rsaquo;</span></div>
+        </a>
       </div>
-      <a href="/portfolio/list.html" class="mobile-nav-link">Portfolio</a>
-      <a href="/news/news.html" class="mobile-nav-link">News</a>
+      <a href="/events/list.html" class="mobile-nav-link">Current Event</a>
       <a href="/contact.html" class="mobile-nav-link">Contact Us</a>
     </nav>
   </div>
@@ -163,7 +165,7 @@
       <p class="cta-banner__subtitle">
         Join us and experience the Power of Right Action in every activation we deliver.
       </p>
-      <a href="#" class="cta-banner__btn">
+      <a href="/contact.html" class="cta-banner__btn">
         Contact Our Team
       </a>
     </div>
@@ -192,16 +194,17 @@
         <div class="footer__nav-group d-flex flex-column align-items-start">
           <span class="footer__nav-label">Services</span>
           <div class="footer__nav-links d-flex flex-column align-items-start">
-            <a href="#" class="footer__nav-link">Event Management</a>
-            <a href="#" class="footer__nav-link">Timing System Provider</a>
+            <a href="/services/event-management.html" class="footer__nav-link">Event Management</a>
+            <a href="/services/timing-service-provider.html" class="footer__nav-link">Timing System Provider</a>
+            <a href="/services/equipment-rental.html" class="footer__nav-link">Equipment Rental</a>
           </div>
         </div>
 
         <div class="footer__nav-group d-flex flex-column align-items-start">
           <span class="footer__nav-label">Company</span>
           <div class="footer__nav-links d-flex flex-column align-items-start">
-            <a href="#" class="footer__nav-link">About Us</a>
-            <a href="#" class="footer__nav-link">Contact US</a>
+            <a href="/about.html" class="footer__nav-link">About Us</a>
+            <a href="/contact.html" class="footer__nav-link">Contact Us</a>
           </div>
         </div>
 
