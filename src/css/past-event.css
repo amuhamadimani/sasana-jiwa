@@ -148,17 +148,17 @@
    ────────────────────────────────────────────────── */
 @media (min-width: 768px) and (max-width: 1024px) {
   .past-event {
-    padding: 100px 40px 80px;
-    gap: 56px;
+    padding: 128px 24px 80px;
+    gap: 64px;
   }
 
   .past-event__back-text {
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 1px;
   }
 
   .past-event__title {
-    font-size: 52px;
+    font-size: 48px;
     letter-spacing: -0.8px;
   }
 
@@ -177,25 +177,25 @@
   }
 
   .past-event__meta-label {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .past-event__meta-value {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .past-event__section {
     grid-template-columns: 1fr 2fr;
-    gap: 32px;
-    padding: 32px 0;
+    gap: 24px;
+    padding: 24px 0;
   }
 
   .past-event__section-title {
-    font-size: 26px;
+    font-size: 32px;
   }
 
   .past-event__section-body {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 

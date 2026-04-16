@@ -369,7 +369,7 @@ p, h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) and (max-width: 1024px) {
   /* ── Current Events ── */
   .current-events-section {
-    padding: 120px 40px 80px 40px;
+    padding: 128px 24px 80px 24px;
     gap: 40px;
   }
 
@@ -410,7 +410,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
   /* ── Past Events ── */
   .past-events-section {
-    padding: 40px 40px 80px 40px;
+    padding: 40px 24px 80px 24px;
     gap: 40px;
   }
 

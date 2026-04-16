@@ -739,11 +739,14 @@ button:focus-visible {
 
 
 .delivering-section {
+  align-items: center;
   padding: 0 80px 128px 80px;
   gap: 80px;
 }
 
 .delivering-section__inner {
+  width: 100%;
+  max-width: 846px;
   gap: 24px;
 }
 
@@ -1101,6 +1104,7 @@ button:focus-visible {
 .expertise-section {
   padding: 80px;
   gap: 128px;
+  background-color: var(--grey);
 }
 
 /* ─── Header ────────────────────────────────────────────── */
@@ -1274,8 +1278,9 @@ button:focus-visible {
 }
 
 .testimonial-card {
-  width: 100%;
+  width: 518px;
   padding: 40px;
+  /*max-width: 518px;*/
   gap: 10px;
   border-radius: 8px;
   background: #F5F5F5;
@@ -1650,6 +1655,8 @@ button:focus-visible {
   }
 
   .delivering-section__inner {
+    width: 100%;
+    max-width: 100%;
     gap: 16px;
   }
 
@@ -1895,6 +1902,7 @@ button:focus-visible {
   }
 
   .testimonial-card {
+    width: 100%;
     padding: 24px;
   }
 
@@ -2000,6 +2008,25 @@ button:focus-visible {
   }
 }
 
+@media (min-width: 1025px) {
+  .service-card {
+    flex-direction: row;
+    /*align-items: flex-end;*/
+    justify-content: space-between;
+  }
+
+  .service-card__header {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .service-card__body {
+    flex: 0 0 40%;
+    max-width: 40%;
+    width: auto; /* override width: 479px */
+  }
+}
+
 /* ══════════════════════════════════════════════════════
    Tablet — 768px to 1024px
    ══════════════════════════════════════════════════════ */
@@ -2012,8 +2039,8 @@ button:focus-visible {
 
   /* ── Power ───────────────────────────────────────── */
   .power-section {
-    height: auto;
-    padding: 80px 40px 100px 40px;
+    height: 719px;
+    padding: 80px 80px 128px 80px;
   }
 
   .power-circle {
@@ -2040,43 +2067,46 @@ button:focus-visible {
 
   .power-section__subtitle {
     width: auto;
-    font-size: 18px;
+    font-size: 16px;
     align-self: stretch;
   }
 
   /* ── Delivering ──────────────────────────────────── */
   .delivering-section {
-    padding: 0 40px 80px 40px;
-    gap: 56px;
+    align-items: center;
+    padding: 0 24px 80px 24px;
+    gap: 80px;
   }
 
   .delivering-section__inner {
-    gap: 20px;
+    width: 100%;
+    max-width: 582px;
+    gap: 24px;
   }
 
   .delivering-section__title,
   .delivering-section__title--italic {
     width: auto;
-    font-size: 52px;
+    font-size: 48px;
     letter-spacing: -2px;
   }
 
   .delivering-section__subtitle {
     width: auto;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .service-card {
-    height: 480px;
-    padding: 32px;
+    height: 400px;
+    padding: 24px;
   }
 
   .service-card__title {
-    font-size: 44px;
+    font-size: 32px;
   }
 
   .service-card__title--italic {
-    font-size: 44px;
+    font-size: 64px;
   }
 
   .service-card__body {
@@ -2084,35 +2114,71 @@ button:focus-visible {
     align-self: stretch;
   }
 
+  .service-card {
+    flex-direction: row;
+    /*align-items: flex-end;*/
+    justify-content: space-between;
+  }
+
+  .service-card__header {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .service-card__body {
+    flex: 0 0 50%;
+    max-width: 50%;
+    width: auto;
+  }
+
   .service-card__desc {
-    font-size: 15px;
+    font-size: 12px;
+  }
+
+  .service-card__btn {
+    height: 32px;
+    padding: 6.667px 16px;
+    gap: 6.667px;
+    border-radius: 8px;
+    border-width: 0.667px;
+    font-size: 9.333px;
+    letter-spacing: 0.187px;
+  }
+
+  .service-card__btn svg {
+    width: 12px;
+    height: 12px;
   }
 
   /* ── Moments ─────────────────────────────────────── */
   .moments-section {
-    padding: 64px 40px 80px 40px;
-    gap: 48px;
+    padding: 80px 24px 80px 24px;
+    gap: 64px;
+  }
+
+  .moments-section__header{
+    text-align: center;
   }
 
   .moments-section__title {
-    font-size: 52px;
+    font-size: 48px;
     letter-spacing: -2px;
   }
 
   .moments-section__title--italic {
-    font-size: 52px;
+    font-size: 48px;
     letter-spacing: -2px;
   }
 
   .moments-section__subtitle {
     width: auto;
-    font-size: 18px;
+    font-size: 16px;
     align-self: stretch;
   }
 
   .moments-slide {
-    height: 520px;
-    padding: 32px;
+    height: 650px;
+    padding: 40px;
   }
 
   .moments-slide__left {
@@ -2121,7 +2187,7 @@ button:focus-visible {
   }
 
   .moments-slide__title {
-    font-size: 44px;
+    font-size: 48px;
   }
 
   .moments-slide__desc {
@@ -2131,14 +2197,14 @@ button:focus-visible {
   }
 
   .moments-slide__nav {
-    bottom: 32px;
-    right: 32px;
+    bottom: 40px;
+    right: 40px;
   }
 
   /* ── Expertise ───────────────────────────────────── */
   .expertise-section {
-    padding: 64px 40px;
-    gap: 64px;
+    padding: 80px 24px;
+    gap: 80px;
   }
 
   .expertise-section__header {
@@ -2147,50 +2213,51 @@ button:focus-visible {
   }
 
   .expertise-section__title {
-    font-size: 52px;
+    font-size: 48px;
     letter-spacing: -2px;
   }
 
   .expertise-section__title--italic {
-    font-size: 52px;
+    font-size: 48px;
     letter-spacing: -2px;
   }
 
   .expertise-section__subtitle {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .expertise-grid {
-    gap: 32px 40px;
+    gap: 40px 80px;
   }
 
   .expertise-item {
+    flex-direction: column;
     gap: 24px;
   }
 
   .expertise-item__icon {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     flex-shrink: 0;
   }
 
   .expertise-item__icon svg {
-    width: 24px;
-    height: 24px;
+    width: 21px;
+    height: 21px;
   }
 
   .expertise-item__title {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .expertise-item__desc {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   /* ── Testimonial ─────────────────────────────────── */
   .testimonial-section {
-    padding: 80px 40px;
-    gap: 56px;
+    padding: 80px 24px;
+    gap: 80px;
   }
 
   .testimonial-section__title-wrap {
@@ -2208,11 +2275,12 @@ button:focus-visible {
   }
 
   .testimonial-swiper .swiper-slide {
-    width: 420px;
+    width: 518px;
   }
 
   .testimonial-card {
-    padding: 32px;
+    width: 518px;
+    padding: 40px;
   }
 
   .testimonial-card__inner {
@@ -2229,12 +2297,12 @@ button:focus-visible {
 
   /* ── CTA ─────────────────────────────────────────── */
   .cta-section {
-    padding: 80px 40px;
+    padding: 80px 24px;
   }
 
   .cta-banner {
-    height: 600px;
-    padding: 60px 40px;
+    height: 700px;
+    padding: 80px;
   }
 
   .cta-banner__content {
@@ -2243,34 +2311,36 @@ button:focus-visible {
   }
 
   .cta-banner__title {
-    font-size: 52px;
+    font-size: 64px;
     letter-spacing: -2px;
   }
 
   .cta-banner__title--italic {
-    font-size: 52px;
+    font-size: 64px;
     letter-spacing: -2px;
   }
 
   .cta-banner__subtitle {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   /* ── Footer ──────────────────────────────────────── */
   .footer {
-    padding: 80px 40px 24px 40px;
+    padding: 80px 24px 24px 24px;
     gap: 40px;
   }
 
   .footer__inner {
-    gap: 32px;
+    gap: 24px;
+    justify-content: space-between;
     align-items: flex-start;
   }
 
   .footer__brand {
-    width: auto;
+    width: 100%;
+    max-width: 368px;
     flex-shrink: 0;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .footer__logo {
