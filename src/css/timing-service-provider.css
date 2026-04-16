@@ -167,7 +167,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   /* Performance grid — 2 per row */
   .ts-grid {
-    padding: 64px 40px;
+    padding: 80px 24px;
     gap: 48px;
   }
 
@@ -183,16 +183,19 @@
   .ts-grid-card {
     flex: 1 1 calc(50% - 12px);
     max-width: calc(50% - 12px);
+    padding: 16px 16px 24px 16px;
+    gap: 24px;
   }
 
   .ts-contrast {
-    padding: 64px 40px;
+    padding: 80px 24px;
     gap: 24px;
   }
 
   .ts-contrast__card {
-    padding: 16px;
-    gap: 32px;
+    padding: 24px;
+    gap: 40px;
+    justify-content: space-between;
   }
 
   .ts-contrast__title {
@@ -207,6 +210,18 @@
   .ts-contrast__media {
     height: 280px;
     padding: 32px;
+  }
+
+  .ts-grid-card__title {
+    font-size: 18px;
+  }
+
+  .ts-grid-card__desc {
+    font-size: 14px;
+  }
+
+  .ts-grid-card__text {
+    gap: 16px;
   }
 }
 

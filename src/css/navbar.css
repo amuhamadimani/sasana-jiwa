@@ -109,8 +109,13 @@
 
 @media (max-width: 1024px) {
   .nav-logo {
-    height: 36px;
-    max-height: 36px;
+    height: 48px;
+    max-height: 48px;
+  }
+
+  .nav-hamburger {
+    width: 52px;
+    height: 52px;
   }
 }
 
@@ -252,6 +257,18 @@
   transition:
           background-color .3s ease,
           color .3s ease;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nav-hamburger {
+    width: 52px;
+    height: 52px;
+  }
+
+  .nav-hamburger svg {
+    height: 32px;
+    width: 32px;
+  }
 }
 
 .navbar-dark .nav-hamburger {

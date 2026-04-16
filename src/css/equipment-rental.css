@@ -273,17 +273,17 @@
    ────────────────────────────────────────────────── */
 @media (min-width: 768px) and (max-width: 1024px) {
   .er-gear {
-    padding: 64px 40px;
-    gap: 32px;
+    padding: 80px 24px;
+    gap: 40px;
   }
 
   .er-gear__title {
-    font-size: 40px;
+    font-size: 48px;
     letter-spacing: -1.6px;
   }
 
   .er-gear__desc {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .er-gear__nav-btn {
@@ -293,21 +293,70 @@
 
   /* ── Rental tiers (tablet) ── */
   .er-tiers {
-    padding: 64px 40px;
+    padding: 80px 24px;
     gap: 48px;
+    align-items: flex-start;
   }
 
   .er-tiers__title {
     font-size: 48px;
     letter-spacing: -1.92px;
+    text-align: left;
   }
 
   .er-tiers__row--head .er-tiers__cell {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .er-tiers__row--data .er-tiers__cell {
-    font-size: 20px;
+    font-size: 24px;
+  }
+
+  .er-gear-card {
+    display: flex;
+    width: 335.463px;
+    height: 475.036px;
+    padding: 19.589px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 19.589px;
+  }
+
+  .er-gear-card__media {
+    display: flex;
+    height: 285.674px;
+    padding: 32.648px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8.162px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 6.53px;
+  }
+
+  .er-gear-card__text {
+    gap: 13.059px;
+  }
+
+  .er-gear-card__title {
+    font-size: 22.854px;
+    line-height: 110%;
+  }
+
+  .er-gear-card__desc {
+    font-size: 14.692px;
+    line-height: 150%;
+    letter-spacing: -0.216px;
+  }
+
+  .er-gear__nav-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .er-gear__nav-btn svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
