@@ -2,7 +2,6 @@
    Past Events — Detail Page
    ══════════════════════════════════════════════════════ */
 
-/* ── Page wrapper ────────────────────────────────────── */
 .event-detail {
   display: flex;
   flex-direction: column;
@@ -13,7 +12,6 @@
   padding: 128px 80px 128px 80px;
 }
 
-/* ── Back button ─────────────────────────────────────── */
 .event-detail__back {
   display: inline-flex;
   align-items: center;
@@ -25,7 +23,6 @@
   color: var(--dark-blue, #1D3C72);
   font-family: 'Syne', sans-serif;
   font-size: 24px;
-  font-style: normal;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 1.2px;
@@ -44,7 +41,6 @@
   flex-shrink: 0;
 }
 
-/* ── Title ───────────────────────────────────────────── */
 .event-detail__title {
   align-self: stretch;
   text-align: center;
@@ -54,7 +50,6 @@
   color: var(--dark-blue, #1D3C72);
   font-family: 'Syne', sans-serif;
   font-size: 80px;
-  font-style: normal;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 4px;
@@ -71,7 +66,6 @@
   letter-spacing: 4px;
 }
 
-/* ── Hero image ──────────────────────────────────────── */
 .event-detail__hero {
   display: flex;
   height: 500px;
@@ -94,12 +88,10 @@
   z-index: 0;
 }
 
-
 /* ══════════════════════════════════════════════════════
    Countdown Timer Section
    ══════════════════════════════════════════════════════ */
 
-/* ── Outer wrapper ───────────────────────────────────── */
 .countdown {
   display: flex;
   padding: 40px;
@@ -111,21 +103,18 @@
   background: var(--grey, #F5F5F5);
 }
 
-/* ── Label "TOKYO IS YOUR START LINE IN" ─────────────── */
 .countdown__label {
   align-self: stretch;
   color: var(--dark-blue, #1D3C72);
   text-align: center;
   font-family: 'Syne', sans-serif;
   font-size: 24px;
-  font-style: normal;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 1.2px;
   text-transform: uppercase;
 }
 
-/* ── Numbers row ─────────────────────────────────────── */
 .countdown__row {
   display: flex;
   padding: 40px 80px;
@@ -133,7 +122,6 @@
   align-self: stretch;
 }
 
-/* ── Each unit block (Days / Hours / Minutes / Seconds) ─ */
 .countdown__unit {
   display: flex;
   flex-direction: column;
@@ -148,7 +136,6 @@
   text-align: center;
   font-family: 'Syne', sans-serif;
   font-size: 80px;
-  font-style: normal;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 4px;
@@ -166,17 +153,14 @@
   text-transform: capitalize;
 }
 
-/* ── Separator ":" ───────────────────────────────────── */
 .countdown__sep {
   color: var(--dark-blue, #1D3C72);
   text-align: center;
   font-family: 'Syne', sans-serif;
   font-size: 80px;
-  font-style: normal;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 4px;
-  /* vertically align with the number */
   padding-top: 0;
   align-self: flex-start;
 }
@@ -214,7 +198,6 @@
   color: var(--dark-blue);
   font-family: 'Syne', sans-serif;
   font-size: 32px;
-  font-style: normal;
   font-weight: 700;
   line-height: 110%;
   text-transform: uppercase;
@@ -226,7 +209,6 @@
   color: var(--dark-blue);
   font-family: 'Syne', sans-serif;
   font-size: 18px;
-  font-style: normal;
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.36px;
@@ -244,18 +226,18 @@
   background: transparent;
   cursor: pointer;
   text-decoration: none;
-
   color: var(--dark-blue);
   font-family: 'Syne', sans-serif;
   font-size: 9.333px;
-  font-style: normal;
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0.187px;
   text-transform: uppercase;
 }
 
-.feature-card__btn svg { display: block; }
+.feature-card__btn svg {
+  display: block;
+}
 
 .feature-card__media {
   display: flex;
@@ -273,8 +255,7 @@
 }
 
 /* ──────────────────────────────────────────────────
-   SPONSORS BY (no provided design — kept minimal so
-   it harmonizes with the cards above)
+   SPONSORS BY
    ────────────────────────────────────────────────── */
 .sponsors {
   display: flex;
@@ -291,7 +272,6 @@
   text-align: center;
   font-family: 'Syne', sans-serif;
   font-size: 24px;
-  font-style: normal;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 1.2px;
@@ -324,10 +304,95 @@
   object-fit: contain;
 }
 
-@media (max-width: 767.98px) {
-
+/* ──────────────────────────────────────────────────
+   TABLET (768px – 1024px)
+   ────────────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1024px) {
   .event-detail {
-    padding: 0 16px 80px 16px;
+    padding: 100px 40px 80px 40px;
+    gap: 56px;
+  }
+
+  .event-detail__back-text {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .event-detail__title--bold {
+    font-size: 56px;
+    letter-spacing: 2.8px;
+  }
+
+  .event-detail__title--italic {
+    font-size: 56px;
+    letter-spacing: 2.8px;
+  }
+
+  .event-detail__hero {
+    height: 420px;
+    padding: 32px;
+  }
+
+  /* ── Countdown ── */
+  .countdown {
+    padding: 32px;
+  }
+
+  .countdown__label {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .countdown__row {
+    padding: 32px 40px;
+  }
+
+  .countdown__number {
+    font-size: 56px;
+    letter-spacing: 2.8px;
+  }
+
+  .countdown__sep {
+    font-size: 56px;
+    letter-spacing: 2.8px;
+  }
+
+  .countdown__unit-label {
+    font-size: 16px;
+  }
+
+  /* ── Feature cards ── */
+  .feature-card {
+    padding: 20px;
+    gap: 24px;
+  }
+
+  .feature-card__title {
+    font-size: 24px;
+  }
+
+  .feature-card__desc {
+    font-size: 15px;
+  }
+
+  .feature-card__media {
+    height: 240px;
+    padding: 24px;
+  }
+
+  /* ── Sponsors ── */
+  .sponsors__list {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   MOBILE (≤ 767px)
+   ────────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .event-detail {
+    padding: 128px 16px 80px 16px;
     gap: 40px;
   }
 
@@ -373,7 +438,6 @@
     padding: 40px;
     border-radius: 12px;
   }
-
 
   .countdown {
     padding: 16px;
@@ -464,7 +528,5 @@
   .sponsors__logo {
     height: auto;
     width: 100%;
-    /* aspect-ratio 90/49 dipertahankan dari rule dasar
-       sehingga tiap cell menjaga proporsi presisi */
   }
 }

@@ -140,7 +140,10 @@
   letter-spacing: -0.449px;
 }
 
-@media (max-width: 1199.98px) {
+/* ──────────────────────────────────────────────────
+   TABLET (768px – 1024px)
+   ────────────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1024px) {
   /* ── Hero (split text/image) — stack vertically ── */
   .product-hero {
     grid-template-columns: 1fr;
@@ -158,12 +161,12 @@
 
   .product-hero__title {
     flex: 0 0 auto;
-    font-size: 64px;
+    font-size: 56px;
     letter-spacing: -2px;
   }
 
   .product-hero__title-italic {
-    font-size: 64px;
+    font-size: 56px;
     letter-spacing: -2px;
   }
 
@@ -181,7 +184,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
-    padding: 96px 40px;
+    padding: 80px 40px;
   }
 
   .product-statement__headline {

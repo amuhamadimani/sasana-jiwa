@@ -269,9 +269,9 @@
 }
 
 /* ──────────────────────────────────────────────────
-   TABLET (768 – 1199)
+   TABLET (768px – 1024px)
    ────────────────────────────────────────────────── */
-@media (max-width: 1199.98px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .er-gear {
     padding: 64px 40px;
     gap: 32px;
@@ -289,6 +289,25 @@
   .er-gear__nav-btn {
     width: 56px;
     height: 56px;
+  }
+
+  /* ── Rental tiers (tablet) ── */
+  .er-tiers {
+    padding: 64px 40px;
+    gap: 48px;
+  }
+
+  .er-tiers__title {
+    font-size: 48px;
+    letter-spacing: -1.92px;
+  }
+
+  .er-tiers__row--head .er-tiers__cell {
+    font-size: 16px;
+  }
+
+  .er-tiers__row--data .er-tiers__cell {
+    font-size: 20px;
   }
 }
 

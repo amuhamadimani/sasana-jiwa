@@ -134,38 +134,20 @@
 }
 
 /* ──────────────────────────────────────────────────
-   TABLET (768 – 1199)
+   TABLET (768px – 1024px)
    ────────────────────────────────────────────────── */
-@media (max-width: 1199.98px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .contact {
-    padding: 140px 40px 96px;
-    gap: 56px;
+    padding: 120px 40px 80px 40px;
+    gap: 40px;
   }
 
-  .contact__title,
+  .contact__title {
+    font-size: 52px;
+  }
+
   .contact__title-italic {
-    font-size: 56px;
-  }
-
-  .contact__card {
-    padding: 32px;
-    gap: 32px;
-  }
-
-  .contact__media {
-    min-height: 600px;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .contact {
-    padding: 120px 24px 80px;
-    gap: 48px;
-  }
-
-  .contact__title,
-  .contact__title-italic {
-    font-size: 48px;
+    font-size: 52px;
   }
 
   .contact__content {
@@ -174,21 +156,26 @@
   }
 
   .contact__card {
-    padding: 24px;
+    padding: 32px;
     gap: 32px;
     align-self: stretch;
+  }
+
+  .contact__map {
+    height: auto;
+    aspect-ratio: 168 / 97;
   }
 
   .contact__media {
     flex: 0 0 auto;
     width: 100%;
-    height: 500px;
+    height: 480px;
     min-height: 0;
   }
 }
 
 /* ──────────────────────────────────────────────────
-   MOBILE (≤ 767)
+   MOBILE (≤ 767px)
    ────────────────────────────────────────────────── */
 @media (max-width: 767.98px) {
   .contact {
