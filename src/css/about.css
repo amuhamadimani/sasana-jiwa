@@ -99,7 +99,6 @@
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  /*margin-top: 40px;*/
 }
 
 .about-values__item {
@@ -156,7 +155,63 @@
 }
 
 /* ──────────────────────────────────────────────────
-   MOBILE
+   TABLET (768px – 1024px)
+   ────────────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .about-hero {
+    height: 500px;
+    padding: 0 40px;
+  }
+
+  .about-hero__title-syne,
+  .about-hero__title-italic {
+    font-size: 72px;
+    letter-spacing: 3.6px;
+  }
+
+  .about-values {
+    padding: 80px 40px 0 40px;
+    gap: 64px;
+  }
+
+  .about-values__header {
+    width: 100%;
+    gap: 32px;
+  }
+
+  .about-values__title {
+    font-size: 52px;
+    letter-spacing: 2.6px;
+  }
+
+  .about-values__title-italic {
+    font-size: 52px;
+    letter-spacing: 2.6px;
+  }
+
+  .about-values__desc {
+    font-size: 20px;
+  }
+
+  .about-values__item {
+    padding: 32px 0;
+    gap: 24px;
+  }
+
+  .about-values__item-title {
+    font-size: 36px;
+  }
+
+  .about-values__item-body {
+    width: auto;
+    flex: 1 0 0;
+    font-size: 18px;
+    letter-spacing: -0.36px;
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   MOBILE (≤ 767px)
    ────────────────────────────────────────────────── */
 @media (max-width: 767.98px) {
   .about-hero {

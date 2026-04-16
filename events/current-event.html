@@ -18,89 +18,89 @@
  <!-- ═══════════════════════════════════════════════════════
      NAVBAR
 ═══════════════════════════════════════════════════════ -->
-<nav class="navbar-sj navbar-dark" id="main-nav">
-  <!-- Left: Logo + Desktop links -->
-  <div class="d-flex align-items-center" style="gap:24px;">
-    <a href="/index.html" class="nav-logo-wrap">
-      <img src="/assets/logo/logo-dark.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-navy">
-      <img src="/assets/logo/logo-white.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-white">
-    </a>
-    <div class="d-none d-md-flex align-items-center">
-      <a href="/about.html" class="nav-link-sj">About</a>
-      <button id="prod-toggle" class="btn-prod-toggle">
-        Product &amp; Services
-        <svg class="prod-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <a href="/events/list.html" class="nav-link-sj">Current Event</a>
-    </div>
-  </div>
+ <nav class="navbar-sj navbar-dark" id="main-nav">
+   <!-- Left: Logo + Desktop links -->
+   <div class="d-flex align-items-center" style="gap:24px;">
+     <a href="/index.html" class="nav-logo-wrap">
+       <img src="/assets/logo/logo-dark.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-navy">
+       <img src="/assets/logo/logo-white.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-white">
+     </a>
+     <div class="nav-desktop-only align-items-center">
+       <a href="/about.html" class="nav-link-sj">About</a>
+       <button id="prod-toggle" class="btn-prod-toggle">
+         Product &amp; Services
+         <svg class="prod-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+       </button>
+       <a href="/events/list.html" class="nav-link-sj">Current Event</a>
+     </div>
+   </div>
 
-  <!-- Right: CTA (desktop) + Mobile hamburger -->
-  <div class="d-flex align-items-center gap-1">
-    <div class="d-none d-md-flex align-items-center gap-1">
-      <a href="/contact.html" class="btn-nav-cta">Contact Us</a>
-    </div>
-    <button id="nav-toggle" class="nav-hamburger d-md-none" aria-label="Menu" aria-expanded="false">
-      <svg id="ic-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg id="ic-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="d-none"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
-</nav>
+   <!-- Right: CTA (desktop) + Mobile hamburger -->
+   <div class="d-flex align-items-center gap-1">
+     <div class="nav-desktop-only align-items-center gap-1">
+       <a href="/contact.html" class="btn-nav-cta">Contact Us</a>
+     </div>
+     <button id="nav-toggle" class="nav-hamburger nav-mobile-only" aria-label="Menu" aria-expanded="false">
+       <svg id="ic-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+       <svg id="ic-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="d-none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+     </button>
+   </div>
+ </nav>
 
-<!-- Product dropdown -->
-<div id="products-menu" class="products-menu d-none">
-  <a href="../services/event-management.html" class="products-menu-item">
-    <img src="/assets/images/img-circle-event.webp" alt="Event Management">
-    <div>
-      <p class="pm-title">Event Management</p>
-      <span class="pm-link">Learn More &rsaquo;</span>
-    </div>
-  </a>
-  <a href="../services/timing-service-provider.html" class="products-menu-item">
-    <img src="/assets/images/img-circle-timing.webp" alt="Timing System Provider">
-    <div>
-      <p class="pm-title">Timing System Provider</p>
-      <span class="pm-link">Learn More &rsaquo;</span>
-    </div>
-  </a>
-  <a href="../services/equipment-rental.html" class="products-menu-item">
-    <img src="/assets/images/img-equipment-rental.png" alt="Equipment Rental">
-    <div>
-      <p class="pm-title">Equipment Rental</p>
-      <span class="pm-link">Learn More &rsaquo;</span>
-    </div>
-  </a>
-</div>
+ <!-- Product dropdown -->
+ <div id="products-menu" class="products-menu d-none">
+   <a href="/services/event-management.html" class="products-menu-item">
+     <img src="/assets/images/img-circle-event.webp" alt="Event Management">
+     <div>
+       <p class="pm-title">Event Management</p>
+       <span class="pm-link">Learn More &rsaquo;</span>
+     </div>
+   </a>
+   <a href="/services/timing-service-provider.html" class="products-menu-item">
+     <img src="/assets/images/img-circle-timing.webp" alt="Timing System Provider">
+     <div>
+       <p class="pm-title">Timing System Provider</p>
+       <span class="pm-link">Learn More &rsaquo;</span>
+     </div>
+   </a>
+   <a href="/services/equipment-rental.html" class="products-menu-item">
+     <img src="/assets/images/img-equipment-rental.png" alt="Equipment Rental">
+     <div>
+       <p class="pm-title">Equipment Rental</p>
+       <span class="pm-link">Learn More &rsaquo;</span>
+     </div>
+   </a>
+ </div>
 
-<!-- Mobile menu -->
-<div id="mobile-menu" class="mobile-overlay d-none">
-  <div id="m-backdrop" class="mobile-backdrop"></div>
-  <div class="mobile-panel">
-    <nav class="d-flex flex-column px-3 py-2">
-      <a href="/about.html" class="mobile-nav-link">About</a>
-      <button id="m-prod-toggle" class="mobile-nav-link btn-prod-toggle" style="width:100%;text-align:left;justify-content:space-between;">
-        Product &amp; Services
-        <svg class="prod-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div id="m-products-sub" class="d-none" style="padding: 8px 0 8px 16px; display:flex; flex-direction:column; gap:8px;">
-        <a href="./services/event-management.html" class="products-menu-item" style="padding:6px 0;">
-          <img src="/assets/images/img-circle-event.webp" alt="Event Management">
-          <div><p class="pm-title">Event Management</p><span class="pm-link">Learn More &rsaquo;</span></div>
-        </a>
-        <a href="./services/timing-service-provider.html" class="products-menu-item" style="padding:6px 0;">
-          <img src="/assets/images/img-circle-timing.webp" alt="Timing System Provider">
-          <div><p class="pm-title">Timing System Provider</p><span class="pm-link">Learn More &rsaquo;</span></div>
-        </a>
-        <a href="./services/equipment-rental.html" class="products-menu-item" style="padding:6px 0;">
-          <img src="/assets/images/img-equipment-rental.png" alt="Equipment Rental">
-          <div><p class="pm-title">Equipment Rental</p><span class="pm-link">Learn More &rsaquo;</span></div>
-        </a>
-      </div>
-      <a href="/events/list.html" class="mobile-nav-link">Current Event</a>
-      <a href="/contact.html" class="mobile-nav-link">Contact Us</a>
-    </nav>
-  </div>
-</div>
+ <!-- Mobile menu -->
+ <div id="mobile-menu" class="mobile-overlay d-none">
+   <div id="m-backdrop" class="mobile-backdrop"></div>
+   <div class="mobile-panel">
+     <nav class="d-flex flex-column px-3 py-2">
+       <a href="/about.html" class="mobile-nav-link">About</a>
+       <button id="m-prod-toggle" class="mobile-nav-link btn-prod-toggle" style="width:100%;text-align:left;justify-content:space-between;">
+         Product &amp; Services
+         <svg class="prod-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+       </button>
+       <div id="m-products-sub" class="d-none" style="padding: 8px 0 8px 16px; display:flex; flex-direction:column; gap:8px;">
+         <a href="/services/event-management.html" class="products-menu-item" style="padding:6px 0;">
+           <img src="/assets/images/img-circle-event.webp" alt="Event Management">
+           <div><p class="pm-title">Event Management</p><span class="pm-link">Learn More &rsaquo;</span></div>
+         </a>
+         <a href="/services/timing-service-provider.html" class="products-menu-item" style="padding:6px 0;">
+           <img src="/assets/images/img-circle-timing.webp" alt="Timing System Provider">
+           <div><p class="pm-title">Timing System Provider</p><span class="pm-link">Learn More &rsaquo;</span></div>
+         </a>
+         <a href="/services/equipment-rental.html" class="products-menu-item" style="padding:6px 0;">
+           <img src="/assets/images/img-equipment-rental.png" alt="Equipment Rental">
+           <div><p class="pm-title">Equipment Rental</p><span class="pm-link">Learn More &rsaquo;</span></div>
+         </a>
+       </div>
+       <a href="/events/list.html" class="mobile-nav-link">Current Event</a>
+       <a href="/contact.html" class="mobile-nav-link">Contact Us</a>
+     </nav>
+   </div>
+ </div>
 
 <!-- ═══════════════════════════════════════════════════════
    MOMENTS OF IMPACT

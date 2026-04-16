@@ -25,7 +25,7 @@
       <img src="/assets/logo/logo-dark.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-navy">
       <img src="/assets/logo/logo-white.svg" alt="Sasana Jiwa" class="nav-logo nav-logo-white">
     </a>
-    <div class="d-none d-md-flex align-items-center">
+    <div class="nav-desktop-only align-items-center">
       <a href="/about.html" class="nav-link-sj">About</a>
       <button id="prod-toggle" class="btn-prod-toggle">
         Product &amp; Services
@@ -37,10 +37,10 @@
 
   <!-- Right: CTA (desktop) + Mobile hamburger -->
   <div class="d-flex align-items-center gap-1">
-    <div class="d-none d-md-flex align-items-center gap-1">
+    <div class="nav-desktop-only align-items-center gap-1">
       <a href="/contact.html" class="btn-nav-cta">Contact Us</a>
     </div>
-    <button id="nav-toggle" class="nav-hamburger d-md-none" aria-label="Menu" aria-expanded="false">
+    <button id="nav-toggle" class="nav-hamburger nav-mobile-only" aria-label="Menu" aria-expanded="false">
       <svg id="ic-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       <svg id="ic-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="d-none"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
@@ -643,7 +643,6 @@
   <div class="footer__copyright d-flex flex-column align-items-start align-self-stretch">
     <p class="footer__copyright-text">© 2026 Sasana Jiwa Keluarga. All rights reserved.</p>
   </div>
-
 </footer>
 
 <script src="./src/js/bootstrap.bundle.min.js"></script>

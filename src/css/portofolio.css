@@ -17,7 +17,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .current-events-slide {
-  width: 100%; /* tambah ini */
+  width: 100%;
   position: relative;
   display: flex;
   height: 650px;
@@ -26,10 +26,9 @@ p, h1, h2, h3, h4, h5, h6 {
   align-items: flex-end;
   border-radius: 12px;
   overflow: hidden;
-  box-sizing: border-box; /* tambah ini */
+  box-sizing: border-box;
 }
 
-/* ─── Header ────────────────────────────────────────────── */
 .current-events-section__header {
   gap: 24px;
 }
@@ -65,7 +64,6 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-/* ─── Slide Card ────────────────────────────────────────── */
 .current-events-slide {
   position: relative;
   display: flex;
@@ -99,7 +97,6 @@ p, h1, h2, h3, h4, h5, h6 {
   z-index: 2;
 }
 
-/* ─── Slide Left ────────────────────────────────────────── */
 .current-events-slide__left {
   display: flex;
   width: 692px;
@@ -138,7 +135,6 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-/* ─── Slide Button ──────────────────────────────────────── */
 .current-events-slide__btn {
   display: flex;
   height: 48px;
@@ -163,7 +159,6 @@ p, h1, h2, h3, h4, h5, h6 {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ─── Nav Arrows ────────────────────────────────────────── */
 .current-events-slider-wrapper {
   position: relative;
   align-self: stretch;
@@ -209,7 +204,6 @@ p, h1, h2, h3, h4, h5, h6 {
    Past Events Section
    ══════════════════════════════════════════════════════ */
 
-/* ── Section wrapper ─────────────────────────────────── */
 .past-events-section {
   display: flex;
   flex-direction: column;
@@ -217,11 +211,9 @@ p, h1, h2, h3, h4, h5, h6 {
   gap: 48px;
   padding: 40px 80px 128px 80px;
   width: 100%;
-  /*max-width: 1290px;*/
   margin: 0 auto;
 }
 
-/* ── Section title ───────────────────────────────────── */
 .past-events-section__title {
   display: flex;
   align-items: center;
@@ -250,7 +242,6 @@ p, h1, h2, h3, h4, h5, h6 {
   letter-spacing: -4px;
 }
 
-/* ── Cards grid ──────────────────────────────────────── */
 .past-events-grid {
   display: flex;
   align-items: center;
@@ -260,7 +251,6 @@ p, h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
-/* ── Single event card ───────────────────────────────── */
 .past-events-card {
   display: flex;
   width: 638px;
@@ -269,11 +259,6 @@ p, h1, h2, h3, h4, h5, h6 {
   align-items: flex-end;
   gap: 10px;
   border-radius: 12px;
-  background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.64) 37.5%,
-          rgba(102, 102, 102, 0.00) 100%
-  ), lightgray center / cover no-repeat;
   background-size: cover;
   background-position: center;
   flex: 1 1 calc(50% - 7px);
@@ -282,7 +267,6 @@ p, h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-/* ── Card inner content ──────────────────────────────── */
 .past-events-card__inner {
   display: flex;
   flex-direction: column;
@@ -292,7 +276,6 @@ p, h1, h2, h3, h4, h5, h6 {
   border-radius: 8px;
 }
 
-/* ── Card header (title + badge) ─────────────────────── */
 .past-events-card__header {
   display: flex;
   flex-direction: column;
@@ -312,7 +295,6 @@ p, h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-/* ── Year badge ──────────────────────────────────────── */
 .past-events-card__badge {
   display: inline-flex;
   height: 28px;
@@ -334,7 +316,6 @@ p, h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.24px;
 }
 
-/* ── Card description ────────────────────────────────── */
 .past-events-card__desc {
   align-self: stretch;
   color: var(--white, #FFF);
@@ -346,7 +327,6 @@ p, h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.32px;
 }
 
-/* ── Learn more button ───────────────────────────────── */
 .past-events-card__btn {
   display: inline-flex;
   height: 32px;
@@ -383,6 +363,84 @@ p, h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
 }
 
+/* ──────────────────────────────────────────────────
+   TABLET (768px – 1024px)
+   ────────────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* ── Current Events ── */
+  .current-events-section {
+    padding: 120px 40px 80px 40px;
+    gap: 40px;
+  }
+
+  .current-events-section__title {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .current-events-section__title--italic {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .current-events-slide {
+    height: 520px;
+    padding: 32px;
+  }
+
+  .current-events-slide__left {
+    width: auto;
+    align-self: stretch;
+  }
+
+  .current-events-slide__title {
+    font-size: 44px;
+  }
+
+  .current-events-slide__desc {
+    width: auto;
+    font-size: 16px;
+    align-self: stretch;
+  }
+
+  .current-events-slide__nav {
+    bottom: 32px;
+    right: 32px;
+  }
+
+  /* ── Past Events ── */
+  .past-events-section {
+    padding: 40px 40px 80px 40px;
+    gap: 40px;
+  }
+
+  .past-events-section__title--bold {
+    font-size: 64px;
+    letter-spacing: -2.56px;
+  }
+
+  .past-events-section__title--italic {
+    font-size: 64px;
+    letter-spacing: -2.56px;
+  }
+
+  .past-events-card {
+    height: 440px;
+    padding: 20px;
+  }
+
+  .past-events-card__name {
+    font-size: 28px;
+  }
+
+  .past-events-card__desc {
+    font-size: 14px;
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   MOBILE (≤ 767px)
+   ────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .current-events-section {
     padding: 128px 16px 40px 16px;
@@ -462,7 +520,6 @@ p, h1, h2, h3, h4, h5, h6 {
   .current-events-slide__nav {
     display: none;
   }
-
 
   .past-events-section {
     padding: 40px 16px 80px 16px;

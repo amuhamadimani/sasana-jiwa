@@ -162,9 +162,9 @@
 }
 
 /* ──────────────────────────────────────────────────
-   TABLET (768 – 1199)
+   TABLET (768px – 1024px)
    ────────────────────────────────────────────────── */
-@media (max-width: 1199.98px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   /* Performance grid — 2 per row */
   .ts-grid {
     padding: 64px 40px;

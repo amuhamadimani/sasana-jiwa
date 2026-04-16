@@ -256,7 +256,7 @@
   width: 847px;
   max-width: 100%;
   margin: 0;
-  color: var(--white);
+  color: var(--dark-blue);
   text-align: center;
   font-family: 'Syne', sans-serif;
   font-size: 64px;
@@ -320,9 +320,9 @@
 }
 
 /* ──────────────────────────────────────────────────
-   TABLET (768 – 1199)
+   TABLET (768px – 1024px)
    ────────────────────────────────────────────────── */
-@media (max-width: 1199.98px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   /* ── Services grid — image stacks, cards 2 per row ── */
   .em-services {
     flex-direction: column;
@@ -338,7 +338,7 @@
   }
 
   .em-service-card {
-    width: calc(50% - 12px); /* 2 per row (gap 24 / 2) */
+    width: calc(50% - 12px);
     height: auto;
     min-height: 280px;
     flex: 0 0 calc(50% - 12px);
@@ -352,7 +352,7 @@
 
   /* ── Global Standards ── */
   .em-standards {
-    padding: 96px 40px;
+    padding: 80px 40px;
     gap: 48px;
   }
 
@@ -422,6 +422,7 @@
     height: 406px;
     padding: 40px;
     align-self: stretch;
+    flex: unset;
   }
 
   /* ── Global Standards ── */

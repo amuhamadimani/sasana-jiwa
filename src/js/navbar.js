@@ -37,8 +37,9 @@
   var mProdChev = mProdBtn ? mProdBtn.querySelector('.prod-chevron') : null;
 
   /* ── Navbar theme ────────────────────────────────── */
-  var isHome     = document.body.classList.contains('page-home');
-  var SCROLL_THR = 60; // px before switching to light
+  var isHome        = document.body.classList.contains('page-home');
+  var SCROLL_THR    = 60;
+  var themeBeforeMenu = null; // simpan theme sebelum menu dibuka
 
   function setTheme(theme) {
     // theme: 'dark' | 'light'
@@ -66,6 +67,9 @@
     if (icClose) icClose.classList.remove('d-none');
     if (toggle)  toggle.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    // simpan theme saat ini lalu paksa white
+    themeBeforeMenu = nav.classList.contains('navbar-dark') ? 'dark' : 'light';
+    setTheme('light');
     closeProdMenu();
   }
 
@@ -76,6 +80,11 @@
     if (icClose) icClose.classList.add('d-none');
     if (toggle)  toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    // kembalikan theme sebelum menu dibuka
+    if (themeBeforeMenu) {
+      setTheme(themeBeforeMenu);
+      themeBeforeMenu = null;
+    }
   }
 
   if (toggle) {
