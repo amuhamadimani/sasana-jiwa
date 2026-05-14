@@ -4,18 +4,34 @@
 
 .about-hero {
   height: 609px;
-  padding: 335px 80px 174px 80px;
+  /* padding: 335px 80px 174px 80px; */
   align-self: stretch;
   background-image: url('/assets/images/img-about-us.webp');
   background-color: lightgray;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.24);
+  z-index: 0;
 }
 
 .about-hero__inner {
-  width: 1280px;
-  max-width: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1025px) {
+  .about-hero__inner {
+    padding-right: 8rem;
+  }
 }
 
 .about-hero__title-syne {
@@ -99,6 +115,7 @@
   display: flex;
   flex-direction: column;
   align-self: stretch;
+  padding-bottom: 8rem;
 }
 
 .about-values__item {
@@ -224,6 +241,7 @@
     width: auto;
     gap: 22px;
     justify-content: center !important;
+    text-align: center;
   }
 
   .about-hero__title-syne,
