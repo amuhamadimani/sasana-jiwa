@@ -1582,8 +1582,10 @@ button:focus-visible {
 
   /* ─── Circles Row (Mobile) ───────────────────────────── */
   .power-section__circles-mobile {
-    gap: 28px;
+    gap: 16px;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     position: relative;
     z-index: 2;
   }
